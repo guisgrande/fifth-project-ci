@@ -1,9 +1,10 @@
 from django.db import models
+from django.utils.text import slugify
 
 
 class Category(models.Model):
     category_sku = models.SmallAutoField(primary_key=True)
-    system_name = models.CharField(max_length=254)
+    system_name = models.CharField(max_length=254,)
     display_name = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
@@ -25,6 +26,8 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     product_image = models.ImageField(null=True, blank=True)
+    product_image_url = models.URLField(max_length=1024, null=True, blank=True)
+    slug = models.SlugField(max_length=254, null=True, blank=True, unique=True)
 
     class Meta:
         """
@@ -34,3 +37,10 @@ class Product(models.Model):
     
     def __str__(self):
         return str(self.sku)
+    
+    def save(self, *args, **kwargs):
+        """
+        Function to auto generate slugfield
+        """
+        self.slug = slugify(self.name)
+        super(Product, self).save(*args, **kwargs)
