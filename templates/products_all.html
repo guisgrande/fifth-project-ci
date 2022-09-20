@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<header>
+    <div class="container-fluid">
+        <h1>Street Craft - Products</h1>
+    </div>
+</header>
+
+<div class="container-fluid">
+    <p>Total of products: {{ total_products_list }}</p>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        {% for product in products_list %}
+            <div class="col-md-4 p-0">
+                <div class="card m-3">
+                    <div class="card-body m-1 p-1 text-center">
+                        <div class="image-container">
+                            <img class="card-img-top img-fluid" src="{{ product.product_image.url }}" alt="{{ product.name }}">                            
+                        </div>
+                        <p class="card-text mt-2">Product: {{ product.name }}</p>
+                        <p class="card-text">Price: {{ product.price }}</p>
+                        <p class="card-text">Rating: {{ product.rating }}</p>                 
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 %}
+                </div>
+                <div class="row">
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="row">        
+    </div>
+</div>
+
+{% endblock content %}
