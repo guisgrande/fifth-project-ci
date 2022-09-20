@@ -1,24 +1,26 @@
 from django.db import models
 
+
+class Category(models.Model):
+    category_sku = models.SmallAutoField(primary_key=True)
+    system_name = models.CharField(max_length=254)
+    display_name = models.CharField(max_length=254, null=True, blank=True)
+
+    def __str__(self):
+        return self.system_name
+
+    def get_display_name(self):
+        return self.display_name
+
+
 class Product(models.Model):
     """
     Class to represent Product database model
     """
-    PRODUCTS_CATEGORIES = [
-        (1, 'Others'),
-        (2, 'Skateboards'),
-        (3, 'Bags'),
-        (4, 'Caps')
-        ]
-
     sku = models.SmallAutoField(primary_key=True)
     name = models.CharField(max_length=150, unique=True)
     release_date = models.DateTimeField(auto_now_add=True)
-    category = models.CharField(
-        max_length=25,
-        choices=PRODUCTS_CATEGORIES,
-        blank=False, default=1
-        )
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
