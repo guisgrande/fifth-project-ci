@@ -40,6 +40,21 @@
                     <li class="nav-item">
                         <a class="nav-link hover-link fw-bold" href="{% url 'products' %}">All Products</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <li>
+                      <a class="nav-link hover-link fw-bold" href="{% url 'account_email' %}">Change E-mail</a>
+                    </li>
+                    <li>
+                      <a class="nav-link hover-link fw-bold" href="{% url 'account_logout' %}">Sign Out</a>
+                    </li>
+                    {% else %}
+                    <li>
+                      <a class="nav-link hover-link fw-bold" href="{% url 'account_login' %}">Sign In</a>
+                    </li>
+                    <li>
+                      <a class="nav-link hover-link fw-bold" href="{% url 'account_signup' %}">Sign Up</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
