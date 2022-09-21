@@ -18,9 +18,11 @@
             <div class="col-md-4 p-0">
                 <div class="card m-3">
                     <div class="card-body m-1 p-1 text-center">
-                        <div class="image-container">
-                            <img class="card-img-top img-fluid" src="{{ product.product_image.url }}" alt="{{ product.name }}">                            
-                        </div>
+                        <a href="{% url 'product_details' product.slug %}">
+                            <div class="image-container">
+                                <img class="card-img-top img-fluid" src="{{ product.product_image.url }}" alt="{{ product.name }}">                            
+                            </div>
+                        </a>
                         <p class="card-text mt-2">Product: {{ product.name }}</p>
                         <p class="card-text">Price: {{ product.price }}</p>
                         <p class="card-text">Rating: {{ product.rating }}</p>                 
