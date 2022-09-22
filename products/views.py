@@ -59,7 +59,7 @@ def products(request):
         'current_sorting': current_sorting,
     }
 
-    return render(request, 'products_all.html', context)
+    return render(request, 'products/products_all.html', context)
 
 
 def product_details(request, slug):
@@ -71,4 +71,4 @@ def product_details(request, slug):
         'product': product,
     }
 
-    return render(request, 'product_details.html', context)
+    return render(request, 'products/product_details.html', context)
