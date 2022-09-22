@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def shopbag(request):
+    """ A view to return the shopbag page """
+
+    return render(request, 'shopbag/bag.html')
