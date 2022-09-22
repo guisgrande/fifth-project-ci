@@ -79,7 +79,17 @@
             </div>
 
         </div>
+    
     </nav>
+
+    <div class="row bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light w-100">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            {% include 'nav_links.html' %}
+        </nav>
+    </div>
 
     <main class="flex-shrink-0 main-bg">
         {% block content %}
