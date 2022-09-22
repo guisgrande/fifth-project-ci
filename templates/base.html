@@ -78,8 +78,21 @@
                 </form>
             </div>
 
+            <!-- Shopping bag -->
+            <a href="{% url 'bag' %}">
+                <div class="text-center">
+                    <div><i>BAG</i></div>
+                    <p class="my-0">
+                        {% if grand_total %}
+                            ${{ grand_total|floatformat:2 }}
+                        {% else %}
+                            $0.00
+                        {% endif %}
+                    </p>
+                </div>
+            </a>
+
         </div>
-    
     </nav>
 
     <div class="row bg-white">
