@@ -22,16 +22,20 @@
 
 <body class="d-flex flex-column h-100 main-bg">
 
-    <!-- Navigation -->
+    <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-light bck-grd-gray">
         <div class="container-fluid">
+            <!-- Brand logo -->
             <a class="navbar-brand" href="#">
                 <p>Street Craft</p>
             </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <!-- Navigation links -->
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -57,6 +61,23 @@
                     {% endif %}
                 </ul>
             </div>
+
+            <!-- Search bar -->
+            <div class="col-12 col-lg-4">
+                <form method="GET" action="{% url 'products' %}">
+                    <div class="input-group w-100">
+                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search for a product">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-dark rounded-0" type="submit">
+                                <span>
+                                    <i>S</i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </nav>
 
