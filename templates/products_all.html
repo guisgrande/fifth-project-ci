@@ -12,6 +12,20 @@
     <p>Total of products: {{ total_products_list }}</p>
 </div>
 
+<div class="dropdown p-2">
+    <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Sort all products by
+    </a>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/all-products/?sort=price&direction=asc">By price: Low to High</a></li>
+        <li><a class="dropdown-item" href="/all-products/?sort=price&direction=desc">By price: High to Low</a></li>
+        <li><a class="dropdown-item" href="/all-products/?sort=rating&direction=asc">By rating: Low to High</a></li>
+        <li><a class="dropdown-item" href="/all-products/?sort=rating&direction=desc">By rating: High to Low</a></li>
+        <li><a class="dropdown-item" href="/all-products/?sort=name&direction=asc">By name: A to Z</a></li>
+        <li><a class="dropdown-item" href="/all-products/?sort=name&direction=desc">By name: Z to A</a></li>
+    </ul>
+</div>
+
 <div class="container-fluid">
     <div class="row">
         {% for product in products_list %}
