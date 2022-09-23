@@ -1,0 +1,6 @@
+/* Style for Bag page */
+
+.update-item,
+.remove-item {
+    cursor: pointer;
+}
