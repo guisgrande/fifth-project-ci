@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from .models import Product, Category
+from .models import Product, Category, Offer
 from django.db.models import Q
 from django.contrib import messages
 from django.db.models.functions import Lower
@@ -16,6 +16,7 @@ def products(request):
     total_products_list = products_list.count()
     query = None
     categories = None
+    offers = None
     sort = None
     direction = None
 
@@ -37,6 +38,13 @@ def products(request):
             categories = request.GET['category'].split(',')
             products_list = products_list.filter(category__system_name__in=categories)
             categories = Category.objects.filter(system_name__in=categories)
+            total_products_list = products_list.count()
+
+    if request.GET:
+        if 'offer' in request.GET:
+            offers = request.GET['offer'].split(',')
+            products_list = products_list.filter(offer__offer_name__in=offers)
+            offers = Offer.objects.filter(offer_name__in=offers)
             total_products_list = products_list.count()
 
     if request.GET:
