@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block content %}
 
 <header>
@@ -38,8 +39,14 @@
                             </div>
                         </a>
                         <p class="card-text mt-2">Product: {{ product.name }}</p>
-                        <p class="card-text">Price: {{ product.price }}</p>
-                        <p class="card-text">Rating: {{ product.rating }}</p>                 
+                        {% if product.offer  %}
+                        <p class="card-text"><del><small>Original price: $ {{ product.price }}</small></del></p>
+                        <p class="card-text">{{ product.offer.offer_display }} - Discount offer: {{ product.offer.offer_discount }}%</p>
+                        <p> Offer price: <strong>$ {{ product.cal_discount_price }} </strong></p>                 
+                        {% else %}
+                        <p class="card-text">Price: $ {{ product.price }}</p>
+                        {% endif %}
+                        <p class="card-text">Rating: {{ product.rating }}</p>
                     </div>
                 </div>
             </div>
