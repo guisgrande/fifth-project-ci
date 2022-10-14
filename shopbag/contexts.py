@@ -1,7 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from products.models import Product
+from products.models import Product, Offer
 
 
 def bag_contents(request):
@@ -13,7 +13,10 @@ def bag_contents(request):
 
     for slug, quantity in bag.items():
         product = get_object_or_404(Product, slug=slug)
-        total += quantity * product.price
+        if product.offer:
+            total += quantity * (product.price - ((product.price * product.offer.offer_discount) / 100))
+        else:
+            total += quantity * product.price
         product_count += quantity
         bag_items.append ({
             'slug': slug,
