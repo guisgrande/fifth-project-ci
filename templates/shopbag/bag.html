@@ -30,8 +30,8 @@
                                 <tr>
                                     <th scope="col">Product Info</th>
                                     <th scope="col"></th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Qty</th>
+                                    <th scope="col">Unit price</th>
+                                    <th scope="col">Quantity</th>
                                     <th scope="col">Subtotal</th>
                                 </tr>
                             </thead>
@@ -46,7 +46,11 @@
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
+                                        {% if item.product.offer  %}
+                                        <p class="my-0">$ {{ item.product.cal_discount_price }}</p>                 
+                                        {% else %}
                                         <p class="my-0">$ {{ item.product.price }}</p>
+                                        {% endif %}
                                     </td>
                                     <td class="py-3 w-25">
                                         <form class="form update-form" method="POST" action="{% url 'update_bag' item.slug %}">
@@ -76,7 +80,11 @@
                                         <a class="remove-item text-danger float-right" id="remove_{{ item.slug }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
+                                        {% if item.product.offer  %}
+                                        <p>$ {{ item.product.cal_discount_price | calc_subtotal:item.quantity }}</p>                 
+                                        {% else %}
                                         <p class="my-0">$ {{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                        {% endif %}
                                     </td>
                                 </tr>
                             {% endfor %}
