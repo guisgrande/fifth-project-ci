@@ -58,7 +58,7 @@
                         </li>
                         {% if user.is_authenticated %}
                         <li>
-                        <a class="nav-link hover-link fw-bold" href="#">My Account</a>
+                        <a class="nav-link hover-link fw-bold" href="{% url 'profile' %}">My Account</a>
                         </li>
                         <li>
                         <a class="nav-link hover-link fw-bold" href="{% url 'account_logout' %}">Sign Out</a>
