@@ -37,6 +37,9 @@ class Offer(models.Model):
     def get_offer_name(self):
         return self.offer_name
 
+    def get_offer_display(self):
+        return self.offer_display
+
     def get_offer_discount(self):
         return self.offer_discount
 
