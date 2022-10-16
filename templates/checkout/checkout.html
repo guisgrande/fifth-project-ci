@@ -33,7 +33,11 @@
                     <div class="row">
                         <div class="col-2 mb-1">
                             <a href="{% url 'product_details' item.product.slug %}">
-                                <img class="w-100" src="{{ item.product.product_image.url }}" alt="{{ product.name }}">
+                                {% if item.product.product_image %}
+                                <img class="w-100" src="{{ item.product.product_image.url }}" alt="{{ item.product.name }}">
+                                {% else %}
+                                <img class="w-100" src="{{ MEDIA_URL }}noimage-sc.png" alt="No image of the product">
+                                {% endif %}
                             </a>
                         </div>
                         <div class="col-7">
