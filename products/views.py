@@ -93,9 +93,9 @@ def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            product = form.save()
             messages.success(request, 'Successfully added product!')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('product_details', args=[product.slug]))
         else:
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:
@@ -134,3 +134,14 @@ def edit_product(request, slug):
     }
 
     return render(request, template, context)
+
+
+def delete_product(request, slug):
+    """
+    A view to admin delete products from store database
+    """
+    product = get_object_or_404(Product, slug=slug)
+    product.delete()
+    messages.success(request, 'Product deleted!')
+
+    return redirect(reverse('products'))
