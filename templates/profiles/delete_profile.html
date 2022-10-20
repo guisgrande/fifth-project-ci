@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+
+<div class="container text-center">
+    <hr>
+    <h2 class="m-2">Delete Profile</h2>
+    <hr>
+</div>
+
+{% load account %}
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <h3>Attention you still have orders in our system.</h3> 
+            <p>Before proceeding with deleting your profile it is important to save your order numbers in case you need them in the future.</p>
+            <p>Once deleted, we will only be able to retrieve them using the order number.</p>
+            <p>We recommend waiting until you receive your order and confirm that your order has arrived properly before proceeding with this action.</p>
+        </div>
+
+        <div class="col-12 col-lg-6">
+
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Delete User: <strong>{% user_display user %}</strong></legend>
+                        <p>Are you sure you want to delete your account?</p>  
+                        <p>This will permanently delete your profile and any information on it.</p>
+                        {{ form }}
+                </fieldset>
+                <div class="row">
+                    <button class="btn btn-sm btn-danger mb-3 p-1" type="submit">Delete Account</button>
+                    <a class="btn btn-sm btn-primary mt-3 p-1" style="float:right;" href="{% url 'profile' %}">Cancel</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-sm btn-dark" href="{% url 'products' %}">Back to Shop</a>
+</div>
+
+{%endblock%}
