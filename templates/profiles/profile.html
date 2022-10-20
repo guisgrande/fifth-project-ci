@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load account %}
 
 {% block content %}
 
@@ -12,5 +13,28 @@
                 <hr>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <p>You are logged in as <strong>{% user_display user %}</strong></p>
+                <hr>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p>Default Profile Delivery Information</p>
+                <form action="{% url 'profile' %}" method="POST" id="profile_update_form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn-sm btn-dark">Update Info.</button>
+                </form>
+            </div>
+            <div class="col-12 col-lg-6"></div>
+        </div>
+    </div>
 
 {% endblock %}
+
+
+
+
