@@ -34,6 +34,8 @@ def delete_profile(request):
     """
     Function for delete profile/user, permanently.
     """
+    profile = get_object_or_404(UserProfile, user=request.user)
+    orders = profile.orders.all()
 
     if request.method == 'POST':
         delete_form = UserDeleteForm(request.POST, instance=request.user)
@@ -46,6 +48,7 @@ def delete_profile(request):
 
     context = {
         'delete_form': delete_form,
+        'orders': orders
     }
 
     return render(request, 'profiles/delete_profile.html', context)
