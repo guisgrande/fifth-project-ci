@@ -14,18 +14,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-12 col-lg-6">
                 <p>You are logged in as <strong>{% user_display user %}</strong></p>
                 <p>Account settings:</p>
                 <div>
                     <a class="btn btn-sm btn-dark" aria-current="page" href="{% url 'account_change_password' %}">Change Password</a>
                     <a class="btn btn-sm btn-dark" aria-current="page" href="{% url 'delete_profile' %}">Delete Profile</a>
                 </div>
-                <hr>
+                <p>Features:</p>
+                <div>
+                    <a class="btn btn-sm btn-dark" aria-current="page" href="{% url 'orders_list' %}">My Orders</a>
+                </div>
             </div>
-        </div>
-
-        <div class="row">
             <div class="col-12 col-lg-6">
                 <p>Default Profile Delivery Information</p>
                 <form action="{% url 'profile' %}" method="POST" id="profile_update_form">
@@ -34,8 +34,8 @@
                     <button class="btn-sm btn-dark">Update Info.</button>
                 </form>
             </div>
-            <div class="col-12 col-lg-6"></div>
         </div>
+
     </div>
 
 {% endblock %}
