@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.utils.safestring import mark_safe
 from .models import UserProfile
 from checkout.models import Order
 from .forms import UserProfileForm, UserDeleteForm
@@ -35,7 +37,8 @@ def profile(request):
 @login_required
 def delete_profile(request):
     """
-    Function for delete profile/user, permanently.
+    Function to delete profile/user, permanently.
+    Loaded in other template.
     """
     profile = get_object_or_404(UserProfile, user=request.user)
     orders = profile.orders.all()
@@ -60,7 +63,7 @@ def delete_profile(request):
 @login_required
 def orders_list(request):
     """
-    Function to display list of all order of the user.
+    Function to display list of all orders for logged in user.
     """
     profile = get_object_or_404(UserProfile, user=request.user)
     orders = profile.orders.all()
@@ -77,21 +80,35 @@ def orders_list(request):
 class OrderDetails(LoginRequiredMixin, View):
     """
     Class to display order details.
+    Condition to verify if logged in user is the owner of the order.
     """
-    model = Order
-
+    
     def get(self, request, order_number, *args, **kwargs):
         queryset = Order.objects.all()
         order = get_object_or_404(queryset, order_number=order_number)
 
-        return render(request, 'profiles/order_details.html', {
-            "order": order,
-        })
+        if order.user_profile.user == self.request.user:
+            return render(request, 'profiles/order_details.html', {
+                "order": order,
+            })
+        else:
+            messages.error(request, mark_safe("""This order wasn't placed
+                                    by you.<br/> Check your order information
+                                    again.<br/> My Account > My Profile >
+                                    My Orders"""))
+            return HttpResponseRedirect(reverse('home'))
 
     def post(self, request, order_number, *args, **kwargs):
         queryset = Order.objects.all()
         order = get_object_or_404(queryset, order_number=order_number)
 
-        return render(request, 'profiles/order_details.html', {
-            "order": order,
-        })
+        if order.user_profile.user == self.request.user:
+            return render(request, 'profiles/order_details.html', {
+                "order": order,
+            })
+        else:
+            messages.error(request, mark_safe("""This order wasn't placed
+                                    by you.<br/> Check your order information
+                                    again.<br/> My Account > My Profile >
+                                    My Orders"""))
+            return HttpResponseRedirect(reverse('home'))
