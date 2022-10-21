@@ -31,7 +31,7 @@
                     {% for order in orders %}
                         <tr>
                             <td>
-                                <a href="#"
+                                <a href="{% url 'order_details' order.order_number %}"
                                 title="{{ order.order_number }}">
                                     {{ order.order_number|truncatechars:12 }}
                                 </a>
