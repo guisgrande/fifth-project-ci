@@ -12,13 +12,53 @@
 
 <div class="container text-center">
     <div class="row">
+        {% if orders %}
         <div class="col-12 col-lg-6">
             <h3>Attention you still have orders in our system.</h3> 
             <p>Before proceeding with deleting your profile it is important to save your order numbers in case you need them in the future.</p>
             <p>Once deleted, we will only be able to retrieve them using the order number.</p>
             <p>We recommend waiting until you receive your order and confirm that your order has arrived properly before proceeding with this action.</p>
         </div>
-
+        <div class="col-12 col-lg-6 table-responsive">
+            <table class="table table-sm table-borderless">
+                <thead>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Date</th>
+                        <th>Items</th>
+                        <th>Order Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>
+                                <a href="#"
+                                title="{{ order.order_number }}">
+                                    {{ order.order_number|truncatechars:12 }}
+                                </a>
+                            </td>
+                            <td>{{ order.date }}</td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    {% for item in order.lineitems.all %}
+                                        <li class="small">
+                                            {{ item.product.name }} x{{ item.quantity }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>${{ order.grand_total }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="col-12 col-lg-6">
+            <p>Our system has indicated that this account has not made any purchases.</p>
+        </div>
+        {% endif %}
         <div class="col-12 col-lg-6">
 
             <form method="POST">
@@ -30,8 +70,8 @@
                         {{ form }}
                 </fieldset>
                 <div class="row">
-                    <button class="btn btn-sm btn-danger mb-3 p-1" type="submit">Delete Account</button>
-                    <a class="btn btn-sm btn-primary mt-3 p-1" style="float:right;" href="{% url 'profile' %}">Cancel</a>
+                    <button class="btn btn-sm btn-danger" type="submit">Delete Account</button>
+                    <a class="btn btn-sm btn-primary" style="float:right;" href="{% url 'profile' %}">Cancel</a>
                 </div>
             </form>
 
@@ -39,7 +79,7 @@
     </div>
 </div>
 
-<div>
+<div class="container text-center">
     <a class="btn btn-sm btn-dark" href="{% url 'products' %}">Back to Shop</a>
 </div>
 
