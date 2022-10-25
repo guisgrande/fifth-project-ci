@@ -4,10 +4,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.utils.safestring import mark_safe
-from .models import UserProfile
-from checkout.models import Order
-from .forms import UserProfileForm, UserDeleteForm
 from django.views import View
+from checkout.models import Order
+from .models import UserProfile
+from .forms import UserProfileForm, UserDeleteForm, OrderStatusForm
 
 
 @login_required
@@ -112,3 +112,50 @@ class OrderDetails(LoginRequiredMixin, View):
                                     again.<br/> My Account > My Profile >
                                     My Orders"""))
             return HttpResponseRedirect(reverse('home'))
+
+
+@login_required
+def orders_status(request):
+    """
+    Function to site owner / admin see order status list.
+    """
+    orders = Order.objects.all()
+    form = OrderStatusForm()
+
+    context = {
+        'orders': orders,
+        'form': form,
+    }
+
+    return render(request, 'profiles/admin_status.html', context)
+
+
+@login_required
+def update_status(request, pk):
+    """
+    A view to admin / site owner update order status
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    order = Order.objects.get(id=pk)
+
+    if request.method == 'POST':
+        form = OrderStatusForm(request.POST, instance=order)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Successfully updated {order.order_number} status')
+            return redirect(reverse('orders_status'))
+        else:
+            messages.error(request, 'Failed to update order.')
+    else:
+        form = OrderStatusForm(instance=order_number)
+
+    template = 'profiles/admin_status.html'
+    context = {
+        'form': form,
+        'order': order,
+    }
+
+    return render(request, template, context)
