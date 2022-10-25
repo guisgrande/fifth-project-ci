@@ -1,6 +1,7 @@
 from django import forms
-from .models import UserProfile
 from django.contrib.auth.models import User
+from checkout.models import Order
+from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
@@ -39,3 +40,11 @@ class UserDeleteForm(forms.ModelForm):
     class Meta:
         model = User
         fields = []
+
+
+class OrderStatusForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = [
+            'status'
+        ]
