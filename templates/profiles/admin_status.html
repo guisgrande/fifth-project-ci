@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+
+<div class="container text-center">
+    <hr>
+    <h2 class="m-2">Orders Status - Management</h2>
+    <hr>
+</div>
+
+{% load account %}
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col table-responsive">
+            <table class="table table-sm table-borderless">
+                <thead>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Date</th>
+                        <th>Items</th>
+                        <th>Order Total</th>
+                        <th>STATUS</th>
+                        <th>Update STATUS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'order_details' order.order_number %}"
+                                title="{{ order.order_number }}">
+                                    {{ order.order_number|truncatechars:12 }}
+                                </a>
+                            </td>
+                            <td>{{ order.date }}</td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    {% for item in order.lineitems.all %}
+                                        <li class="small">
+                                            {{ item.product.name }} x{{ item.quantity }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>${{ order.grand_total }}</td>
+                            <td>{{ order.status }}</td>
+                            <td>
+                                <form method="POST" action="{% url 'update_status' order.pk %}">
+                                    {% for field in form %}
+                                    {% csrf_token %}
+                                        {{ field }}
+                                    {% endfor %}
+                                    <input class="btn btn-sm btn-success m-1" type="submit" value="&#x2713">
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
