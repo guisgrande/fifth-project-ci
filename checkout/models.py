@@ -33,6 +33,28 @@ class Order(models.Model):
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+
+    STATUS_A = 'Payment Approved'
+    STATUS_ONE = 'Order sent to separation'
+    STATUS_TWO = 'Order picked'
+    STATUS_THREE = 'Order packed'
+    STATUS_FOUR = 'Order shipped'
+    STATUS_FIVE = 'Order delivered'
+
+    ORDER_STATUS = [
+        (STATUS_A, 'Payment Approved'),
+        (STATUS_ONE, 'Order sent to separation'),
+        (STATUS_TWO, 'Order picked'),
+        (STATUS_THREE, 'Order packed'),
+        (STATUS_FOUR, 'Order shipped'),
+        (STATUS_FIVE, 'Order delivered')
+        ]
+
+    status = models.CharField(
+        max_length=25,
+        choices=ORDER_STATUS,
+        blank=False, default=STATUS_A
+        )
     
     def _generate_order_number(self):
         """
