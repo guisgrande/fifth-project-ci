@@ -86,32 +86,40 @@ class OrderDetails(LoginRequiredMixin, View):
     def get(self, request, order_number, *args, **kwargs):
         queryset = Order.objects.all()
         order = get_object_or_404(queryset, order_number=order_number)
-
-        if order.user_profile.user == self.request.user:
-            return render(request, 'profiles/order_details.html', {
-                "order": order,
-            })
+        if not request.user.is_superuser:
+            if order.user_profile.user == self.request.user:
+                return render(request, 'profiles/order_details.html', {
+                    "order": order,
+                })
+            else:
+                messages.error(request, mark_safe("""This order wasn't placed
+                                        by you.<br/> Check order information
+                                        again.<br/> My Account > My Profile >
+                                        My Orders"""))
+                return HttpResponseRedirect(reverse('home'))
         else:
-            messages.error(request, mark_safe("""This order wasn't placed
-                                    by you.<br/> Check your order information
-                                    again.<br/> My Account > My Profile >
-                                    My Orders"""))
-            return HttpResponseRedirect(reverse('home'))
+            return render(request, 'profiles/order_details.html', {
+                    "order": order,
+                })
 
     def post(self, request, order_number, *args, **kwargs):
         queryset = Order.objects.all()
         order = get_object_or_404(queryset, order_number=order_number)
-
-        if order.user_profile.user == self.request.user:
-            return render(request, 'profiles/order_details.html', {
-                "order": order,
-            })
+        if not request.user.is_superuser:
+            if order.user_profile.user == self.request.user:
+                return render(request, 'profiles/order_details.html', {
+                    "order": order,
+                })
+            else:
+                messages.error(request, mark_safe("""This order wasn't placed
+                                        by you.<br/> Check order information
+                                        again.<br/> My Account > My Profile >
+                                        My Orders"""))
+                return HttpResponseRedirect(reverse('home'))
         else:
-            messages.error(request, mark_safe("""This order wasn't placed
-                                    by you.<br/> Check your order information
-                                    again.<br/> My Account > My Profile >
-                                    My Orders"""))
-            return HttpResponseRedirect(reverse('home'))
+            return render(request, 'profiles/order_details.html', {
+                    "order": order,
+                })
 
 
 @login_required
@@ -122,6 +130,10 @@ def orders_status(request):
     orders = Order.objects.all()
     form = OrderStatusForm()
 
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can view this page.')
+        return redirect(reverse('home'))
+    
     context = {
         'orders': orders,
         'form': form,
