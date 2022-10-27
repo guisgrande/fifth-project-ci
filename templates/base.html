@@ -148,7 +148,36 @@
                             </li>
                         </ul>
                     </div>
-
+                    <div class="m-2">
+                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">News Letter - Subscribe</button>
+                    </div>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Subscribe to News Letter!</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form method="POST" action="{% url 'news_letter_sub' %}">
+                                {% csrf_token %}
+                              <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Your best e-mail:</label>
+                                <input type="email" class="form-control" name="news_email" id="news_email" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Your name:</label>
+                                <input type="text" class="form-control" name="news_name" id="news_name" required>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-sm btn-primary">Subscribe</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
         </footer>
 
     {% if messages %}
