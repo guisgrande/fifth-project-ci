@@ -1,0 +1,11 @@
+Hello {{ name }},
+
+You are now subscribed to our weekly News Letter. You will get advance notice of new product launches, exclusive promotions, events and much more.
+
+Thank you for your preference. If you have any questions, feel free to contact us.
+
+To stop receiving our weekly e-mails or to unsubscribe. 
+Send an e-mail to {{ contact_email }}, with the subject: "Unsubscribe - Street Craft News Letter" from the same registered e-mail address
+
+Sincerely,
+Street Craft
