@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+
+<div class="container text-center">
+    <hr>
+    <h2 class="m-2">News Letter - Management</h2>
+    <hr>
+</div>
+<div class="container">
+    <div>
+        <h3>Send News Letter email to to subscribers</h3>
+    </div>
+    <form method="POST" action="{% url 'news_letter_send' %}" id="newsform">
+        {% csrf_token %}
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="subject" name="subject" placeholder="Insert the email subject here">
+            <label for="subject">Subject</label>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea id="bodyText" class="form-control" name="body" placeholder="Insert the email body here" form="newsform" style="height: 100px"></textarea>
+            <label for="bodyText">Body</label>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-sm btn-primary">Send e-mail</button>
+        </div>
+    </form>
+</div>
+
+{%endblock%}
