@@ -56,6 +56,20 @@
                         <li class="nav-item">
                             <a class="nav-link hover-link fw-bold" href="{% url 'products' %}">All Products</a>
                         </li>
+                        {% if request.user.is_superuser %}
+                        <li class="list-inline-item dropdown">
+                            <a class="text-black hover-link fw-bold nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center">
+                                    <p class="my-0">Management <span><i class="bi bi-arrow-down-square-fill"></i></span></p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                <a href="{% url 'add_product' %}" class="dropdown-item">Product Manag.</a>
+                                <a href="{% url 'orders_status' %}" class="dropdown-item">Order Status Manag.</a>
+                                <a href="{% url 'news_letter_view' %}" class="dropdown-item">News Letter Manag.</a>
+                            </div>
+                        </li>
+                        {% endif %}
                         {% if request.user.is_authenticated %}
                         <li class="list-inline-item dropdown">
                             <a class="text-black hover-link fw-bold nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,10 +78,6 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                                {% if request.user.is_superuser %}
-                                    <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                                    <a href="{% url 'orders_status' %}" class="dropdown-item">Order Status Manag.</a>
-                                {% endif %}
                                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             </div>
