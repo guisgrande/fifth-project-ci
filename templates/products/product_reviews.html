@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<header>
+    <div class="container-fluid">
+        <h1>Street Craft - Review Product</h1>
+    </div>
+</header>
+
+<div class="col-md-4 p-0">
+    <div class="card m-3">
+        <div class="card-body m-1 p-1 text-center">
+                <div class="image-container">
+                    {% if product.product_image %}
+                    <img class="card-img-top img-fluid" src="{{ product.product_image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage-sc.png" alt="No image of the product">
+                    {% endif %}                            
+                </div>
+            <p class="card-text mt-2">{{ product.name }}</p>
+            <div class="col-lg-6 d-flex">
+                <div class="p-2">
+                    {% if avg_review >= 1 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% elif avg_review > 0 %}
+                    <span><i class="bi bi-star-half"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
+
+                    {% if avg_review >= 2 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% elif avg_review > 1 %}
+                    <span><i class="bi bi-star-half"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
+
+                    {% if avg_review >= 3 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% elif avg_review > 2 %}
+                    <span><i class="bi bi-star-half"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
+
+                    {% if avg_review >= 4 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% elif avg_review > 3 %}
+                    <span><i class="bi bi-star-half"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
+
+                    {% if avg_review == 5 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% elif avg_review > 4 %}
+                    <span><i class="bi bi-star-half"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
+                </div> 
+                <div class="p-2">
+                    {% if avg_review is None %}
+                    <p class="card-text">(0)</p>
+                    {% else %}
+                    <p class="card-text">{{ avg_review }}</p>
+                    {% endif %}
+                </div>
+                <div class="ms-auto p-2">
+                    {% if total_review is None %}
+                        <p class="card-text">Reviews (0)</p>
+                    {% else %}
+                        <p class="card-text">Reviews ({{ total_review }})</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <form method="POST" action="{% url 'add_review' product.slug %}">
+                {% csrf_token %}
+                <div class="btn-group" role="group" aria-label="Review radio toggle button group">
+                    <input type="radio" class="btn-check" name="btnradio" value="1" id="btnradio1" autocomplete="off">
+                    <label class="btn btn-outline-warning" for="btnradio1"><i class="bi bi-star"></i></label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio" value="2" id="btnradio2" autocomplete="off" >
+                    <label class="btn btn-outline-warning" for="btnradio2"><i class="bi bi-star"></i></label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio" value="3" id="btnradio3" autocomplete="off">
+                    <label class="btn btn-outline-warning" for="btnradio3"><i class="bi bi-star"></i></label>
+
+                    <input type="radio" class="btn-check" name="btnradio" value="4" id="btnradio4" autocomplete="off">
+                    <label class="btn btn-outline-warning" for="btnradio4"><i class="bi bi-star"></i></label>
+
+                    <input type="radio" class="btn-check" name="btnradio" value="5" id="btnradio5" autocomplete="off" checked>
+                    <label class="btn btn-outline-warning" for="btnradio5"><i class="bi bi-star"></i></label>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-sm btn-primary">Review</button>
+                </div>
+                </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
