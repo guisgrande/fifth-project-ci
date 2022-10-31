@@ -78,9 +78,17 @@
                 </div>
                 <div class="ms-auto p-2">
                     {% if total_review is None %}
-                    <p class="card-text">Reviews (0)</p>
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'review_product' product.slug %}" class="btn btn-sm">Review (0)</a>
+                        {% else %}
+                        <p class="card-text">Reviews (0)</p>
+                        {% endif %}
                     {% else %}
-                    <p class="card-text">Reviews ({{ total_review }})</p>
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'review_product' product.slug %}" class="btn btn-sm">Review ({{ total_review }})</a>
+                        {% else %}
+                        <p class="card-text">Reviews ({{ total_review }})</p>
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>
