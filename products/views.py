@@ -3,7 +3,7 @@ from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Avg
 from django.contrib import messages
-from .models import Product, Category, Offer
+from .models import Product, Category, Offer, ReviewProduct
 from .forms import ProductForm
 
 
@@ -166,3 +166,51 @@ def delete_product(request, slug):
     messages.success(request, 'Product deleted!')
 
     return redirect(reverse('products'))
+
+
+@login_required
+def review_product(request, slug):
+    """
+    A view to user review a product
+    """
+
+    product = get_object_or_404(Product, slug=slug)
+    product_review = product.product_review.filter(reviewed=True).order_by("-created_on")
+    total_review = product_review.count()
+    avg_review = product.product_review.aggregate(review=Avg('review'))['review']
+
+    template = 'products/product_reviews.html'
+
+    context = {
+        'product': product,
+        'product_review': product_review,
+        'total_review': total_review,
+        'avg_review': avg_review
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def add_review(request, slug):
+    """
+    A view to user review a product
+    """
+    if request.method == 'POST':
+        review = request.POST.get('btnradio', None)
+        user = request.user
+        product = get_object_or_404(Product, slug=slug)
+
+        if not review:
+            messages.error(request, "You must select a rate score to review the product")
+            return redirect("/")
+
+        review_product_instance = ReviewProduct()
+        review_product_instance.review = review
+        review_product_instance.name = user
+        review_product_instance.product = product
+        review_product_instance.reviewed = True
+        review_product_instance.save()
+
+        messages.success(request, f'Successfully reviewed!')
+        return redirect(request.META.get("HTTP_REFERER", "/"))
