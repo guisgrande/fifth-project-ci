@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Category, Offer
+from .models import Product, ReviewProduct
 
 
 class ProductForm(forms.ModelForm):
@@ -14,7 +14,6 @@ class ProductForm(forms.ModelForm):
             'category',
             'description',
             'price',
-            'rating',
             'product_image',
         ]
 
@@ -23,3 +22,12 @@ class ProductForm(forms.ModelForm):
 
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
+
+
+class ReviewForm(forms.ModelForm):
+    """
+    Form class to user review product.
+    """
+    class Meta:
+        model = ReviewProduct
+        fields = []
