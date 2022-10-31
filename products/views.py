@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from .models import Product, Category, Offer
-from django.contrib.auth.decorators import login_required
-from django.db.models import Q
-from django.contrib import messages
 from django.db.models.functions import Lower
+from django.contrib.auth.decorators import login_required
+from django.db.models import Q, Avg
+from django.contrib import messages
+from .models import Product, Category, Offer
 from .forms import ProductForm
 
 
@@ -55,7 +55,7 @@ def products(request):
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
-            
+
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products_list = products_list.filter(queries)
             total_products_list = products_list.count()
@@ -66,7 +66,7 @@ def products(request):
         "products_list": products_list,
         "total_products_list": total_products_list,
         'current_categories': categories,
-        'current_sorting': current_sorting,
+        'current_sorting': current_sorting
     }
 
     return render(request, 'products/products_all.html', context)
@@ -78,9 +78,15 @@ def product_details(request, slug):
     """
 
     product = get_object_or_404(Product, slug=slug)
+    product_review = product.product_review.filter(reviewed=True).order_by("-created_on")
+    total_review = product_review.count()
+    avg_review = product.product_review.aggregate(review=Avg('review'))['review']
 
     context = {
         'product': product,
+        'product_review': product_review,
+        'total_review': total_review,
+        'avg_review': avg_review
     }
 
     return render(request, 'products/product_details.html', context)
@@ -94,7 +100,7 @@ def add_product(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
- 
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
