@@ -26,8 +26,66 @@
             {% else %}
             <p class="card-text">Price: $ {{ product.price }}</p>
             {% endif %}
-            <p class="card-text">Rating: {{ product.rating }}</p>                 
-        </div>          
+
+            <div class="col-lg-6 d-flex">
+                <div class="p-2">
+                    {% if avg_review >= 1 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% elif avg_review > 0 %}
+                    <span><i class="bi bi-star-half"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
+
+                    {% if avg_review >= 2 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% elif avg_review > 1 %}
+                    <span><i class="bi bi-star-half"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
+
+                    {% if avg_review >= 3 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% elif avg_review > 2 %}
+                    <span><i class="bi bi-star-half"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
+
+                    {% if avg_review >= 4 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% elif avg_review > 3 %}
+                    <span><i class="bi bi-star-half"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
+
+                    {% if avg_review == 5 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% elif avg_review > 4 %}
+                    <span><i class="bi bi-star-half"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
+                </div> 
+                <div class="p-2">
+                    {% if avg_review is None %}
+                    <p class="card-text">(0)</p>
+                    {% else %}
+                    <p class="card-text">{{ avg_review }}</p>
+                    {% endif %}
+                </div>
+                <div class="ms-auto p-2">
+                    {% if total_review is None %}
+                    <p class="card-text">Reviews (0)</p>
+                    {% else %}
+                    <p class="card-text">Reviews ({{ total_review }})</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
         <div>
             <p class="card-text">Product SKU: {{ product.sku }}</p>
             <p class="card-text">Description: {{ product.description }}</p>
