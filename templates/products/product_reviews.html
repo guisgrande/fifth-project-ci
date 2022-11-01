@@ -77,34 +77,40 @@
                 </div>
             </div>
         </div>
-        {% if reviewed %}
-        <div>
-            <p class="card-text">You have already reviewed this product</p>
-        </div>
+        {% if purchased %}
+            {% if reviewed %}
+            <div>
+                <p class="card-text">You have already reviewed this product</p>
+            </div>
+            {% else %}
+            <div>
+                <form method="POST" action="{% url 'add_review' product.slug %}">
+                    {% csrf_token %}
+                    <div class="btn-group" role="group" aria-label="Review radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" value="1" id="btnradio1" autocomplete="off">
+                        <label class="btn btn-outline-warning" for="btnradio1"><i class="bi bi-star"></i></label>
+                    
+                        <input type="radio" class="btn-check" name="btnradio" value="2" id="btnradio2" autocomplete="off" >
+                        <label class="btn btn-outline-warning" for="btnradio2"><i class="bi bi-star"></i></label>
+                    
+                        <input type="radio" class="btn-check" name="btnradio" value="3" id="btnradio3" autocomplete="off">
+                        <label class="btn btn-outline-warning" for="btnradio3"><i class="bi bi-star"></i></label>
+
+                        <input type="radio" class="btn-check" name="btnradio" value="4" id="btnradio4" autocomplete="off">
+                        <label class="btn btn-outline-warning" for="btnradio4"><i class="bi bi-star"></i></label>
+
+                        <input type="radio" class="btn-check" name="btnradio" value="5" id="btnradio5" autocomplete="off" checked>
+                        <label class="btn btn-outline-warning" for="btnradio5"><i class="bi bi-star"></i></label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-sm btn-primary">Review</button>
+                    </div>
+                    </form>
+            </div>
+            {% endif %}
         {% else %}
         <div>
-            <form method="POST" action="{% url 'add_review' product.slug %}">
-                {% csrf_token %}
-                <div class="btn-group" role="group" aria-label="Review radio toggle button group">
-                    <input type="radio" class="btn-check" name="btnradio" value="1" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-warning" for="btnradio1"><i class="bi bi-star"></i></label>
-                  
-                    <input type="radio" class="btn-check" name="btnradio" value="2" id="btnradio2" autocomplete="off" >
-                    <label class="btn btn-outline-warning" for="btnradio2"><i class="bi bi-star"></i></label>
-                  
-                    <input type="radio" class="btn-check" name="btnradio" value="3" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-warning" for="btnradio3"><i class="bi bi-star"></i></label>
-
-                    <input type="radio" class="btn-check" name="btnradio" value="4" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-warning" for="btnradio4"><i class="bi bi-star"></i></label>
-
-                    <input type="radio" class="btn-check" name="btnradio" value="5" id="btnradio5" autocomplete="off" checked>
-                    <label class="btn btn-outline-warning" for="btnradio5"><i class="bi bi-star"></i></label>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-sm btn-primary">Review</button>
-                </div>
-                </form>
+            <p class="card-text">You can only review products that you buy.</p>
         </div>
         {% endif %}
     </div>
