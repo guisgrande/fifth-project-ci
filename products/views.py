@@ -178,6 +178,11 @@ def review_product(request, slug):
     product_review = product.product_review.filter(reviewed=True).order_by("-created_on")
     total_review = product_review.count()
     avg_review = product.product_review.aggregate(review=Avg('review'))['review']
+    current_user = request.user.id
+    reviewed = False
+
+    if product_review.filter(name=current_user).exists():
+        reviewed = True
 
     template = 'products/product_reviews.html'
 
@@ -185,7 +190,8 @@ def review_product(request, slug):
         'product': product,
         'product_review': product_review,
         'total_review': total_review,
-        'avg_review': avg_review
+        'avg_review': avg_review,
+        'reviewed': reviewed
     }
 
     return render(request, template, context)
