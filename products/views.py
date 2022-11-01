@@ -3,6 +3,7 @@ from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Avg
 from django.contrib import messages
+from checkout.models import Order, OrderLineItem
 from .models import Product, Category, Offer, ReviewProduct
 from .forms import ProductForm
 
@@ -173,16 +174,50 @@ def review_product(request, slug):
     """
     A view to user review a product
     """
-
+    # Get product and reviews data
     product = get_object_or_404(Product, slug=slug)
     product_review = product.product_review.filter(reviewed=True).order_by("-created_on")
     total_review = product_review.count()
     avg_review = product.product_review.aggregate(review=Avg('review'))['review']
-    current_user = request.user.id
+    # Get current user email and id
+    current_user_email = request.user.email
+    current_user_id = request.user.id
+    # Converts product id to int to check against list
+    product_str = str(product)
+    product_int = int(product_str)
+    # One list for all items and another to remove repeats (skus)
+    items_list = []
+    skus_list = []
+    # Checkers. If the user bought the product and has already given his review
+    purchased = False
     reviewed = False
-
-    if product_review.filter(name=current_user).exists():
+    # Takes all the user orders and makes them into a list
+    get_user_orders = Order.objects.filter(email=current_user_email)
+    order_list = list(get_user_orders)
+    # While to check the products inside the orders
+    while True:
+        if len(order_list) == 0:
+            break
+        else:
+            order = order_list[0]
+            get_user_items = OrderLineItem.objects.filter(order=order).values('product_id')
+            filter_items = list(get_user_items)
+            items_list.append(filter_items)
+            order_list.pop(0)
+            order = None
+            continue
+    # For loop into list to get the product skus
+    for item_dict in items_list:
+        for item in item_dict:
+            for i in item.values():
+                if i not in skus_list:
+                    skus_list.append(i)
+    # Condition for Checkers
+    if product_review.filter(name=current_user_id).exists():
         reviewed = True
+
+    if product_int in skus_list:
+        purchased = True
 
     template = 'products/product_reviews.html'
 
@@ -191,7 +226,8 @@ def review_product(request, slug):
         'product_review': product_review,
         'total_review': total_review,
         'avg_review': avg_review,
-        'reviewed': reviewed
+        'reviewed': reviewed,
+        'purchased': purchased
     }
 
     return render(request, template, context)
