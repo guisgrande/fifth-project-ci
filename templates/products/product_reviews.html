@@ -77,7 +77,11 @@
                 </div>
             </div>
         </div>
-
+        {% if reviewed %}
+        <div>
+            <p class="card-text">You have already reviewed this product</p>
+        </div>
+        {% else %}
         <div>
             <form method="POST" action="{% url 'add_review' product.slug %}">
                 {% csrf_token %}
@@ -102,7 +106,7 @@
                 </div>
                 </form>
         </div>
-
+        {% endif %}
     </div>
 </div>
 
