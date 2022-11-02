@@ -113,6 +113,41 @@
             <p class="card-text">You can only review products that you buy.</p>
         </div>
         {% endif %}
+        <div class="col">
+            {% for review in product_review %}
+                <p>{{ review.name }} - {{ review.created_on }}</p>
+
+                {% if review.review >= 1 %}
+                <span><i class="bi bi-star-fill"></i></span>
+                {% else %}
+                <span><i class="bi bi-star"></i></span>
+                {% endif %}
+
+                {% if review.review >= 2 %}
+                <span><i class="bi bi-star-fill"></i></span>
+                {% else %}
+                <span><i class="bi bi-star"></i></span>
+                {% endif %}
+
+                {% if review.review >= 3 %}
+                <span><i class="bi bi-star-fill"></i></span>
+                {% else %}
+                <span><i class="bi bi-star"></i></span>
+                {% endif %}
+
+                {% if review.review >= 4 %}
+                <span><i class="bi bi-star-fill"></i></span>
+                {% else %}
+                <span><i class="bi bi-star"></i></span>
+                {% endif %}
+
+                {% if review.review == 5 %}
+                <span><i class="bi bi-star-fill"></i></span>
+                {% else %}
+                <span><i class="bi bi-star"></i></span>
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 
