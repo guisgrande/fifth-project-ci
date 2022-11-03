@@ -43,6 +43,7 @@
                             </div>
                         </a>
                         <p class="card-text mt-2">Product: {{ product.name }}</p>
+                        <p class="card-text">Availabe stock: {{ product.quantity_available }}</p>
                         {% if product.offer  %}
                         <p class="card-text"><del><small>Original price: $ {{ product.price }}</small></del></p>
                         <p class="card-text">{{ product.offer.offer_display }} - Discount offer: {{ product.offer.offer_discount }}%</p>
