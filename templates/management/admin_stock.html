@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+
+<div class="container text-center">
+    <hr>
+    <h2 class="m-2">Stock - Management</h2>
+    <hr>
+</div>
+
+{% load account %}
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col table-responsive">
+            <table class="table table-sm table-borderless">
+                <thead>
+                    <tr>
+                        <th>Product SKU</th>
+                        <th>Product name</th>
+                        <th>Current Stock</th>
+                        <th>Update STOCK</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in product_list %}
+                        <tr>
+                            <td>{{ product.sku }}</td>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.quantity_available }}</td>
+                            <td>
+                                <form method="POST" action="{% url 'update_stock' product.slug %}">
+                                    {% for field in form %}
+                                    {% csrf_token %}
+                                        {{ field }}
+                                    {% endfor %}
+                                    <input class="btn btn-sm btn-success m-1" type="submit" value="&#x2713">
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
