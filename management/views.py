@@ -7,7 +7,9 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
+from products.models import Product
 from .models import NewsLetterList, NewsLetterMail
+from .forms import StockForm
 
 
 def news_letter_sub(request):
@@ -111,3 +113,54 @@ def news_letter_send(request):
 
         messages.success(request, 'News Letter successfully sent to mailing list!')
         return redirect(request.META.get("HTTP_REFERER", "/"))
+
+
+@login_required
+def stock_control(request):
+    """
+    A view to display Stock control template.
+    """
+
+    product_list = Product.objects.all()
+    form = StockForm()
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can view this page.')
+        return redirect(reverse('home'))
+
+    context = {
+        'product_list': product_list,
+        'form': form,
+    }
+
+    return render(request, 'management/admin_stock.html', context)
+
+
+@login_required
+def update_stock(request, slug):
+    """
+    A view to admin / site owner update stock quantity
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can view this page.')
+        return redirect(reverse('home'))
+
+    product = Product.objects.get(slug=slug)
+
+    if request.method == 'POST':
+        form = StockForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Successfully updated {product.name} quantity')
+            return redirect(reverse('stock_control'))
+        else:
+            messages.error(request, 'Failed to update stock.')
+    else:
+        form = StockForm(instance=slug)
+
+    template = 'management/admin_stock.html'
+    context = {
+        'product': product,
+    }
+
+    return render(request, template, context)
