@@ -138,7 +138,6 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-
     profile = UserProfile.objects.get(user=request.user)
     
     # Attach the user's profile to the order
@@ -164,6 +163,26 @@ def checkout_success(request, order_number):
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 
+    # Update inventory
+    bag = request.session.get('bag', {})
+    current_bag = bag.copy()
+    item_slug = []
+    item_qty = []
+
+    for slug in current_bag.keys():
+        item_slug.append(slug)
+        
+    for qty in current_bag.values():
+        item_qty.append(qty)
+
+    while item_slug:
+        product = get_object_or_404(Product, slug=item_slug[0])
+        product.quantity_available -= item_qty[0]
+        item_slug.pop(0)
+        item_qty.pop(0)
+        product.save()
+
+    # Clear bag
     if 'bag' in request.session:
         del request.session['bag']
 
