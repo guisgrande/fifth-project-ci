@@ -8,9 +8,10 @@ from django.contrib.auth import get_user_model
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from products.models import Product
+from checkout.models import Order
 from products.forms import ProductForm
 from .models import NewsLetterList, NewsLetterMail
-from .forms import StockForm
+from .forms import StockForm, OrderStatusForm
 
 
 @login_required
@@ -246,6 +247,57 @@ def update_stock(request, slug):
     template = 'management/admin_stock.html'
     context = {
         'product': product,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def orders_status(request):
+    """
+    Function to site owner / admin see order status list.
+    """
+    orders = Order.objects.all()
+    form = OrderStatusForm()
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can view this page.')
+        return redirect(reverse('home'))
+    
+    context = {
+        'orders': orders,
+        'form': form,
+    }
+
+    return render(request, 'management/admin_status.html', context)
+
+
+@login_required
+def update_status(request, pk):
+    """
+    A view to admin / site owner update order status
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    order = Order.objects.get(id=pk)
+
+    if request.method == 'POST':
+        form = OrderStatusForm(request.POST, instance=order)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Successfully updated {order.order_number} status')
+            return redirect(reverse('orders_status'))
+        else:
+            messages.error(request, 'Failed to update order.')
+    else:
+        form = OrderStatusForm(instance=order_number)
+
+    template = 'management/admin_status.html'
+    context = {
+        'form': form,
+        'order': order,
     }
 
     return render(request, template, context)
