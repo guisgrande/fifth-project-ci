@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, reverse, render
+from django.shortcuts import redirect, reverse, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -8,8 +8,93 @@ from django.contrib.auth import get_user_model
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from products.models import Product
+from products.forms import ProductForm
 from .models import NewsLetterList, NewsLetterMail
 from .forms import StockForm
+
+
+@login_required
+def add_product(request):
+    """
+    A view to admin add new products to store database
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('product_details', args=[product.slug]))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = ProductForm()
+
+    template = 'management/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_product(request, slug):
+    """
+    A view to admin edit products from store database
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, slug=slug)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Successfully updated {product.name}!')
+            return redirect(reverse('product_details', args=[product.slug]))
+        else:
+            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are editing {product.name}')
+
+    template = 'management/edit_product.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_product(request, slug):
+    """
+    A view to admin delete products from store database
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, slug=slug)
+
+    if request.method == 'POST':
+        product.delete()
+        messages.success(request, 'Product deleted!')
+        return redirect(reverse('products'))
+
+    template = 'management/delete_product.html'
+    context = {
+        'product': product,
+    }
+
+    return render(request, template, context)
 
 
 def news_letter_sub(request):
