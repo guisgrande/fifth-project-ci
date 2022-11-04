@@ -11,4 +11,6 @@ urlpatterns = [
     path('news-letter-send/', views.news_letter_send, name='news_letter_send'),
     path('stock-control/', views.stock_control, name='stock_control'),
     path('update-stock/<slug>/', views.update_stock, name='update_stock'),
+    path('orders-status/', views.orders_status, name='orders_status'),
+    path('update-status/<str:pk>', views.update_status, name='update_status'),
 ]
