@@ -1,4 +1,9 @@
+import uuid
+import datetime
+
 from django.db import models
+from django.contrib.auth.models import User
+from django.utils.text import Truncator
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -29,3 +34,49 @@ class NewsLetterMail(models.Model):
 
     def __str__(self):
         return str(self.news_number)
+
+
+class Coupon(models.Model):
+    """
+    Class for Coupon database model
+    Unique coupon for single use
+    """
+    coupon = models.CharField(max_length=36, unique=True, null=False, editable=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date_start = models.DateTimeField(auto_now_add=True, editable=False)
+    date_end = models.DateTimeField(null=True, blank=True)
+    discount = models.IntegerField(default=10)
+    used = models.BooleanField(default=False)
+    expired = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.coupon)
+
+    def _generate_coupon(self):
+        """
+        Generate a random, unique coupon code using UUID
+        """
+        return uuid.uuid4().hex.upper()
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method 
+        To set the coupon number, and dates.
+        """
+        print(f'Coupon before: {self.coupon}')
+        if not self.coupon:
+            self.coupon = 'CPN-' + self._generate_coupon()
+            self.coupon = self.coupon[:14]
+        print(f'Coupon after: {self.coupon}')
+
+        print(f'Start before: {self.date_start}')
+        if not self.date_start:
+            self.date_start = datetime.datetime.now()
+        print(f'Start after: {self.date_start}')
+
+        print(f'End before: {self.date_end}')
+        if not self.date_end:
+            self.date_end = self.date_start + datetime.timedelta(days=2)
+        print(f'End after: {self.date_end}')
+
+        super().save(*args, **kwargs)
