@@ -5,19 +5,33 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.utils.safestring import mark_safe
 from django.views import View
+from django.utils import timezone
 from checkout.models import Order
+from management.models import Coupon
 from .models import UserProfile
 from .forms import UserProfileForm, UserDeleteForm
 
 
 @login_required
 def profile(request):
-    """ 
+    """
     Function display the user's profile.
+    POST update UserProfile model
+    Display Coupon and update if expired
     """
     profile = get_object_or_404(UserProfile, user=request.user)
     form = UserProfileForm(instance=profile)
-   
+    # Filter Coupon model by user and not used
+    coupons = Coupon.objects.filter(user=request.user).filter(used=False)
+    present = timezone.now()
+    # Check if coupon is expired
+    for coupon in coupons:
+        if present >= coupon.date_end:
+            coupon.expired = True
+            coupon.save()
+    # Filter Coupon model again including expired
+    coupons = Coupon.objects.filter(user=request.user).filter(expired=False).filter(used=False)
+
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
@@ -28,6 +42,7 @@ def profile(request):
     context = {
         'profile': profile,
         'form': form,
+        'coupons': coupons,
         'on_profile_page': True
     }
 
