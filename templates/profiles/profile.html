@@ -25,6 +25,17 @@
                 <div>
                     <a class="btn btn-sm btn-dark" aria-current="page" href="{% url 'orders_list' %}">My Orders</a>
                 </div>
+                <p>Coupons:</p>
+                {% for coupon in coupons %}
+                <div>
+                    <p><strong>{{ coupon.coupon }}</strong></p>
+                    <p><small>%{{ coupon.discount }} OFF - Expire: {{ coupon.date_end }}</small></p>
+                </div>
+                {% empty %}
+                <div>
+                    <p>No active coupons</p>
+                </div>
+                {% endfor %}
             </div>
             <div class="col-12 col-lg-6">
                 <p>Default Profile Delivery Information</p>
