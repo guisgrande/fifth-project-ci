@@ -3,7 +3,6 @@ import datetime
 
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils.text import Truncator
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -63,20 +62,14 @@ class Coupon(models.Model):
         Override the original save method 
         To set the coupon number, and dates.
         """
-        print(f'Coupon before: {self.coupon}')
         if not self.coupon:
-            self.coupon = 'CPN-' + self._generate_coupon()
+            self.coupon = 'CPN' + self._generate_coupon()
             self.coupon = self.coupon[:14]
-        print(f'Coupon after: {self.coupon}')
 
-        print(f'Start before: {self.date_start}')
         if not self.date_start:
             self.date_start = datetime.datetime.now()
-        print(f'Start after: {self.date_start}')
 
-        print(f'End before: {self.date_end}')
         if not self.date_end:
             self.date_end = self.date_start + datetime.timedelta(days=2)
-        print(f'End after: {self.date_end}')
 
         super().save(*args, **kwargs)
