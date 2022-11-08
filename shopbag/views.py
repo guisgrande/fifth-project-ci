@@ -1,14 +1,44 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from products.models import Product
+from management.models import Coupon
 from django.contrib import messages
+from django.utils import timezone
 
 
 def view_bag(request):
     """
     A view to return the shopbag page
+    And verify coupon
     """
+    coupon = None
+    valid_coupon = False
 
-    return render(request, 'shopbag/bag.html')
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            coupons = Coupon.objects.filter(user=request.user).filter(used=False)
+            present = timezone.now()
+            # Check if coupon is expired
+            for coupon in coupons:
+                if present >= coupon.date_end:
+                    coupon.expired = True
+                    coupon.save()
+            # Filter Coupon model again including expired
+            coupons = Coupon.objects.filter(user=request.user).filter(expired=False).filter(used=False)
+            coupon = request.POST.get('coupon', None)
+
+            if str(coupon) == str(coupons[0]):
+                messages.success(request, 'Coupon applied successfully')
+                valid_coupon = True
+            else:
+                messages.error(request, 'Something is wrong. This coupon is not valid')
+
+    template = 'shopbag/bag.html'
+    context = {
+        'coupon': coupon,
+        'valid_coupon': valid_coupon,
+    }
+
+    return render(request, template, context)
 
 
 def add_to_bag(request, slug):
