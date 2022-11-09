@@ -27,10 +27,11 @@ def view_bag(request):
             coupons = Coupon.objects.filter(user=request.user).filter(expired=False).filter(used=False)
             coupon = request.POST.get('coupon', None)
 
-            if str(coupon) == str(coupons[0]):
-                messages.success(request, 'Coupon applied successfully')
-                valid_coupon = True
-                code = coupon
+            if len(coupons) > 0:           
+                if str(coupon) == str(coupons[0]):
+                    messages.success(request, 'Coupon applied successfully')
+                    valid_coupon = True
+                    code = coupon
             else:
                 messages.error(request, 'Something is wrong. This coupon is not valid')
 
