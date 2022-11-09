@@ -1,5 +1,11 @@
 /* Style for Base.html */
 
+/* Background */
+
+.bg-cst-blue {
+    background-color: #adcfcc;
+}
+
 /* Messages and Toasts */
 
 .message-container {
