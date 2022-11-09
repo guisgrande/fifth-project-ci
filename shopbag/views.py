@@ -12,6 +12,7 @@ def view_bag(request):
     """
     coupon = None
     valid_coupon = False
+    code = request.session.get('code', None)
 
     if request.method == 'POST':
         if request.user.is_authenticated:
@@ -29,8 +30,12 @@ def view_bag(request):
             if str(coupon) == str(coupons[0]):
                 messages.success(request, 'Coupon applied successfully')
                 valid_coupon = True
+                code = coupon
             else:
                 messages.error(request, 'Something is wrong. This coupon is not valid')
+
+    if code:
+        valid_coupon = True
 
     template = 'shopbag/bag.html'
     context = {
@@ -38,6 +43,7 @@ def view_bag(request):
         'valid_coupon': valid_coupon,
     }
 
+    request.session['code'] = code
     return render(request, template, context)
 
 
