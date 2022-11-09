@@ -1,17 +1,18 @@
+import json
+import stripe
+
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
+from shopbag.contexts import bag_contents
+from management.models import Coupon
+from products.models import Product
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-from products.models import Product
-from shopbag.contexts import bag_contents
-from profiles.forms import UserProfileForm
-from profiles.models import UserProfile
-
-import stripe
-import json
 
 
 @require_POST
@@ -40,7 +41,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-
+        code = request.session.get('code', None)
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -60,6 +61,8 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
+            order.valid_coupon = code
+            order.discount_total = bag_contents(request)['total_discount']
             order.save()
             for slug, quantity in bag.items():
                 try:
@@ -139,6 +142,15 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     profile = UserProfile.objects.get(user=request.user)
+    code = request.session.get('code', None)
+
+    # If used a coupon, change to used.
+    if code:
+        coupon = get_object_or_404(Coupon, coupon=code)
+        coupon.used = True
+        code = None
+        request.session['code'] = code
+        coupon.save()
     
     # Attach the user's profile to the order
     order.user_profile = profile
