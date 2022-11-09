@@ -44,7 +44,11 @@
                         </p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
+                        {% if item.product.offer  %}
+                        <p class="small mb-0">{{ item.quantity }} @ ${{ item.product.cal_discount_price }} each</p>
+                        {% else %}
                         <p class="small mb-0">{{ item.quantity }} @ ${{ item.product.price }} each</p>
+                        {% endif %}
                     </div>
                 </div>
                 {% endfor %}
@@ -70,6 +74,15 @@
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ order.delivery_cost }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <p class="mb-0 text-black font-weight-bold">Discount</p>
+                    </div>
+                    <div class="col-12 col-md-8 text-md-right">
+                        <p class="mb-0">-{{ order.discount_total }}</p>
                     </div>
                 </div>
         

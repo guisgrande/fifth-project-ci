@@ -113,7 +113,7 @@
                                     <h6><strong>Bag Total: $ {{ total|floatformat:2 }}</strong></h6>
                                     <h6>Delivery: $ {{ delivery|floatformat:2 }}</h6>
                                     {% if valid_coupon is True %}
-                                    <h6>Coupon ({{ discount }}%): -$ {{ total_discount }}</h6>
+                                    <h6>Coupon ({{ discount }}%): -$ {{ total_discount|floatformat:2 }}</h6>
                                     {% endif %}
                                     <h4 class="mt-4"><strong>Grand Total: $ {{ grand_total|floatformat:2 }}</strong></h4>
                                     {% if free_delivery_delta > 0 %}
