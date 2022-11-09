@@ -3,8 +3,8 @@ import uuid
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
-from products.models import Product
 from django_countries.fields import CountryField
+from products.models import Product
 from profiles.models import UserProfile
 
 
@@ -28,6 +28,8 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
+    valid_coupon = models.CharField(max_length=25, null=True, blank=True)
+    discount_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
@@ -72,7 +74,8 @@ class Order(models.Model):
             self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
             self.delivery_cost = 0
-        self.grand_total = self.order_total + self.delivery_cost
+        
+        self.grand_total = self.order_total + self.delivery_cost - self.discount_total
         self.save()
 
     def save(self, *args, **kwargs):
@@ -102,7 +105,10 @@ class OrderLineItem(models.Model):
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        self.lineitem_total = self.product.price * self.quantity
+        if self.product.offer:
+            self.lineitem_total = ((self.product.price) - ((self.product.price * self.product.offer.offer_discount) / 100)) * self.quantity
+        else:
+            self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
