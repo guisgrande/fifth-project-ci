@@ -35,124 +35,14 @@
     <body class="d-flex flex-column h-100 main-bg">
 
         <!-- Navigation bar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-cst-blue">
-            <div class="container-fluid">
-                <!-- Brand logo -->
-                <div>
-                    <a class="navbar-brand" href="{% url 'home' %}">
-                        <img class="shadow-sm" src="{{ MEDIA_URL }}sc-logo.png" alt="Street Craft Logo">
-                    </a>
+            <nav class="navbar navbar-expand-lg navbar-light bg-cst-blue-top">
+                <div class="container-fluid">
+                    <button class="navbar-toggler m-2 bg-dark bg-gradient text-white" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span><i class="fa-lg bi bi-list"></i></span>
+                    </button>
+                    {% include 'includes/main_nav.html' %}
                 </div>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Navigation links -->
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <div class="text-center">
-                            <a class="nav-link hover-link fw-bold" aria-current="page" href="{% url 'home' %}">Home</a>
-                            </div>
-                        </li>
-                        <li class="list-inline-item dropdown">
-                            <a class="text-black hover-link fw-bold nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="text-center">
-                                    <p class="my-0">Shop <span><i class="bi bi-arrow-down-square-fill"></i></span></p>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu border-0 shadow-sm bg-light bg-gradient" aria-labelledby="user-options">
-                                <a class="nav-link hover-link fw-bold" href="{% url 'products' %}">All Products</a>
-                                <span class="p-1 fst-italic fw-light">Select Category</span>
-                                <a href="{% url 'products' %}?category=SKT" class="dropdown-item">Skateboards</a>
-                                <a href="{% url 'products' %}?category=CAP" class="dropdown-item">Caps & Hats</a>
-                                <a href="{% url 'products' %}?category=BAG" class="dropdown-item">Backpacks & Bags</a>
-                                <span class="p-1 fst-italic fw-light">Special Offers</span>
-                                <a href="{% url 'products' %}?offer=NEW" class="dropdown-item">New Arrivals</a>
-                                <a href="{% url 'products' %}?offer=SALE" class="dropdown-item">Special Sale</a>
-                                <a href="{% url 'products' %}?offer=LAST" class="dropdown-item">Last Chance</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            
-                        </li>
-                        {% if request.user.is_superuser %}
-                        <li class="list-inline-item dropdown">
-                            <a class="text-black hover-link fw-bold nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="text-center">
-                                    <p class="my-0">Management <span><i class="bi bi-arrow-down-square-fill"></i></span></p>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu border-0 shadow-sm bg-light bg-gradient" aria-labelledby="user-options">
-                                <a href="{% url 'add_product' %}" class="dropdown-item">Product Manag.</a>
-                                <a href="{% url 'stock_control' %}" class="dropdown-item">Stock Manag.</a>
-                                <a href="{% url 'orders_status' %}" class="dropdown-item">Order Status Manag.</a>
-                                <a href="{% url 'news_letter_view' %}" class="dropdown-item">News Letter Manag.</a>
-                            </div>
-                        </li>
-                        {% endif %}
-                        {% if request.user.is_authenticated %}
-                        <li class="list-inline-item dropdown">
-                            <a class="text-black hover-link fw-bold nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="text-center">
-                                    <p class="my-0">My Account <span><i class="bi bi-arrow-down-square-fill"></i></span></p>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu border-0 shadow-sm bg-light bg-gradient" aria-labelledby="user-options">
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            </div>
-                        </li>
-                        {% else %}
-                        <li>
-                        <a class="nav-link hover-link fw-bold text-white" href="{% url 'account_login' %}">Sign In</a>
-                        </li>
-                        <li>
-                        <a class="nav-link hover-link fw-bold text-white" href="{% url 'account_signup' %}">Sign Up</a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                </div>
-
-                <!-- Search bar -->
-                <div class="col-12 col-lg-4 m-2">
-                    <form method="GET" action="{% url 'products' %}">
-                        <div class="input-group w-100">
-                            <input class="form-control border border-black rounded" type="text" name="q" placeholder="Search for a product">
-                            <div class="input-group-append">
-                                <button class="btn btn-dark bg-gradient rounded" type="submit">
-                                    <span>
-                                        <i class="bi bi-search"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Shopping bag -->
-                <a class="text-decoration-none bg-dark bg-gradient text-white rounded p-1 m-1" href="{% url 'bag' %}">
-                    <div class="text-center">
-                        <small>
-                            <div>
-                                <i class="bi bi-bag"></i>
-                                <span> ({{ product_count }})</span>
-                            </div>
-                            <p class="my-0">
-                                {% if grand_total %}
-                                    ${{ grand_total|floatformat:2 }}
-                                {% else %}
-                                    $00.00
-                                {% endif %}
-                            </p>
-                        </small>
-                    </div>
-                </a>
-
-            </div>
-        </nav>
+            </nav>
 
         <main class="flex-shrink-0 main-bg">
             {% block content %}
@@ -161,55 +51,100 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer mt-auto">
+        <footer class="footer mt-auto bg-cst-blue-bottom">
 
             <!-- Container for footer content -->
             <div class="container-fluid mt-3">
-                <div class="row">
+
+                <!-- News Letter Subscribe -->
+                <div id="news-container" class="col d-flex justify-content-center align-items-center">
+                    <button type="button" class="btn btn-sm btn-dark bg-gradient" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">News Letter - Subscribe</button>
+                </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Subscribe to News Letter!</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body bg-light">
+                                <form method="POST" action="{% url 'news_letter_sub' %}">
+                                    {% csrf_token %}
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Your best e-mail:</label>
+                                        <input type="email" class="form-control" name="news_email" id="news_email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Your name:</label>
+                                        <input type="text" class="form-control" name="news_name" id="news_name" required>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-sm btn-secondary bg-gradient" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-sm btn-primary bg-gradient">Subscribe</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="container-link-social" class="row d-flex justify-content-between">
                     <!-- Website pages links-->
-                    <div class="col">
+                    <div id="link-container" class="col">
                         <ul id="list-web-link" class="list-clear">
-                            <li>
-                                <a href="#">Home</a>
+                            <li class="nav-item">
+                                <a class="footer-link" aria-current="page" href="{% url 'home' %}">Home</a>
                             </li>
                             <li>
-                                <a href="#">All products</a>
+                                <a class="footer-link" href="{% url 'products' %}">All Products</a>
+                            </li>
+                            {% if request.user.is_authenticated %}
+                            <li>
+                                <a class="footer-link" href="{% url 'profile' %}">My Profile</a>
+                            </li>
+                            <li>
+                                <a class="footer-link" href="{% url 'account_logout' %}">Logout</a>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a class="footer-link" href="{% url 'account_login' %}">Sign In</a>
+                            </li>
+                            <li>
+                                <a class="footer-link" href="{% url 'account_signup' %}">Sign Up</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+
+                    <!-- Social icons links -->
+                    <div id="social-container" class="col d-flex align-items-center justify-content-end">
+                        <ul class="list-clear p-0 d-flex justify-content-around">
+                            <li class="social-box shadow-sm bg-dark rounded m-1 ">
+                                <a class="social-link" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Check our Facebook page 
+                                (opens in a new tab)"><i class="bi bi-facebook"></i></a>
+                            </li>
+                            <li class="social-box shadow-sm bg-dark rounded m-1">
+                                <a class="social-link" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Check our Instagram page 
+                                (opens in a new tab)"><i class="bi bi-instagram"></i></a>
+                            </li>
+                            <li class="social-box shadow-sm bg-dark rounded m-1">
+                                <a class="social-link" href="https://tiktok.com" target="_blank" rel="noopener" aria-label="Check our TikTok page 
+                                (opens in a new tab)"><i class="bi bi-tiktok"></i></a>
+                            </li>
+                            <li class="social-box shadow-sm bg-dark rounded m-1">
+                                <a class="social-link" href="https://youtube.com" target="_blank" rel="noopener" aria-label="Check our Youtube page 
+                                (opens in a new tab)"><i class="bi bi-youtube"></i></a>
                             </li>
                         </ul>
                     </div>
-                    <div class="m-2">
-                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">News Letter - Subscribe</button>
-                    </div>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Subscribe to News Letter!</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <form method="POST" action="{% url 'news_letter_sub' %}">
-                                {% csrf_token %}
-                              <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Your best e-mail:</label>
-                                <input type="email" class="form-control" name="news_email" id="news_email" required>
-                              </div>
-                              <div class="mb-3">
-                                <label for="message-text" class="col-form-label">Your name:</label>
-                                <input type="text" class="form-control" name="news_name" id="news_name" required>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-sm btn-primary">Subscribe</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+
+                </div>
+
+            </div>
+
         </footer>
 
-    {% if messages %}
+        {% if messages %}
         <div class="message-container">
             {% for message in messages %}
                 {% with message.level as level %}
@@ -225,13 +160,13 @@
                 {% endwith %}
             {% endfor %}
         </div>
-    {% endif %}
+        {% endif %}
 
-    {% block postloadjs %}
-    <script type="text/javascript">
-        $('.toast').toast('show');
-    </script>
-    {% endblock %}
+        {% block postloadjs %}
+        <script type="text/javascript">
+            $('.toast').toast('show');
+        </script>
+        {% endblock %}
 
     </body>
 

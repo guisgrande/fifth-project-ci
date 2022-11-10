@@ -1,0 +1,111 @@
+<div class="collapse navbar-collapse" id="main-nav">
+
+    <!-- Brand logo -->
+    <div class="m-3 text-center">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img class="shadow-sm" src="{{ MEDIA_URL }}sc-logo.png" alt="Street Craft Logo">
+        </a>
+    </div>
+
+    <!-- Search bar -->
+    <div class="col-12 col-lg-4">
+        <form method="GET" action="{% url 'products' %}">
+            <div class="input-group w-100">
+                <input class="form-control border border-black rounded" type="text" name="q" placeholder="Search for a product">
+                <div class="input-group-append">
+                    <button class="btn btn-dark bg-gradient rounded" type="submit">
+                        <span>
+                            <i class="bi bi-search" alt="Search"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Navigation links -->
+    <div class="ms-auto p-2">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <div>
+                <a class="nav-link hover-link fw-bold" aria-current="page" href="{% url 'home' %}">Home</a>
+                </div>
+            </li>
+            <li class="list-inline-item dropdown">
+                <a class="text-black hover-link fw-bold nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div>
+                        <p class="my-0">Shop <span><i class="bi bi-arrow-down-square-fill"></i></span></p>
+                    </div>
+                </a>
+                <div class="dropdown-menu border-0 shadow-sm bg-light bg-gradient" aria-labelledby="shop-options">
+                    <a class="nav-link hover-link fw-bold" href="{% url 'products' %}">All Products</a>
+                    <span class="p-1 fst-italic fw-light">Select Category</span>
+                    <a href="{% url 'products' %}?category=SKT" class="dropdown-item">Skateboards</a>
+                    <a href="{% url 'products' %}?category=CAP" class="dropdown-item">Caps & Hats</a>
+                    <a href="{% url 'products' %}?category=BAG" class="dropdown-item">Backpacks & Bags</a>
+                    <span class="p-1 fst-italic fw-light">Special Offers</span>
+                    <a href="{% url 'products' %}?offer=NEW" class="dropdown-item">New Arrivals</a>
+                    <a href="{% url 'products' %}?offer=SALE" class="dropdown-item">Special Sale</a>
+                    <a href="{% url 'products' %}?offer=LAST" class="dropdown-item">Last Chance</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                
+            </li>
+            {% if request.user.is_superuser %}
+            <li class="list-inline-item dropdown">
+                <a class="text-black hover-link fw-bold nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div>
+                        <p class="my-0">Management <span><i class="bi bi-arrow-down-square-fill"></i></span></p>
+                    </div>
+                </a>
+                <div class="dropdown-menu border-0 shadow-sm bg-light bg-gradient" aria-labelledby="user-options">
+                    <a href="{% url 'add_product' %}" class="dropdown-item">Product Manag.</a>
+                    <a href="{% url 'stock_control' %}" class="dropdown-item">Stock Manag.</a>
+                    <a href="{% url 'orders_status' %}" class="dropdown-item">Order Status Manag.</a>
+                    <a href="{% url 'news_letter_view' %}" class="dropdown-item">News Letter Manag.</a>
+                </div>
+            </li>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+            <li class="list-inline-item dropdown">
+                <a class="text-black hover-link fw-bold nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div>
+                        <p class="my-0">My Account <span><i class="bi bi-arrow-down-square-fill"></i></span></p>
+                    </div>
+                </a>
+                <div class="dropdown-menu border-0 shadow-sm bg-light bg-gradient" aria-labelledby="user-options">
+                    <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                </div>
+            </li>
+            {% else %}
+            <li>
+            <a class="nav-link hover-link fw-bold" href="{% url 'account_login' %}">Sign In</a>
+            </li>
+            <li>
+            <a class="nav-link hover-link fw-bold" href="{% url 'account_signup' %}">Sign Up</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+<!-- Shopping bag -->
+<a class="ms-auto text-decoration-none shadow bg-dark bg-gradient text-white rounded p-1 m-3" href="{% url 'bag' %}">
+    <div class="text-center">
+        <small>
+            <div>
+                <i class="bi bi-bag"></i>
+                <span> ({{ product_count }})</span>
+            </div>
+            <p class="my-0">
+                {% if grand_total %}
+                    ${{ grand_total|floatformat:2 }}
+                {% else %}
+                    $00.00
+                {% endif %}
+            </p>
+        </small>
+    </div>
+</a>
