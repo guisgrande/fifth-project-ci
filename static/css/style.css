@@ -2,8 +2,48 @@
 
 /* Background */
 
-.bg-cst-blue {
-    background-color: #adcfcc;
+.bg-cst-blue-top {
+    background: linear-gradient(0deg, rgba(195,235,255,1) 10%, rgba(141,194,218,1) 45%);
+}
+
+.bg-cst-blue-bottom {
+    background: linear-gradient(180deg, rgba(195,235,255,1) 10%, rgba(141,194,218,1) 45%);
+}
+
+/* !! Style for footer elements !! */
+
+#list-web-link>li>a {
+    font-size: 14px;
+}
+
+.social-list {
+    border: 1px solid #FF6607;
+}
+
+.social-link {
+    color: #ffffff;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.social-link:hover {
+    color: rgb(211, 211, 211);
+    text-shadow: 1px 2px 2px #6b949b;
+}
+
+.list-clear {
+    list-style: none;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: black;
+}
+
+.footer-link:hover {
+    font-weight: bold;
+    color:#202122;
+    text-shadow: 1px 2px 2px #6b949b;
 }
 
 /* Messages and Toasts */
@@ -24,6 +64,7 @@
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+
 .arrow-up {
     width: 0; 
     height: 0; 
@@ -36,6 +77,7 @@
 }
 
 /* Convenience classes - colors copied from Bootstrap */
+
 .arrow-primary {
     border-bottom-color: #007bff !important;
 }
@@ -79,4 +121,55 @@
 .update-item,
 .remove-item {
     cursor: pointer;
+}
+
+/* !! Media queries !! */
+
+@media screen and (max-width: 700px) {
+
+/* Querie for footer elements */
+
+#news-container>button {
+    font-size: 12px;
+}
+
+#list-web-link {
+    padding: 3px;
+}
+
+#list-web-link>li>a {
+    font-size: 14px;
+}
+
+.social-link {
+    font-size: 20px;
+    padding: 8px;
+}
+
+}
+
+@media screen and (max-width: 500px) {
+
+/* Querie for footer elements */
+
+#social-container {
+    justify-content: center !important;
+}
+
+}
+
+@media screen and (max-width: 300px) {
+
+/* Querie for footer elements */
+
+#container-link-social {
+    flex-direction: column !important;
+}
+
+#link-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center !important;
+}
+
 }
