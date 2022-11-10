@@ -10,6 +10,11 @@
     background: linear-gradient(180deg, rgba(195,235,255,1) 10%, rgba(141,194,218,1) 45%);
 }
 
+.bg-social {
+    background: url("/media/background-accounts.jpg") 50% 50% no-repeat fixed;
+    background-size: cover
+}
+
 /* !! Style for footer elements !! */
 
 #list-web-link>li>a {
