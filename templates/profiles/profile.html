@@ -7,42 +7,46 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col text-center">
                 <hr>
                 <h2 class="logo-font mb-4">My Profile</h2>
                 <hr>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-4">
                 <p>You are logged in as <strong>{% user_display user %}</strong></p>
-                <p>Account settings:</p>
-                <div>
-                    <a class="btn btn-sm btn-dark" aria-current="page" href="{% url 'account_change_password' %}">Change Password</a>
-                    <a class="btn btn-sm btn-dark" aria-current="page" href="{% url 'delete_profile' %}">Delete Profile</a>
+                <div class="bg-light bg-gradient rounded shadow-sm p-1 m-2 border border-secundary">
+                    <p class="m-1">Features</p>
+                    <a class="btn btn-sm btn-dark bg-gradient m-1" aria-current="page" href="{% url 'orders_list' %}">My Orders</a>
                 </div>
-                <p>Features:</p>
-                <div>
-                    <a class="btn btn-sm btn-dark" aria-current="page" href="{% url 'orders_list' %}">My Orders</a>
+                <div class="bg-light bg-gradient rounded shadow-sm p-1 m-2 border border-secundary">
+                    <p class="m-1">Coupons</p>
+                    {% for coupon in coupons %}
+                    <div class="m-1 bg-dark text-white rounded" style="width: 145px;">
+                        <p class="p-2">{{ coupon.coupon }}</p>
+                    </div>
+                    <p class="m-1 p-1 border rounded border-success"><small><strong>{{ coupon.discount }}% OFF</strong> - Expire: {{ coupon.date_end }}</small></p>
+                    {% empty %}
+                    <div>
+                    <p class="fw-light m-1">No active coupons</p>
+                    </div>
+                    {% endfor %}
                 </div>
-                <p>Coupons:</p>
-                {% for coupon in coupons %}
-                <div>
-                    <p><strong>{{ coupon.coupon }}</strong></p>
-                    <p><small>%{{ coupon.discount }} OFF - Expire: {{ coupon.date_end }}</small></p>
+                <div class="bg-light bg-gradient rounded shadow-sm p-1 m-2 border border-secundary">
+                    <p class="m-1">Account settings</p>
+                    <div>
+                        <a class="btn btn-sm btn-dark bg-gradient m-1" aria-current="page" href="{% url 'account_change_password' %}">Change Password</a>
+                        <a class="btn btn-sm btn-outline-danger m-1" aria-current="page" href="{% url 'delete_profile' %}">Delete Profile</a>
+                    </div>
                 </div>
-                {% empty %}
-                <div>
-                    <p>No active coupons</p>
-                </div>
-                {% endfor %}
             </div>
-            <div class="col-12 col-lg-6">
-                <p>Default Profile Delivery Information</p>
+            <div class="col-12 col-lg-6 ms-auto">
+                <p class="mt-1 mb-2">Default Profile Delivery Information</p>
                 <form action="{% url 'profile' %}" method="POST" id="profile_update_form">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button class="btn-sm btn-dark">Update Info.</button>
+                    <button class="btn-sm btn-dark bg-gradient mt-3 mb-4">Update Info.</button>
                 </form>
             </div>
         </div>
