@@ -163,6 +163,10 @@
 
 /* Querie for order details template */
 
+#checkou-details {
+    font-size: 12px;
+}
+
 #order-details {
     font-size: 12px;
 }
