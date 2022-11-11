@@ -167,6 +167,10 @@
     font-size: 12px;
 }
 
+#bag-container {
+    font-size: 12px;
+}
+
 }
 
 @media screen and (max-width: 300px) {
