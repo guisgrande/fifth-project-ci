@@ -8,50 +8,48 @@
     <hr>
 </div>
 
-<div class="container text-center">
+<div class="container-fluid text-center" id="order-details">
     <div class="row">
-        <div class="container text-center">
-            <div class="container">
+        <div class="container">
+            <div class="container bg-light bg-gradient rounded shadow-sm">
                 <div class="row">
                     <div class="col">
-                        <p class="text-black">Your order details is below.</p>
+                        <p class="text-black mt-4">Your order details is below.</p>
                     </div>
                 </div>
                 <div class="row">
-                    <h3>Order number: {{ order.order_number }}</h3>
+                    <p class="fw-light m-0">Order number</p>
+                    <p class="fw-bold">{{ order.order_number }}</p>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="fw-light">Order Date: {{ order.date }}</p>
+                    </div>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Order Date</p>
-                    </div>
-                    <div class="col-12 col-md-8 text-md-right">
-                        <p class="mb-0">{{ order.date }}</p>
-                    </div>
-                </div>
-        
+
                 <div class="row">
                     <div class="col">
                         <small class="text-muted">Order Details:</small>
                     </div>
-                </div>
-        
-                {% for item in order.lineitems.all %}
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <p class="small mb-0 text-black font-weight-bold">
-                            {{ item.product.name }}
-                        </p>
+                    {% for item in order.lineitems.all %}
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <p class="small mb-0 text-black font-weight-bold">
+                                {{ item.product.name }}
+                            </p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right">
+                            {% if item.product.offer  %}
+                            <p class="small mb-0">{{ item.quantity }} @ ${{ item.product.cal_discount_price }} each</p>
+                            {% else %}
+                            <p class="small mb-0">{{ item.quantity }} @ ${{ item.product.price }} each</p>
+                            {% endif %}
+                        </div>
                     </div>
-                    <div class="col-12 col-md-8 text-md-right">
-                        {% if item.product.offer  %}
-                        <p class="small mb-0">{{ item.quantity }} @ ${{ item.product.cal_discount_price }} each</p>
-                        {% else %}
-                        <p class="small mb-0">{{ item.quantity }} @ ${{ item.product.price }} each</p>
-                        {% endif %}
-                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+
                 <hr>
                 <div class="row">
                     <div class="col">
@@ -61,7 +59,7 @@
         
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Order Total</p>
+                        <p class="mb-0 fw-bold">Order Total</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ order.order_total }}</p>
@@ -70,7 +68,7 @@
         
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Delivery</p>
+                        <p class="mb-0 fw-bold">Delivery</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ order.delivery_cost }}</p>
@@ -79,7 +77,7 @@
 
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Discount</p>
+                        <p class="mb-0 fw-bold">Discount</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">-{{ order.discount_total }}</p>
@@ -88,7 +86,7 @@
         
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Grand Total</p>
+                        <p class="mb-0 fw-bold">Grand Total</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ order.grand_total }}</p>
@@ -103,7 +101,7 @@
                 
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Full Name</p>
+                        <p class="mb-0 fw-bold">Full Name</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ order.full_name }}</p>
@@ -112,7 +110,7 @@
         
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Address 1</p>
+                        <p class="mb-0 fw-bold">Address 1</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ order.street_address1 }}</p>
@@ -122,7 +120,7 @@
                 {% if order.street_address2 %}
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Address 2</p>
+                        <p class="mb-0 fw-bold">Address 2</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ order.street_address2 }}</p>
@@ -133,7 +131,7 @@
                 {% if order.county %}
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">County</p>
+                        <p class="mb-0 fw-bold">County</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ order.county }}</p>
@@ -143,7 +141,7 @@
         
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Town or City</p>
+                        <p class="mb-0 fw-bold">Town or City</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ order.town_or_city }}</p>
@@ -153,7 +151,7 @@
                 {% if order.postcode %}
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Postal Code</p>
+                        <p class="mb-0 fw-bold">Postal Code</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ order.postcode }}</p>
@@ -163,7 +161,7 @@
 
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Country</p>
+                        <p class="mb-0 fw-bold">Country</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ order.country }}</p>
@@ -178,7 +176,7 @@
         
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Phone Number</p>
+                        <p class="mb-0 fw-bold">Phone Number</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ order.phone_number }}</p>
@@ -187,7 +185,7 @@
         
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">E-mail</p>
+                        <p class="mb-0 fw-bold">E-mail</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">{{ order.email }}</p>
@@ -202,56 +200,97 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p class="mb-0">Current: {{ order.status }}</p>
+                        <p class="mb-0 mt-3"><small>Current:</small> {{ order.status }}</p>
                     </div>
                 </div>
-                <div class="progress m-4" style="height: 10px;">
+                <div class="progress m-4" style="height: 15px;">
                     {% if order.status == "Payment Approved" %}
-                        <div class="progress-bar" role="progressbar" aria-label="Example 20px high" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar" aria-label="Order status progress bar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                     {% endif %}
                     {% if order.status == "Order sent to separation" %}
-                        <div class="progress-bar" role="progressbar" aria-label="Example 20px high" style="width: 20%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar" aria-label="Order status progress bar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                     {% endif %}
                     {% if order.status == "Order picked" %}
-                    <div class="progress-bar" role="progressbar" aria-label="Example 20px high" style="width: 40%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar" aria-label="Order status progress bar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                     {% endif %}
                     {% if order.status == "Order packed" %}
-                    <div class="progress-bar" role="progressbar" aria-label="Example 20px high" style="width: 60%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar" aria-label="Order status progress bar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                     {% endif %}
                     {% if order.status == "Order shipped" %}
-                    <div class="progress-bar" role="progressbar" aria-label="Example 20px high" style="width: 80%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar" aria-label="Order status progress bar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                     {% endif %}
                     {% if order.status == "Order delivered" %}
-                    <div class="progress-bar" role="progressbar" aria-label="Example 20px high" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar" aria-label="Order status progress bar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                     {% endif %}
                 </div>
 
                 <div class="row m-4">
                     {% if order.status == "Payment Approved" %}
-                        <div><span><del>Payment Approved</del> >> <strong>Printing</strong> >> Picking >> Packing >> Shipping >> Delivering </span></div>
+                    <div class="row d-flex row mb-3">
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Approved <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-primary p-1 border border-primary rounded">Printing <i class="bi bi-chevron-double-right"></i></p></div>
+                        <div class="col"><p class="text-muted p-1 border border-secundary rounded">Picking <i class="bi bi-clock-history"></i></p></div>
+                        <div class="col"><p class="text-muted p-1 border border-secundary rounded">Packed <i class="bi bi-clock-history"></i></p></div>
+                        <div class="col"><p class="text-muted p-1 border border-secundary rounded">Shipping <i class="bi bi-clock-history"></i></p></div>
+                        <div class="col"><p class="text-muted p-1 border border-secundary rounded">Delivering <i class="bi bi-clock-history"></i></p>
+                    </div>
                     {% endif %}
                     {% if order.status == "Order sent to separation" %}
-                    <div><span><del>Payment Approved</del> >> <del>Printing</del> >> <strong>Picking</strong> >> Packing >> Shipping >> Delivering </span></div>
+                    <div class="row d-flex row mb-3">
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Approved <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Printing <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-primary p-1 border border-primary rounded">Picking <i class="bi bi-chevron-double-right"></i></p></div>
+                        <div class="col"><p class="text-muted p-1 border border-secundary rounded">Packed <i class="bi bi-clock-history"></i></p></div>
+                        <div class="col"><p class="text-muted p-1 border border-secundary rounded">Shipping <i class="bi bi-clock-history"></i></p></div>
+                        <div class="col"><p class="text-muted p-1 border border-secundary rounded">Delivering <i class="bi bi-clock-history"></i></p>
+                    </div>
                     {% endif %}
                     {% if order.status == "Order picked" %}
-                    <div><span><del>Payment Approved</del> >> <del>Printing</del> >> <del>Picking</del> >> <strong>Packing</strong> >> Shipping >> Delivering </span></div>
+                    <div class="row d-flex row mb-3">
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Approved <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Printing <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Picking <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-primary p-1 border border-primary rounded">Packed <i class="bi bi-chevron-double-right"></i></p></div>
+                        <div class="col"><p class="text-muted p-1 border border-secundary rounded">Shipping <i class="bi bi-clock-history"></i></p></div>
+                        <div class="col"><p class="text-muted p-1 border border-secundary rounded">Delivering <i class="bi bi-clock-history"></i></p>
+                    </div>
                     {% endif %}
                     {% if order.status == "Order packed" %}
-                    <div><span><del>Payment Approved</del> >> <del>Printing</del> >> <del>Picking</del> >> <del>Packed</del> >> <strong>Shipping</strong> >> Delivering </span></div>                    
+                    <div class="row d-flex row mb-3">
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Approved <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Printing <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Picking <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Packed <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-primary p-1 border border-primary rounded">Shipping <i class="bi bi-chevron-double-right"></i></p></div>
+                        <div class="col"><p class="text-muted p-1 border border-secundary rounded">Delivering <i class="bi bi-clock-history"></i></p>
+                    </div>               
                     {% endif %}
                     {% if order.status == "Order shipped" %}
-                    <div><span><del>Payment Approved</del> >> <del>Printing</del> >> <del>Picking</del> >> <del>Packed</del> >> <del>Shipping</del> >> <strong>Delivering</strong></span></div>
+                    <div class="row d-flex row mb-3">
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Approved <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Printing <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Picking <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Packed <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Shipping <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-primary p-1 border border-primary rounded">Delivering <i class="bi bi-chevron-double-right"></i></p>
+                    </div>
                     {% endif %}
                     {% if order.status == "Order delivered" %}
-                    <div><span><del>Payment Approved</del> >> <del>Printing</del> >> <del>Picking</del> >> <del>Packed</del> >> <del>Shipping</del> >> <del>Delivering</del></span></div>
+                    <div class="row d-flex row mb-3">
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Approved <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Printing <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Picking <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Packed <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Shipping <i class="bi bi-check2-all"></i></p></div>
+                        <div class="col"><p class="fw-bold text-success p-1 border border-success rounded">Delivering <i class="bi bi-check2-all"></i></p>
+                    </div>
                     {% endif %}
                 </div>
-
-            </div>        
+            </div>
         </div>
         <div class="container text-center">
-            <a class="btn btn-sm btn-dark" href="{% url 'profile' %}">My Profile</a>
-            <a class="btn btn-sm btn-dark" href="{% url 'orders_list' %}">My Orders</a>
+            <a class="btn btn-sm btn-outline-secondary m-1 mb-4" href="{% url 'profile' %}">My Profile</a>
+            <a class="btn btn-sm btn-outline-secondary m-1 mb-4" href="{% url 'orders_list' %}">My Orders</a>
         </div>
     </div>
 </div>

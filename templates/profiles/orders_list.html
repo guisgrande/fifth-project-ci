@@ -13,11 +13,11 @@
 <div class="container text-center">
     <div class="row">
         {% if orders %}
-        <div class="col-12 col-lg-6">
+        <div class="col-12 text-center">
             <p>All orders registered as user <strong>{% user_display user %}</strong></p>
             <p>Total orders: {{ total_orders_list }}</p>
         </div>
-        <div class="col-12 col-lg-6 table-responsive">
+        <div class="col-12 table-responsive">
             <table class="table table-sm table-borderless">
                 <thead>
                     <tr>
@@ -29,7 +29,7 @@
                 </thead>
                 <tbody>
                     {% for order in orders %}
-                        <tr>
+                        <tr class="border border-dark fw-light shadow-sm" style="font-size: 12px;">
                             <td>
                                 <a href="{% url 'order_details' order.order_number %}"
                                 title="{{ order.order_number }}">
@@ -54,13 +54,13 @@
         </div>
         {% else %}
         <div class="container text-center">
-            <p>We have not identified any orders finalized with the user </p>
-            <a class="btn btn-sm btn-dark" href="{% url 'products' %}">Back to Shop</a>
+            <p class="m-1">We have not identified any orders finalized with the user </p>
+            <a class="btn btn-sm btn-dark bg-gradient m-3" href="{% url 'products' %}">Back to Shop</a>
         </div>
         {% endif %}
 
-        <div class="container text-center">
-            <a class="btn btn-sm btn-dark" href="{% url 'profile' %}">My Profile</a>
+        <div>
+            <a class="btn btn-sm btn-outline-secondary mb-4" href="{% url 'profile' %}">Back to My Profile</a>
         </div>
     </div>
 </div>
