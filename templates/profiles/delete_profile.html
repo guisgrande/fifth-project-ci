@@ -10,77 +10,43 @@
 
 {% load account %}
 
-<div class="container text-center">
+<div class="container-fluid text-center">
     <div class="row">
         {% if orders %}
-        <div class="col-12 col-lg-6">
-            <h3>Attention you still have orders in our system.</h3> 
-            <p>Before proceeding with deleting your profile it is important to save your order numbers in case you need them in the future.</p>
-            <p>Once deleted, we will only be able to retrieve them using the order number.</p>
-            <p>We recommend waiting until you receive your order and confirm that your order has arrived properly before proceeding with this action.</p>
-        </div>
-        <div class="col-12 col-lg-6 table-responsive">
-            <table class="table table-sm table-borderless">
-                <thead>
-                    <tr>
-                        <th>Order Number</th>
-                        <th>Date</th>
-                        <th>Items</th>
-                        <th>Order Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for order in orders %}
-                        <tr>
-                            <td>
-                                <a href="#"
-                                title="{{ order.order_number }}">
-                                    {{ order.order_number|truncatechars:12 }}
-                                </a>
-                            </td>
-                            <td>{{ order.date }}</td>
-                            <td>
-                                <ul class="list-unstyled">
-                                    {% for item in order.lineitems.all %}
-                                        <li class="small">
-                                            {{ item.product.name }} x{{ item.quantity }}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </td>
-                            <td>${{ order.grand_total }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        <div class="container-fluid">
+            <p class="fw-bold">Attention you still have orders in our system.</p> 
+            <p class="fw-light">Before proceeding with deleting your profile it is important to save your order numbers in case you need them in the future.</p>
+            <p class="fw-light">Once deleted, we will only be able to retrieve them using the order number.</p>
+            <p class="fw-light">We recommend waiting until you receive your order and confirm that your order has arrived properly before proceeding with this action.</p>
+            <div class="container text-center">
+                <a class="btn btn-sm btn-dark bg-gradient m-1 mb-4 mt-4" href="{% url 'orders_list' %}">My Orders</a>
+            </div>
         </div>
         {% else %}
-        <div class="col-12 col-lg-6">
-            <p>Our system has indicated that this account has not made any purchases.</p>
+        <div class="container-fluid">
+            <p class="fw-bold">Our system has indicated that this account has not made any purchases.</p>
         </div>
         {% endif %}
-        <div class="col-12 col-lg-6">
-
+        <div class="container-fluid rounded border p-2 shadow-sm">
             <form method="POST">
                 {% csrf_token %}
                 <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">Delete User: <strong>{% user_display user %}</strong></legend>
+                    <legend class="border-bottom mb-4"><i class="text-danger bi bi-exclamation-square"></i> Delete User: <strong>{% user_display user %}</strong></legend>
                         <p>Are you sure you want to delete your account?</p>  
                         <p>This will permanently delete your profile and any information on it.</p>
                         {{ form }}
                 </fieldset>
-                <div class="row">
-                    <button class="btn btn-sm btn-danger" type="submit">Delete Account</button>
-                    <a class="btn btn-sm btn-primary" style="float:right;" href="{% url 'profile' %}">Cancel</a>
+                <div class="d-flex justify-content-center">
+                        <button class="btn btn-sm btn-outline-danger m-3" type="submit">Delete Account</button>
+                        <a class="btn btn-sm btn-primary m-3" style="float:right;" href="{% url 'profile' %}">Cancel</a>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
 
 <div class="container text-center">
-    <a class="btn btn-sm btn-dark" href="{% url 'products' %}">Back to Shop</a>
+    <a class="btn btn-sm btn-outline-secondary m-1 mb-4 mt-4" href="{% url 'products' %}">Back to Shop</a>
 </div>
 
 {%endblock%}
