@@ -2,33 +2,31 @@
 {% load static %}
 {% block content %}
 
-<header>
-    <div class="container-fluid">
-        <h1>Street Craft - Product Details</h1>
-    </div>
-</header>
-
-<div class="col-md-4 p-0">
-    <div class="card m-3">
+<div class="container-fluid">
+    <div class="card m-2 mt-4">
         <div class="card-body m-1 p-1 text-center">
-                <div class="image-container">
-                    {% if product.product_image %}
-                    <img class="card-img-top img-fluid" src="{{ product.product_image.url }}" alt="{{ product.name }}">
-                    {% else %}
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage-sc.png" alt="No image of the product">
-                    {% endif %}                            
-                </div>
-            <p class="card-text mt-2">Product: {{ product.name }}</p>
-            <p class="card-text">Availabe stock: {{ product.quantity_available }}</p>
-            {% if product.offer  %}
-            <p class="card-text"><del><small>Original price: $ {{ product.price }}</small></del></p>
-            <p class="card-text">{{ product.offer.offer_display }} - Discount offer: {{ product.offer.offer_discount }}%</p>
-            <p> Offer price: <strong>$ {{ product.cal_discount_price }} </strong></p>                 
-            {% else %}
-            <p class="card-text">Price: $ {{ product.price }}</p>
-            {% endif %}
-
-            <div class="col-lg-6 d-flex">
+            <div class="image-container col-sm-6 col-lg-4">
+                {% if product.product_image %}
+                <img class="card-img-top img-fluid" src="{{ product.product_image.url }}" alt="{{ product.name }}">
+                {% else %}
+                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage-sc.png" alt="No image of the product">
+                {% endif %}                            
+            </div>
+            <div>
+                <p class="card-text fw-bold mt-2">{{ product.name }}</p>
+                <p class="card-text text-muted">Product SKU: {{ product.sku }}</p>
+                <p class="card-text">Availabe stock: {{ product.quantity_available }}</p>
+            </div>
+            <div>
+                {% if product.offer  %}
+                <p class="card-text"><del><small>Original price: $ {{ product.price }}</small></del></p>
+                <p class="card-text">{{ product.offer.offer_display }} - Discount offer: {{ product.offer.offer_discount }}%</p>
+                <p> Offer price: <strong>$ {{ product.cal_discount_price }} </strong></p>                 
+                {% else %}
+                <p class="card-text">Price: $ {{ product.price }}</p>
+                {% endif %}
+            </div>
+            <div class="col-md-4 d-flex">
                 <div class="p-2">
                     {% if avg_review >= 1 %}
                     <span><i class="bi bi-star-fill"></i></span>
@@ -96,57 +94,56 @@
         </div>
         
         <div>
-            <p class="card-text">Product SKU: {{ product.sku }}</p>
             <p class="card-text">Description: {{ product.description }}</p>
         </div>
         <div>
             <form class="form" action="{% url 'add_to_bag' product.slug %}" method="POST">
                 {% csrf_token %}
-                <div class="form-row">
-                    <div class="col-12">
-                        <p class="mt-3"><strong>Quantity:</strong></p>
+                <div class="form-row text-center">
+                    <p class="fw-light mt-2">Quantity: </p>
+                    <div class="col-12 d-flex justify-content-center">
                         <div class="form-group w-50">
                             <div class="input-group">
-
-                                <div class="input-group-prepend">
-                                    <button type="button" class="decrement-qty btn btn-dark rounded-0" 
-                                        data-item_id="{{ product.slug }}" id="decrement-qty_{{ product.slug }}">
-                                        <span>-</span>
-                                    </button>
-                                </div>
-
-                                <input class="form-control qty_input" type="number"
+                                <input class="form-control qty_input rounded shadow-sm" type="number"
                                     name="quantity" value="1" min="1" max="99"
                                     data-item_id="{{ product.slug }}"
                                     id="id_qty_{{ product.slug }}">
-                                
-                                <div class="input-group-append">
-                                    <button type="button" class="increment-qty btn btn-dark rounded-0"
-                                        data-item_id="{{ product.slug }}" id="increment-qty_{{ product.slug }}">
-                                        <span>+</span>
-                                    </button>
+                                <div class="d-flex flex-row border rounded shadow-sm">
+                                    <div class="input-group-prepend m-1">
+                                        <button type="button" class="decrement-qty btn btn-sm btn-dark rounded" 
+                                            data-item_id="{{ product.slug }}" id="decrement-qty_{{ product.slug }}">
+                                            <span><i class="bi bi-dash-lg"></i></span>
+                                        </button>
+                                    </div>
+                                    <div class="input-group-append m-1">
+                                        <button type="button" class="increment-qty btn btn-sm btn-dark rounded"
+                                            data-item_id="{{ product.slug }}" id="increment-qty_{{ productslug }}">
+                                            <span><i class="bi bi-plus-lg"></i></span>
+                                        </button>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-12">
-                        <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 mt-5" >
+                    <div class="container-fluid text-center mb-3">
+                        <a href="{% url 'products' %}" class="btn btn-outline-dark bg-gradient rounded m-1 mt-5" >
                             <span class="text-uppercase">Keep Shopping</span>
                         </a>
-                        <input type="submit" class="btn btn-success rounded-0 text-uppercase mt-5" value="Add to Bag">
+                        <input type="submit" class="btn btn-success bg-gradient rounded text-uppercase m-1 mt-5" value="Add to Bag">
                     </div>
 
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
             </form>
-            {% if request.user.is_superuser %}
-            <a href="{% url 'edit_product' product.slug %}">Edit</a>
-            <a class="text-danger" href="{% url 'delete_product' product.slug %}">Delete</a>
-            {% endif %}
         </div>
     </div>
+    {% if request.user.is_superuser %}
+    <div class="container text-center m-2">
+        <a class="btn btn-sm btn-outline-dark m-1" href="{% url 'edit_product' product.slug %}">Edit</a>
+        <a class="btn btn-sm btn-outline-danger m-1" href="{% url 'delete_product' product.slug %}">Delete</a>
+    </div>
+    {% endif %}
 </div>
 
 {% endblock content %}
