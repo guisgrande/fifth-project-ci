@@ -161,6 +161,12 @@
     justify-content: center !important;
 }
 
+/* Querie for order details template */
+
+#order-details {
+    font-size: 12px;
+}
+
 }
 
 @media screen and (max-width: 300px) {
