@@ -37,7 +37,7 @@ class Order(models.Model):
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     STATUS_A = 'Payment Approved'
-    STATUS_ONE = 'Order sent to separation'
+    STATUS_ONE = 'Order printed'
     STATUS_TWO = 'Order picked'
     STATUS_THREE = 'Order packed'
     STATUS_FOUR = 'Order shipped'
@@ -45,7 +45,7 @@ class Order(models.Model):
 
     ORDER_STATUS = [
         (STATUS_A, 'Payment Approved'),
-        (STATUS_ONE, 'Order sent to separation'),
+        (STATUS_ONE, 'Order printed'),
         (STATUS_TWO, 'Order picked'),
         (STATUS_THREE, 'Order packed'),
         (STATUS_FOUR, 'Order shipped'),
