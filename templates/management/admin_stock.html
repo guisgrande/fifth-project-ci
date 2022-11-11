@@ -13,28 +13,26 @@
 <div class="container text-center">
     <div class="row">
         <div class="col table-responsive">
-            <table class="table table-sm table-borderless">
+            <table class="table table-sm table-borderless" style="font-size: 13px;">
                 <thead>
-                    <tr>
-                        <th>Product SKU</th>
-                        <th>Product name</th>
+                    <tr class="border-bottom">
+                        <th>Product SKU / Name</th>
                         <th>Current Stock</th>
-                        <th>Update STOCK</th>
+                        <th>Update Stock</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for product in product_list %}
-                        <tr>
-                            <td>{{ product.sku }}</td>
-                            <td>{{ product.name }}</td>
-                            <td>{{ product.quantity_available }}</td>
+                        <tr class="border-bottom">
+                            <td class="pt-2">SKU {{ product.sku }} - {{ product.name }}</td>
+                            <td class="pt-2">{{ product.quantity_available }}</td>
                             <td>
                                 <form method="POST" action="{% url 'update_stock' product.slug %}">
                                     {% for field in form %}
                                     {% csrf_token %}
                                         {{ field }}
                                     {% endfor %}
-                                    <input class="btn btn-sm btn-success m-1" type="submit" value="&#x2713">
+                                    <input class="btn btn-sm btn-success m-1 bg-gradient" type="submit" value="&#x2713">
                                 </form>
                             </td>
                         </tr>

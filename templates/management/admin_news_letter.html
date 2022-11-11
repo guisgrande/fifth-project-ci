@@ -7,9 +7,9 @@
     <h2 class="m-2">News Letter - Management</h2>
     <hr>
 </div>
-<div class="container">
+<div class="container text-center">
     <div>
-        <h3>Send News Letter email to to subscribers</h3>
+        <p class="fw-light">Send email to all subscribers</p>
     </div>
     <form method="POST" action="{% url 'news_letter_send' %}" id="newsform">
         {% csrf_token %}
@@ -22,7 +22,7 @@
             <label for="bodyText">Body</label>
         </div>
         <div>
-            <button type="submit" class="btn btn-sm btn-primary">Send e-mail</button>
+            <button type="submit" class="btn btn-sm btn-dark bg-gradient m-4">Send e-mail</button>
         </div>
     </form>
 </div>
