@@ -3,10 +3,9 @@
 
 {% block content %}
 
-    <div class="overlay"></div>
-    <div class="container">
+    <div class="container" style="font-size: 13px;">
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col text-center">
                 <hr>
                 <h2 class="logo-font mb-4">Product Management</h2>
                 <h5 class="text-muted">Add a Product</h5>
@@ -14,14 +13,14 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row d-flex justify-content-center bg-light bg-gradient p-2 mb-3 rounded shadow-sm">
             <div class="col-12 col-md-6">
                 <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
-                    <div class="text-right">
-                        <a class="btn btn-outline-black rounded-0" href="{% url 'profile' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Add Product</button>
+                    <div class="container text-center mt-3">
+                        <a class="btn btn-sm btn-outline-dark rounded m-2 bg-gradient" href="{% url 'profile' %}">Cancel</a>
+                        <button class="btn btn-sm btn-dark rounded m-2 bg-gradient" type="submit">Add Product</button>
                     </div>
                 </form>
             </div>            

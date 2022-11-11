@@ -22,7 +22,7 @@ class ProductForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
+            field.widget.attrs['class'] = 'border rounded m-1 shadow-sm'
 
 
 class ReviewForm(forms.ModelForm):

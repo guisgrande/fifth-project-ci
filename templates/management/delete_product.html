@@ -3,10 +3,9 @@
 
 {% block content %}
 
-    <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col text-center">
                 <hr>
                 <h2 class="logo-font mb-4">Product Management</h2>
                 <h5 class="text-muted">Delete a Product</h5>
@@ -14,15 +13,15 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 col-md-6">
+        <div class="row d-flex justify-content-center bg-light bg-gradient p-2 mb-3 rounded shadow-sm">
+            <div class="col-12 col-md-6 text-center">
                 <form method="POST" action="{% url 'delete_product' product.slug %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     <p>Are you sure you want to delete the following product?</p>
-                    <p>SKU: {{ product.sku }} - Product name: {{ product.name}} - Still in stock: {{ product.quantity_available}}</p>
-                    <div class="text-right">
-                        <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Delete Product</button>
+                    <p class="fw-light">SKU: {{ product.sku }} - Product name: {{ product.name}} - Still in stock: {{ product.quantity_available}}</p>
+                    <div class="container text-center mt-3">
+                        <a class="btn btn-sm btn-outline-dark rounded bg-gradient" href="{% url 'products' %}">Cancel</a>
+                        <button class="btn btn-sm btn-danger rounded bg-gradient m-2" type="submit">Delete Product</button>
                     </div>
                 </form>
             </div>            
