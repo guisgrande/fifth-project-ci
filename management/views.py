@@ -8,8 +8,8 @@ from django.contrib.auth import get_user_model
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from products.models import Product
-from checkout.models import Order
 from products.forms import ProductForm
+from checkout.models import Order
 from .models import NewsLetterList, NewsLetterMail
 from .forms import StockForm, OrderStatusForm
 
@@ -119,7 +119,7 @@ def news_letter_sub(request):
                 return redirect(request.META.get("HTTP_REFERER", "/"))
 
         subscribe_user = NewsLetterList.objects.filter(news_email=email).first()
-        
+
         if subscribe_user:
             messages.error(request, f"{email} email address is already subscribed.")
             return redirect(request.META.get("HTTP_REFERER", "/"))
@@ -175,11 +175,11 @@ def news_letter_send(request):
     if request.method == 'POST':
         subject = request.POST.get('subject', None)
         body = request.POST.get('body', None)
-       
+
         if not subject or not body:
             messages.error(request, "You forgot to fill in one of the fields.")
             return redirect("/")
-        
+
         email_list = []
         for subscriber in NewsLetterList.objects.all():
             email_list.append(subscriber.news_email)
@@ -257,13 +257,13 @@ def orders_status(request):
     """
     Function to site owner / admin see order status list.
     """
-    orders = Order.objects.all()
+    orders = Order.objects.all().order_by("-date")
     form = OrderStatusForm()
 
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can view this page.')
         return redirect(reverse('home'))
-    
+
     context = {
         'orders': orders,
         'form': form,
