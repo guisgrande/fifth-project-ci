@@ -46,31 +46,276 @@
     </div>
 </header>
 
-<div class="container-fluid">
-    <!-- New Arivals -->
-    <div>
-        <h2>New Arivals</h2>
-        <p><i class="bi bi-rocket-takeoff"></i> Find out what's new <a href="{% url 'products' %}?offer=NEW" class="btn btn-sm btn-outline-dark bg-gradient">SHOP</a></p>
-    </div>
-    <!-- Special Offers -->
-    <div>
-        <h2>Special Offers</h2>
-        <p><i class="bi bi-tags"></i> Take advantage of our special offers <a href="{% url 'products' %}?offer=SALE" class="btn btn-sm btn-outline-dark bg-gradient">SHOP</a></p>
-    </div>
-    <!-- News Letter / Social -->
-    <div>
-        <p><i class="bi bi-envelope-check"></i> News Letter</p>
-        <p><i class="bi bi-people"></i> Social Medias</p>
-    </div>
-    <!-- Last chance -->
-    <div>
-        <h2>Last Chance</h2>
-        <p><i class="bi bi-clock"></i> Don't miss the opportunity, last chance before products are removed from stock <a href="{% url 'products' %}?offer=LAST" class="btn btn-sm btn-outline-dark bg-gradient">SHOP</a></p>
-    </div>
-    <!-- Sign up Welcome Coupon -->
-    <div>
-        <p><i class="bi bi-ticket-perforated"></i> Sign Up</p>
+<!-- New Arivals -->
+<div class="p-2 container-fluid text-center bg-dark bg-gradient">
+    <h2 class="m-2 p-2 text-white">New Arivals</h2>
+    <p class="m-2 p-2 text-white"><i class="bi bi-rocket-takeoff"></i> Find out what's new</p>
+    <a href="{% url 'products' %}?offer=NEW" class="btn btn-sm btn-outline-light bg-gradient m-3">SHOP</a>
+    <div class="container-fluid">
+        <div class="row">
+            {% for product in news_list %}
+                <div class="col-sm-6 col-md-4 col-lg-3 p-0">
+                    <div class="card m-3 shadow-sm">
+                        <div class="card-body m-1 p-1">
+                            <a href="{% url 'product_details' product.slug %}">
+                                <div class="image-container">
+                                    {% if product.product_image %}
+                                    <img class="card-img-top" src="{{ product.product_image.url }}" alt="{{ product.name }}">
+                                    {% else %}
+                                    <img class="card-img-top" src="{{ MEDIA_URL }}noimage-sc.png" alt="No image of the product">
+                                    {% endif %}   
+                                    {% if product.offer %}
+                                    <div class="offer-tag bg-success bg-gradient">
+                                        <p class="card-text text-uppercase p-1 m-0 text-dark fw-bold" style="font-size: 12px;">{{ product.offer.offer_display }} - {{ product.offer.offer_discount }}% OFF</p>
+                                    </div>
+                                    {% endif %}                      
+                                </div>
+                            </a>
+                            <p class="card-text fw-bold mt-2">{{ product.name }}</p>
+                            <div class="bg-light bg-gradient rounded shadow-sm mt-3">
+                                {% if product.offer %}
+                                <p class="ps-2 card-text">Offer price: <span class="text-muted fw-light"><del><small>$ {{ product.price }}</small></del></span> <strong>$ {{ product.cal_discount_price }} </strong></p>                 
+                                {% else %}
+                                <p class="ps-2 card-text">Price: <strong>$ {{ product.price }}</strong></p>
+                                {% endif %}
+                            </div>
+                            {% if product.quantity_available %}
+                            <p class="card-text m-3 fw-light" style="font-size: 13px;">In stock: <span class="bg-light rounded p-1 shadow-sm">{{ product.quantity_available }}</span></p>
+                            {% else %}
+                            <p class="card-text m-3" style="font-size: 13px;"><span class="bg-light rounded p-1 shadow-sm text-danger">Out of Stock</span></p>
+                            {% endif %}
+                            <!-- Quantity / Add to bag -->
+                            <div class="mt-2 mb-2">
+                                <form class="form" action="{% url 'add_to_bag' product.slug %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-row">
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <div class="form-group w-70">
+                                                <div class="input-group">
+                                                    <input class="form-control qty_input rounded shadow-sm" type="number"
+                                                        name="quantity" value="1" min="1" max="99"
+                                                        data-item_id="{{ product.slug }}"
+                                                        id="id_qty_{{ product.slug }}">
+                                                    <div class="d-flex flex-row border rounded shadow-sm">
+                                                        <div class="input-group-prepend m-1">
+                                                            <button type="button" class="decrement-qty btn btn-sm btn-dark rounded" 
+                                                                data-item_id="{{ product.slug }}" id="decrement-qty_{{ product.slug }}">
+                                                                <span><i class="bi bi-dash-lg"></i></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="input-group-append m-1">
+                                                            <button type="button" class="increment-qty btn btn-sm btn-dark rounded"
+                                                                data-item_id="{{ product.slug }}" id="increment-qty_{{ productslug }}">
+                                                                <span><i class="bi bi-plus-lg"></i></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <input type="submit" class="btn btn-success bg-gradient rounded text-uppercase" value="Add">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">        
+        </div>
     </div>
 </div>
 
+<!-- Special Offers -->
+<div class="p-2 container-fluid text-center bg-light bg-gradient">
+    <h2 class="m-2 p-2">Special Offers</h2>
+    <p class="m-2 p-2"><i class="bi bi-tags"></i> Take advantage of our special offers</p>
+    <a href="{% url 'products' %}?offer=SALE" class="btn btn-sm btn-outline-dark bg-gradient m-3">SHOP</a>
+    <div class="container-fluid">
+        <div class="row">
+            {% for product in special_list %}
+                <div class="col-sm-6 col-md-4 col-lg-3 p-0">
+                    <div class="card m-3 shadow-sm">
+                        <div class="card-body m-1 p-1">
+                            <a href="{% url 'product_details' product.slug %}">
+                                <div class="image-container">
+                                    {% if product.product_image %}
+                                    <img class="card-img-top" src="{{ product.product_image.url }}" alt="{{ product.name }}">
+                                    {% else %}
+                                    <img class="card-img-top" src="{{ MEDIA_URL }}noimage-sc.png" alt="No image of the product">
+                                    {% endif %}   
+                                    {% if product.offer %}
+                                    <div class="offer-tag bg-success bg-gradient">
+                                        <p class="card-text text-uppercase p-1 m-0 text-dark fw-bold" style="font-size: 12px;">{{ product.offer.offer_display }} - {{ product.offer.offer_discount }}% OFF</p>
+                                    </div>
+                                    {% endif %}                      
+                                </div>
+                            </a>
+                            <p class="card-text fw-bold mt-2">{{ product.name }}</p>
+                            <div class="bg-light bg-gradient rounded shadow-sm mt-3">
+                                {% if product.offer %}
+                                <p class="ps-2 card-text">Offer price: <span class="text-muted fw-light"><del><small>$ {{ product.price }}</small></del></span> <strong>$ {{ product.cal_discount_price }} </strong></p>                 
+                                {% else %}
+                                <p class="ps-2 card-text">Price: <strong>$ {{ product.price }}</strong></p>
+                                {% endif %}
+                            </div>
+                            {% if product.quantity_available %}
+                            <p class="card-text m-3 fw-light" style="font-size: 13px;">In stock: <span class="bg-light rounded p-1 shadow-sm">{{ product.quantity_available }}</span></p>
+                            {% else %}
+                            <p class="card-text m-3" style="font-size: 13px;"><span class="bg-light rounded p-1 shadow-sm text-danger">Out of Stock</span></p>
+                            {% endif %}
+                            <!-- Quantity / Add to bag -->
+                            <div class="mt-2 mb-2">
+                                <form class="form" action="{% url 'add_to_bag' product.slug %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-row">
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <div class="form-group w-70">
+                                                <div class="input-group">
+                                                    <input class="form-control qty_input rounded shadow-sm" type="number"
+                                                        name="quantity" value="1" min="1" max="99"
+                                                        data-item_id="{{ product.slug }}"
+                                                        id="id_qty_{{ product.slug }}">
+                                                    <div class="d-flex flex-row border rounded shadow-sm">
+                                                        <div class="input-group-prepend m-1">
+                                                            <button type="button" class="decrement-qty btn btn-sm btn-dark rounded" 
+                                                                data-item_id="{{ product.slug }}" id="decrement-qty_{{ product.slug }}">
+                                                                <span><i class="bi bi-dash-lg"></i></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="input-group-append m-1">
+                                                            <button type="button" class="increment-qty btn btn-sm btn-dark rounded"
+                                                                data-item_id="{{ product.slug }}" id="increment-qty_{{ productslug }}">
+                                                                <span><i class="bi bi-plus-lg"></i></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <input type="submit" class="btn btn-success bg-gradient rounded text-uppercase" value="Add">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">        
+        </div>
+    </div>
+</div>
+
+<!-- News Letter / Social -->
+<div class="p-2 text-center bg-dark bg-gradient text-white row d-flex justify-content-around">
+    <div class="m-3 col-8 col-lg-5 border border-ligh">
+        <h2 class="m-2 p-2"><i class="bi bi-envelope-check"></i> News Letter</h2>
+        <p class="fw-light">Subscribe your e-mail in our weekly News Letter and stay on top of the news and exclusive discounts.</p>
+    </div>
+    <div class="m-3 col-8 col-lg-5 border border-ligh">
+        <h2 class="m-2 p-2"><i class="bi bi-people"></i> Social Medias</h2>
+        <p class="fw-light">Also follow us on social networks to compete for prizes, be connected with our projects and our team.</p>
+    </div>
+</div>
+
+<!-- Last chance -->
+<div class="p-2 container-fluid text-center bg-light bg-gradient">
+    <h2 class="m-2 p-2">Last Chance</h2>
+    <p class="m-2 p-2"><i class="bi bi-clock"></i> Don't miss the opportunity, last chance before products are removed from stock</p>
+    <a href="{% url 'products' %}?offer=LAST" class="btn btn-sm btn-outline-dark bg-gradient m-3">SHOP</a>
+    <div class="container-fluid">
+        <div class="row">
+            {% for product in last_list %}
+                <div class="col-sm-6 col-md-4 col-lg-3 p-0">
+                    <div class="card m-3 shadow-sm">
+                        <div class="card-body m-1 p-1">
+                            <a href="{% url 'product_details' product.slug %}">
+                                <div class="image-container">
+                                    {% if product.product_image %}
+                                    <img class="card-img-top" src="{{ product.product_image.url }}" alt="{{ product.name }}">
+                                    {% else %}
+                                    <img class="card-img-top" src="{{ MEDIA_URL }}noimage-sc.png" alt="No image of the product">
+                                    {% endif %}   
+                                    {% if product.offer %}
+                                    <div class="offer-tag bg-success bg-gradient">
+                                        <p class="card-text text-uppercase p-1 m-0 text-dark fw-bold" style="font-size: 12px;">{{ product.offer.offer_display }} - {{ product.offer.offer_discount }}% OFF</p>
+                                    </div>
+                                    {% endif %}                      
+                                </div>
+                            </a>
+                            <p class="card-text fw-bold mt-2">{{ product.name }}</p>
+                            <div class="bg-light bg-gradient rounded shadow-sm mt-3">
+                                {% if product.offer %}
+                                <p class="ps-2 card-text">Offer price: <span class="text-muted fw-light"><del><small>$ {{ product.price }}</small></del></span> <strong>$ {{ product.cal_discount_price }} </strong></p>                 
+                                {% else %}
+                                <p class="ps-2 card-text">Price: <strong>$ {{ product.price }}</strong></p>
+                                {% endif %}
+                            </div>
+                            {% if product.quantity_available %}
+                            <p class="card-text m-3 fw-light" style="font-size: 13px;">In stock: <span class="bg-light rounded p-1 shadow-sm">{{ product.quantity_available }}</span></p>
+                            {% else %}
+                            <p class="card-text m-3" style="font-size: 13px;"><span class="bg-light rounded p-1 shadow-sm text-danger">Out of Stock</span></p>
+                            {% endif %}
+                            <!-- Quantity / Add to bag -->
+                            <div class="mt-2 mb-2">
+                                <form class="form" action="{% url 'add_to_bag' product.slug %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-row">
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <div class="form-group w-70">
+                                                <div class="input-group">
+                                                    <input class="form-control qty_input rounded shadow-sm" type="number"
+                                                        name="quantity" value="1" min="1" max="99"
+                                                        data-item_id="{{ product.slug }}"
+                                                        id="id_qty_{{ product.slug }}">
+                                                    <div class="d-flex flex-row border rounded shadow-sm">
+                                                        <div class="input-group-prepend m-1">
+                                                            <button type="button" class="decrement-qty btn btn-sm btn-dark rounded" 
+                                                                data-item_id="{{ product.slug }}" id="decrement-qty_{{ product.slug }}">
+                                                                <span><i class="bi bi-dash-lg"></i></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="input-group-append m-1">
+                                                            <button type="button" class="increment-qty btn btn-sm btn-dark rounded"
+                                                                data-item_id="{{ product.slug }}" id="increment-qty_{{ productslug }}">
+                                                                <span><i class="bi bi-plus-lg"></i></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <input type="submit" class="btn btn-success bg-gradient rounded text-uppercase" value="Add">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">        
+        </div>
+    </div>
+</div>
+{% if request.user.is_authenticated %}
+{% else %}
+<!-- Sign up Welcome Coupon -->
+<div class="p-3 container-fluid text-center bg-dark bg-gradient text-white">
+    <h2 class="m-2 p-2"><i class="bi bi-ticket-perforated"></i> Sign Up</h2>
+    <p class="m-2 p-2">Register in our store now and immediately receive a <strong>10% OFF</strong> coupon for your first purchase.</p>
+    <a class="btn btn-outline-light bg-gradient mb-3" href="{% url 'account_signup' %}">Sign Up</a>
+</div>
+{% endif %}
+
 {% endblock content %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'includes/script_quantity_input.html' %}
+{% endblock %}
