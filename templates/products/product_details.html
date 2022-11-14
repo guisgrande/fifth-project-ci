@@ -2,32 +2,20 @@
 {% load static %}
 {% block content %}
 
-<div class="container-fluid">
-    <div class="card m-2 mt-4">
-        <div class="card-body m-1 p-1 text-center">
-            <div class="image-container col-sm-6 col-lg-4">
+<div class="container-fluid mt-4 mb-4">
+    <div class="row d-flex justify-content-center">
+        <div class="card m-2 col-11 col-md-5 col-lg-4">
+            <!-- Image -->
+            <div class="image-container p-2">
                 {% if product.product_image %}
-                <img class="card-img-top img-fluid" src="{{ product.product_image.url }}" alt="{{ product.name }}">
+                <img class="card-img-top img-fluid rounded" src="{{ product.product_image.url }}" alt="{{ product.name }}">
                 {% else %}
-                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage-sc.png" alt="No image of the product">
+                <img class="card-img-top img-fluid rounded" src="{{ MEDIA_URL }}noimage-sc.png" alt="No image of the product">
                 {% endif %}                            
             </div>
-            <div>
-                <p class="card-text fw-bold mt-2">{{ product.name }}</p>
-                <p class="card-text text-muted">Product SKU: {{ product.sku }}</p>
-                <p class="card-text">Availabe stock: {{ product.quantity_available }}</p>
-            </div>
-            <div>
-                {% if product.offer  %}
-                <p class="card-text"><del><small>Original price: $ {{ product.price }}</small></del></p>
-                <p class="card-text">{{ product.offer.offer_display }} - Discount offer: {{ product.offer.offer_discount }}%</p>
-                <p> Offer price: <strong>$ {{ product.cal_discount_price }} </strong></p>                 
-                {% else %}
-                <p class="card-text">Price: $ {{ product.price }}</p>
-                {% endif %}
-            </div>
-            <div class="col-md-4 d-flex">
-                <div class="p-2">
+            <!-- Reviews -->
+            <div class="m-2 d-flex flex-row mt-3 bg-light bg-gradient rounded shadow-sm">
+                <div class="p-2 text-warning d-flex align-items-center">
                     {% if avg_review >= 1 %}
                     <span><i class="bi bi-star-fill"></i></span>
                     {% elif avg_review > 0 %}
@@ -67,24 +55,24 @@
                     {% else %}
                     <span><i class="bi bi-star"></i></span>
                     {% endif %}
-                </div> 
-                <div class="p-2">
-                    {% if avg_review is None %}
-                    <p class="card-text">(0)</p>
-                    {% else %}
-                    <p class="card-text">{{ avg_review }}</p>
-                    {% endif %}
+                    <div class="fw-light p-2 text-dark">
+                        {% if avg_review is None %}
+                        <p class="card-text">(0)</p>
+                        {% else %}
+                        <p class="card-text">{{ avg_review }}</p>
+                        {% endif %}
+                    </div>
                 </div>
-                <div class="ms-auto p-2">
+                <div class="ms-auto p-2 d-flex align-items-center">
                     {% if total_review is None %}
                         {% if request.user.is_authenticated %}
-                        <a href="{% url 'review_product' product.slug %}" class="btn btn-sm">Review (0)</a>
+                        <a href="{% url 'review_product' product.slug %}" class="btn btn-outline-warning btn-sm shadow-sm">Review (0)</a>
                         {% else %}
                         <p class="card-text">Reviews (0)</p>
                         {% endif %}
                     {% else %}
                         {% if request.user.is_authenticated %}
-                        <a href="{% url 'review_product' product.slug %}" class="btn btn-sm">Review ({{ total_review }})</a>
+                        <a href="{% url 'review_product' product.slug %}" class="btn btn-outline-warning btn-sm shadow-sm">Review ({{ total_review }})</a>
                         {% else %}
                         <p class="card-text">Reviews ({{ total_review }})</p>
                         {% endif %}
@@ -92,58 +80,87 @@
                 </div>
             </div>
         </div>
-        
-        <div>
-            <p class="card-text">Description: {{ product.description }}</p>
-        </div>
-        <div>
-            <form class="form" action="{% url 'add_to_bag' product.slug %}" method="POST">
-                {% csrf_token %}
-                <div class="form-row text-center">
-                    <p class="fw-light mt-2">Quantity: </p>
-                    <div class="col-12 d-flex justify-content-center">
-                        <div class="form-group w-50">
-                            <div class="input-group">
-                                <input class="form-control qty_input rounded shadow-sm" type="number"
-                                    name="quantity" value="1" min="1" max="99"
-                                    data-item_id="{{ product.slug }}"
-                                    id="id_qty_{{ product.slug }}">
-                                <div class="d-flex flex-row border rounded shadow-sm">
-                                    <div class="input-group-prepend m-1">
-                                        <button type="button" class="decrement-qty btn btn-sm btn-dark rounded" 
-                                            data-item_id="{{ product.slug }}" id="decrement-qty_{{ product.slug }}">
-                                            <span><i class="bi bi-dash-lg"></i></span>
-                                        </button>
-                                    </div>
-                                    <div class="input-group-append m-1">
-                                        <button type="button" class="increment-qty btn btn-sm btn-dark rounded"
-                                            data-item_id="{{ product.slug }}" id="increment-qty_{{ productslug }}">
-                                            <span><i class="bi bi-plus-lg"></i></span>
-                                        </button>
+        <div class="card m-2 shadow-sm border-dark col-11 col-md-6 col-lg-4">
+            <div class="card-body m-1 p-1">
+                <!-- Description / SKU / Stock -->
+                <div class="mt-3">
+                    <p class="card-text fw-bold m-0 text-uppercase">{{ product.name }}</p>
+                    <p class="card-text text-muted m-0"> SKU: {{ product.sku }}</p>
+                    {% if product.quantity_available  %}
+                    <p class="card-text m-0 mt-2 fw-light">In stock: <span class="bg-light rounded p-1 shadow-sm">{{ product.quantity_available }}</span></p>
+                    {% else %}
+                    <p class="card-text m-0 mt-2"><span class="bg-light rounded p-1 shadow-sm text-danger">Out of Stock</span></p>
+                    {% endif %}
+                </div>
+                <!-- Price and Offer -->
+                <div class="bg-light bg-gradient rounded shadow-sm mt-3">
+                    {% if product.offer  %}
+                    <p class="card-text text-uppercase p-2 m-0 text-success fw-bold">{{ product.offer.offer_display }} - {{ product.offer.offer_discount }}% OFF</p>
+                    <p class="card-text text-muted m-0 ps-2 fw-light"><del><small>Original price: $ {{ product.price }}</small></del></p>
+                    <p class="ps-2"> Offer price: <strong>$ {{ product.cal_discount_price }} </strong></p>                 
+                    {% else %}
+                    <p class="ps-2 card-text">Price: $ {{ product.price }}</p>
+                    {% endif %}
+                </div>
+                <!-- Quantity / Add to bag -->
+                <div class="mt-5">
+                    <form class="form" action="{% url 'add_to_bag' product.slug %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row text-center">
+                            <p class="fw-light m-0">Quantity: </p>
+                            <div class="col-12 d-flex justify-content-center">
+                                <div class="form-group w-50">
+                                    <div class="input-group">
+                                        <input class="form-control qty_input rounded shadow-sm" type="number"
+                                            name="quantity" value="1" min="1" max="99"
+                                            data-item_id="{{ product.slug }}"
+                                            id="id_qty_{{ product.slug }}">
+                                        <div class="d-flex flex-row border rounded shadow-sm">
+                                            <div class="input-group-prepend m-1">
+                                                <button type="button" class="decrement-qty btn btn-sm btn-dark rounded" 
+                                                    data-item_id="{{ product.slug }}" id="decrement-qty_{{ product.slug }}">
+                                                    <span><i class="bi bi-dash-lg"></i></span>
+                                                </button>
+                                            </div>
+                                            <div class="input-group-append m-1">
+                                                <button type="button" class="increment-qty btn btn-sm btn-dark rounded"
+                                                    data-item_id="{{ product.slug }}" id="increment-qty_{{ productslug }}">
+                                                    <span><i class="bi bi-plus-lg"></i></span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="container-fluid text-center mb-3">
+                                <a href="{% url 'products' %}" class="btn btn-sm btn-outline-dark bg-gradient rounded m-1 mt-5" >
+                                    <span class="text-uppercase">Keep Shopping</span>
+                                </a>
+                                <input type="submit" class="btn btn-sm btn-success bg-gradient rounded text-uppercase m-1 mt-5" value="Add to Bag">
+                            </div>
+
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
-                    </div>
-
-                    <div class="container-fluid text-center mb-3">
-                        <a href="{% url 'products' %}" class="btn btn-outline-dark bg-gradient rounded m-1 mt-5" >
-                            <span class="text-uppercase">Keep Shopping</span>
-                        </a>
-                        <input type="submit" class="btn btn-success bg-gradient rounded text-uppercase m-1 mt-5" value="Add to Bag">
-                    </div>
-
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </form>
                 </div>
-            </form>
+                <!-- Description -->
+                <div class="mt-4">
+                    <p class="card-text">Description/Specifications:</p>
+                    <p class="card-text fw-light">{{ product.description }}</p>
+                </div>
+            </div>
+
+            <!-- Admin actions -->
+            {% if request.user.is_superuser %}
+            <div class="container text-center m-2">
+                <a class="btn btn-sm btn-outline-dark m-1" href="{% url 'edit_product' product.slug %}">Edit</a>
+                <a class="btn btn-sm btn-outline-danger m-1" href="{% url 'delete_product' product.slug %}">Delete</a>
+            </div>
+            {% endif %}
+
         </div>
     </div>
-    {% if request.user.is_superuser %}
-    <div class="container text-center m-2">
-        <a class="btn btn-sm btn-outline-dark m-1" href="{% url 'edit_product' product.slug %}">Edit</a>
-        <a class="btn btn-sm btn-outline-danger m-1" href="{% url 'delete_product' product.slug %}">Delete</a>
-    </div>
-    {% endif %}
 </div>
 
 {% endblock content %}
