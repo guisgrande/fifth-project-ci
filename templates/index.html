@@ -3,9 +3,74 @@
 {% block content %}
 
 <header>
-    <div class="container-fluid">
-        <h1>Street Craft - Home</h1>
+    <!-- Hero -->
+    <div class="container-fluid d-flex justify-content-center">
+        <div id="carouselHeroCaptions" class="carousel slide m-1 col-xl-9 shadow" data-bs-ride="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselHeroCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselHeroCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselHeroCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ MEDIA_URL }}hero-one.jpg" class="img-fluid hero-image rounded" alt="Man sitting with skateboard ">
+                <div class="carousel-caption d-block">
+                    <a href="{% url 'products' %}" class="mb-1 btn btn-sm btn-warning bg-gradient shadow-sm">SHOP</a>
+                    <p class="hero-text bg-hero text-warning rounded shadow-sm">Explore our store.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ MEDIA_URL }}hero-two.jpg" class="img-fluid hero-image rounded" alt="Man on a skateboard track jumping">
+                <div class="carousel-caption d-block">
+                    <a href="{% url 'account_signup' %}" class="mb-1 btn btn-sm btn-warning bg-gradient shadow-sm">REGISTER</a>
+                    <p class="hero-text bg-hero text-warning rounded shadow-sm">10% Discount for new accounts.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ MEDIA_URL }}hero-three.jpg" class="img-fluid hero-image rounded" alt="Woman with skateboard on the side, looking away">
+                <div class="carousel-caption d-block">
+                    <a href="{% url 'products' %}?category=SKT" class="mb-1 btn btn-sm btn-warning bg-gradient shadow-sm">SHOP</a>
+                    <p class="hero-text bg-hero text-warning rounded shadow-sm">Choose the best street art.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHeroCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselHeroCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
     </div>
 </header>
+
+<div class="container-fluid">
+    <!-- New Arivals -->
+    <div>
+        <h2>New Arivals</h2>
+        <p><i class="bi bi-rocket-takeoff"></i> Find out what's new <a href="{% url 'products' %}?offer=NEW" class="btn btn-sm btn-outline-dark bg-gradient">SHOP</a></p>
+    </div>
+    <!-- Special Offers -->
+    <div>
+        <h2>Special Offers</h2>
+        <p><i class="bi bi-tags"></i> Take advantage of our special offers <a href="{% url 'products' %}?offer=SALE" class="btn btn-sm btn-outline-dark bg-gradient">SHOP</a></p>
+    </div>
+    <!-- News Letter / Social -->
+    <div>
+        <p><i class="bi bi-envelope-check"></i> News Letter</p>
+        <p><i class="bi bi-people"></i> Social Medias</p>
+    </div>
+    <!-- Last chance -->
+    <div>
+        <h2>Last Chance</h2>
+        <p><i class="bi bi-clock"></i> Don't miss the opportunity, last chance before products are removed from stock <a href="{% url 'products' %}?offer=LAST" class="btn btn-sm btn-outline-dark bg-gradient">SHOP</a></p>
+    </div>
+    <!-- Sign up Welcome Coupon -->
+    <div>
+        <p><i class="bi bi-ticket-perforated"></i> Sign Up</p>
+    </div>
+</div>
 
 {% endblock content %}
