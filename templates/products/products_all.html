@@ -4,60 +4,101 @@
 {% block content %}
 
 <header>
-    <div class="container-fluid">
+    <div class="container-fluid text-center">
+        <hr>
         <h1>Street Craft - Products</h1>
+        <hr>
     </div>
 </header>
 
-<div class="container-fluid">
-    <p>Total of products: {{ total_products_list }}</p>
-</div>
 
-<div class="dropdown p-2">
-    <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Sort all products by
-    </a>
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="/all-products/?sort=price&direction=asc">By price: Low to High</a></li>
-        <li><a class="dropdown-item" href="/all-products/?sort=price&direction=desc">By price: High to Low</a></li>
-        <li><a class="dropdown-item" href="/all-products/?sort=rating&direction=asc">By rating: Low to High</a></li>
-        <li><a class="dropdown-item" href="/all-products/?sort=rating&direction=desc">By rating: High to Low</a></li>
-        <li><a class="dropdown-item" href="/all-products/?sort=name&direction=asc">By name: A to Z</a></li>
-        <li><a class="dropdown-item" href="/all-products/?sort=name&direction=desc">By name: Z to A</a></li>
-    </ul>
+<div class="m-1 d-flex justify-content-between align-items-center">
+    <div class="fw-light m-2">
+        <p>Total of products: {{ total_products_list }}</p>
+    </div>
+    <div class="dropdown m-2">
+        <a class="btn btn-outline-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort all products by
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/all-products/?sort=price&direction=asc">By price: Low to High</a></li>
+            <li><a class="dropdown-item" href="/all-products/?sort=price&direction=desc">By price: High to Low</a></li>
+            <li><a class="dropdown-item" href="/all-products/?sort=name&direction=asc">By name: A to Z</a></li>
+            <li><a class="dropdown-item" href="/all-products/?sort=name&direction=desc">By name: Z to A</a></li>
+        </ul>
+    </div>
 </div>
-
+<hr>
 <div class="container-fluid">
     <div class="row">
         {% for product in products_list %}
-            <div class="col-md-4 p-0">
-                <div class="card m-3">
-                    <div class="card-body m-1 p-1 text-center">
+            <div class="col-sm-6 col-md-4 col-lg-3 p-0">
+                <div class="card m-3 shadow-sm">
+                    <div class="card-body m-1 p-1">
                         <a href="{% url 'product_details' product.slug %}">
                             <div class="image-container">
                                 {% if product.product_image %}
-                                <img class="card-img-top img-fluid" src="{{ product.product_image.url }}" alt="{{ product.name }}">
+                                <img class="card-img-top" src="{{ product.product_image.url }}" alt="{{ product.name }}">
                                 {% else %}
-                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage-sc.png" alt="No image of the product">
-                                {% endif %}                         
+                                <img class="card-img-top" src="{{ MEDIA_URL }}noimage-sc.png" alt="No image of the product">
+                                {% endif %}   
+                                {% if product.offer %}
+                                <div class="offer-tag bg-success bg-gradient">
+                                    <p class="card-text text-uppercase p-1 m-0 text-dark fw-bold" style="font-size: 12px;">{{ product.offer.offer_display }} - {{ product.offer.offer_discount }}% OFF</p>
+                                </div>
+                                {% endif %}                      
                             </div>
                         </a>
-                        <p class="card-text mt-2">Product: {{ product.name }}</p>
-                        <p class="card-text">Availabe stock: {{ product.quantity_available }}</p>
-                        {% if product.offer  %}
-                        <p class="card-text"><del><small>Original price: $ {{ product.price }}</small></del></p>
-                        <p class="card-text">{{ product.offer.offer_display }} - Discount offer: {{ product.offer.offer_discount }}%</p>
-                        <p> Offer price: <strong>$ {{ product.cal_discount_price }} </strong></p>                 
+                        <p class="card-text fw-bold mt-2">{{ product.name }}</p>
+                        <div class="bg-light bg-gradient rounded shadow-sm mt-3">
+                            {% if product.offer %}
+                            <p class="ps-2 card-text">Offer price: <span class="text-muted fw-light"><del><small>$ {{ product.price }}</small></del></span> <strong>$ {{ product.cal_discount_price }} </strong></p>                 
+                            {% else %}
+                            <p class="ps-2 card-text">Price: <strong>$ {{ product.price }}</strong></p>
+                            {% endif %}
+                        </div>
+                        {% if product.quantity_available %}
+                        <p class="card-text m-3 fw-light" style="font-size: 13px;">In stock: <span class="bg-light rounded p-1 shadow-sm">{{ product.quantity_available }}</span></p>
                         {% else %}
-                        <p class="card-text">Price: $ {{ product.price }}</p>
+                        <p class="card-text m-3" style="font-size: 13px;"><span class="bg-light rounded p-1 shadow-sm text-danger">Out of Stock</span></p>
                         {% endif %}
+                        <!-- Quantity / Add to bag -->
+                        <div class="mt-2 mb-2">
+                            <form class="form" action="{% url 'add_to_bag' product.slug %}" method="POST">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="col-12 d-flex justify-content-center">
+                                        <div class="form-group w-70">
+                                            <div class="input-group">
+                                                <input class="form-control qty_input rounded shadow-sm" type="number"
+                                                    name="quantity" value="1" min="1" max="99"
+                                                    data-item_id="{{ product.slug }}"
+                                                    id="id_qty_{{ product.slug }}">
+                                                <div class="d-flex flex-row border rounded shadow-sm">
+                                                    <div class="input-group-prepend m-1">
+                                                        <button type="button" class="decrement-qty btn btn-sm btn-dark rounded" 
+                                                            data-item_id="{{ product.slug }}" id="decrement-qty_{{ product.slug }}">
+                                                            <span><i class="bi bi-dash-lg"></i></span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="input-group-append m-1">
+                                                        <button type="button" class="increment-qty btn btn-sm btn-dark rounded"
+                                                            data-item_id="{{ product.slug }}" id="increment-qty_{{ productslug }}">
+                                                            <span><i class="bi bi-plus-lg"></i></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <input type="submit" class="btn btn-success bg-gradient rounded text-uppercase" value="Add">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-            {% if forloop.counter|divisibleby:3 %}
-                </div>
-                <div class="row">
-            {% endif %}
         {% endfor %}
     </div>
     <div class="row">        
