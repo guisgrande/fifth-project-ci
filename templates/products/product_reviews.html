@@ -3,24 +3,27 @@
 {% block content %}
 
 <header>
-    <div class="container-fluid">
-        <h1>Street Craft - Review Product</h1>
+    <hr>
+    <div class="container-fluid text-center">
+        <h1>Review Product</h1>
     </div>
+    <hr>
 </header>
 
-<div class="col-md-4 p-0">
-    <div class="card m-3">
-        <div class="card-body m-1 p-1 text-center">
-                <div class="image-container">
-                    {% if product.product_image %}
-                    <img class="card-img-top img-fluid" src="{{ product.product_image.url }}" alt="{{ product.name }}">
-                    {% else %}
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage-sc.png" alt="No image of the product">
-                    {% endif %}                            
-                </div>
-            <p class="card-text mt-2">{{ product.name }}</p>
-            <div class="col-lg-6 d-flex">
-                <div class="p-2">
+<div class="p-0 d-flex justify-content-center">
+    <div class="card m-3 col-md-6 shadow-sm">
+        <div class="card-body m-1 p-1">
+            <div class="image-container">
+                {% if product.product_image %}
+                <img class="card-img-top img-fluid rounded" src="{{ product.product_image.url }}" alt="{{ product.name }}">
+                {% else %}
+                <img class="card-img-top img-fluid rounded" src="{{ MEDIA_URL }}noimage-sc.png" alt="No image of the product">
+                {% endif %}                            
+            </div>
+            <p class="card-text mt-2 fw-bold text-center">{{ product.name }}</p>
+            <a class="m-2 btn btn-sm btn-outline-secondary bg-gradient rounded" href="{% url 'product_details' product.slug %}">Back to product</a>
+            <div class="m-2 d-flex flex-row mt-3 bg-light bg-gradient rounded shadow-sm">
+                <div class="p-2 text-warning d-flex align-items-center">
                     {% if avg_review >= 1 %}
                     <span><i class="bi bi-star-fill"></i></span>
                     {% elif avg_review > 0 %}
@@ -61,14 +64,14 @@
                     <span><i class="bi bi-star"></i></span>
                     {% endif %}
                 </div> 
-                <div class="p-2">
+                <div class="p-2 fw-light">
                     {% if avg_review is None %}
                     <p class="card-text">(0)</p>
                     {% else %}
                     <p class="card-text">{{ avg_review }}</p>
                     {% endif %}
                 </div>
-                <div class="ms-auto p-2">
+                <div class="ms-auto p-2 fw-light">
                     {% if total_review is None %}
                         <p class="card-text">Reviews (0)</p>
                     {% else %}
@@ -79,73 +82,78 @@
         </div>
         {% if purchased %}
             {% if reviewed %}
-            <div>
-                <p class="card-text">You have already reviewed this product</p>
+            <div class="m-3 bg-light bg-gradient shadow-sm rounded text-center">
+                <p class="card-text fw-bold p-2">You have already reviewed this product</p>
             </div>
             {% else %}
             <div>
                 <form method="POST" action="{% url 'add_review' product.slug %}">
                     {% csrf_token %}
-                    <div class="btn-group" role="group" aria-label="Review radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio" value="1" id="btnradio1" autocomplete="off">
-                        <label class="btn btn-outline-warning" for="btnradio1"><i class="bi bi-star"></i></label>
-                    
-                        <input type="radio" class="btn-check" name="btnradio" value="2" id="btnradio2" autocomplete="off" >
-                        <label class="btn btn-outline-warning" for="btnradio2"><i class="bi bi-star"></i></label>
-                    
-                        <input type="radio" class="btn-check" name="btnradio" value="3" id="btnradio3" autocomplete="off">
-                        <label class="btn btn-outline-warning" for="btnradio3"><i class="bi bi-star"></i></label>
+                    <div class="d-flex justify-content-between bg-dark rounded m-3 shadow-sm">
+                        <div class="btn-group m-4" role="group" aria-label="Review radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio" value="1" id="btnradio1" autocomplete="off">
+                            <label class="btn btn-outline-warning" for="btnradio1"><i class="bi bi-star"></i></label>
+                        
+                            <input type="radio" class="btn-check" name="btnradio" value="2" id="btnradio2" autocomplete="off" >
+                            <label class="btn btn-outline-warning" for="btnradio2"><i class="bi bi-star"></i></label>
+                        
+                            <input type="radio" class="btn-check" name="btnradio" value="3" id="btnradio3" autocomplete="off">
+                            <label class="btn btn-outline-warning" for="btnradio3"><i class="bi bi-star"></i></label>
 
-                        <input type="radio" class="btn-check" name="btnradio" value="4" id="btnradio4" autocomplete="off">
-                        <label class="btn btn-outline-warning" for="btnradio4"><i class="bi bi-star"></i></label>
+                            <input type="radio" class="btn-check" name="btnradio" value="4" id="btnradio4" autocomplete="off">
+                            <label class="btn btn-outline-warning" for="btnradio4"><i class="bi bi-star"></i></label>
 
-                        <input type="radio" class="btn-check" name="btnradio" value="5" id="btnradio5" autocomplete="off" checked>
-                        <label class="btn btn-outline-warning" for="btnradio5"><i class="bi bi-star"></i></label>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-sm btn-primary">Review</button>
+                            <input type="radio" class="btn-check" name="btnradio" value="5" id="btnradio5" autocomplete="off" checked>
+                            <label class="btn btn-outline-warning" for="btnradio5"><i class="bi bi-star"></i></label>
+                        </div>
+                        <div class="m-4">
+                            <button type="submit" class="btn btn-warning bg-gradient">Review</button>
+                        </div>
                     </div>
                     </form>
             </div>
             {% endif %}
         {% else %}
-        <div>
-            <p class="card-text">You can only review products that you buy.</p>
+        <div class="m-3 bg-light bg-gradient shadow-sm rounded text-center">
+            <p class="card-text fw-bold p-2 m-2">You can only review products that you buy.</p>
         </div>
         {% endif %}
-        <div class="col">
+        <div class="col m-2 text-center">
+            <hr>
             {% for review in product_review %}
-                <p>{{ review.name }} - {{ review.created_on }}</p>
+                <p class="fw-light m-0 mt-3">{{ review.name }} - {{ review.created_on }}</p>
+                <div class="m-0 text-warning">
+                    {% if review.review >= 1 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
 
-                {% if review.review >= 1 %}
-                <span><i class="bi bi-star-fill"></i></span>
-                {% else %}
-                <span><i class="bi bi-star"></i></span>
-                {% endif %}
+                    {% if review.review >= 2 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
 
-                {% if review.review >= 2 %}
-                <span><i class="bi bi-star-fill"></i></span>
-                {% else %}
-                <span><i class="bi bi-star"></i></span>
-                {% endif %}
+                    {% if review.review >= 3 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
 
-                {% if review.review >= 3 %}
-                <span><i class="bi bi-star-fill"></i></span>
-                {% else %}
-                <span><i class="bi bi-star"></i></span>
-                {% endif %}
+                    {% if review.review >= 4 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
+                    {% endif %}
 
-                {% if review.review >= 4 %}
-                <span><i class="bi bi-star-fill"></i></span>
-                {% else %}
-                <span><i class="bi bi-star"></i></span>
+                    {% if review.review == 5 %}
+                    <span><i class="bi bi-star-fill"></i></span>
+                    {% else %}
+                    <span><i class="bi bi-star"></i></span>
                 {% endif %}
-
-                {% if review.review == 5 %}
-                <span><i class="bi bi-star-fill"></i></span>
-                {% else %}
-                <span><i class="bi bi-star"></i></span>
-                {% endif %}
+                </div>
+                <hr>
             {% endfor %}
         </div>
     </div>
