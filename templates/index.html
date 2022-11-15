@@ -50,7 +50,7 @@
 <div class="p-2 container-fluid text-center bg-dark bg-gradient">
     <h2 class="m-2 p-2 text-white">New Arivals</h2>
     <p class="m-2 p-2 text-white"><i class="bi bi-rocket-takeoff"></i> Find out what's new</p>
-    <a href="{% url 'products' %}?offer=NEW" class="btn btn-sm btn-outline-light bg-gradient m-3">SHOP</a>
+    <a href="{% url 'products' %}?offer=NEW" class="btn btn-outline-light bg-gradient m-3">SHOP</a>
     <div class="container-fluid">
         <div class="row">
             {% for product in news_list %}
@@ -132,7 +132,7 @@
 <div class="p-2 container-fluid text-center bg-light bg-gradient">
     <h2 class="m-2 p-2">Special Offers</h2>
     <p class="m-2 p-2"><i class="bi bi-tags"></i> Take advantage of our special offers</p>
-    <a href="{% url 'products' %}?offer=SALE" class="btn btn-sm btn-outline-dark bg-gradient m-3">SHOP</a>
+    <a href="{% url 'products' %}?offer=SALE" class="btn btn-outline-dark bg-gradient m-3">SHOP</a>
     <div class="container-fluid">
         <div class="row">
             {% for product in special_list %}
@@ -212,13 +212,49 @@
 
 <!-- News Letter / Social -->
 <div class="p-2 text-center bg-dark bg-gradient text-white row d-flex justify-content-around">
-    <div class="m-3 col-8 col-lg-5 border border-ligh">
+    <div class="m-3 col-8 col-lg-5 border border-ligh rounded">
         <h2 class="m-2 p-2"><i class="bi bi-envelope-check"></i> News Letter</h2>
         <p class="fw-light">Subscribe your e-mail in our weekly News Letter and stay on top of the news and exclusive discounts.</p>
+        <div class="p-3">
+            <form method="POST" action="{% url 'news_letter_sub' %}">
+                {% csrf_token %}
+                <div class="form-floating mb-3 text-secondary">
+                    <input type="email" class="form-control" id="news_email" name="news_email" placeholder="Your best e-mail">
+                    <label for="news_email">Your best e-mail</label>
+                </div>
+                <div class="form-floating mb-3 text-secondary">
+                    <input type="text" class="form-control" id="news_name" name="news_name" placeholder="Your name">
+                    <label for="news_name">Your name</label>
+                </div>
+                <div class="container">
+                    <button type="submit" class="btn btn-primary bg-gradient">Subscribe</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="m-3 col-8 col-lg-5 border border-ligh">
+    <div class="m-3 col-8 col-lg-5 border border-ligh rounded">
         <h2 class="m-2 p-2"><i class="bi bi-people"></i> Social Medias</h2>
         <p class="fw-light">Also follow us on social networks to compete for prizes, be connected with our projects and our team.</p>
+        <div class="d-flex flex-row justify-content-center pt-3">
+            <div class="m-3">
+                <a class="btn btn-outline-primary" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Check our Facebook page 
+                (opens in a new tab)"><i class="bi bi-facebook"></i> Facebook</a>
+            </div>
+            <div class="m-3">
+                <a class="btn btn-outline-primary" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Check our Instagram page 
+                (opens in a new tab)"><i class="bi bi-instagram"></i> Instagram</a>
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-center">
+            <div class="m-3">
+                <a class="btn btn-outline-primary" href="https://tiktok.com" target="_blank" rel="noopener" aria-label="Check our TikTok page 
+                (opens in a new tab)"><i class="bi bi-tiktok"></i> Tiktok</a>
+            </div>
+            <div class="m-3">
+                <a class="btn btn-outline-primary" href="https://youtube.com" target="_blank" rel="noopener" aria-label="Check our Youtube page 
+                (opens in a new tab)"><i class="bi bi-youtube"></i> Youtube</a>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -226,7 +262,7 @@
 <div class="p-2 container-fluid text-center bg-light bg-gradient">
     <h2 class="m-2 p-2">Last Chance</h2>
     <p class="m-2 p-2"><i class="bi bi-clock"></i> Don't miss the opportunity, last chance before products are removed from stock</p>
-    <a href="{% url 'products' %}?offer=LAST" class="btn btn-sm btn-outline-dark bg-gradient m-3">SHOP</a>
+    <a href="{% url 'products' %}?offer=LAST" class="btn btn-outline-dark bg-gradient m-3">SHOP</a>
     <div class="container-fluid">
         <div class="row">
             {% for product in last_list %}
