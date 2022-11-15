@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.db.models import Q, Avg
 from django.contrib import messages
 from checkout.models import Order, OrderLineItem
@@ -13,19 +14,12 @@ def products(request):
     Search and sort products funcionality, 
     Category return from nav links.
     """
-
-    products_list = Product.objects.all()
+    products_list = Product.objects.all().order_by("-release_date")
     total_products_list = products_list.count()
-    query = None
-    categories = None
-    offers = None
-    sort = None
-    direction = None
 
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
-            sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products_list = products_list.annotate(lower_name=Lower('name'))
@@ -60,13 +54,15 @@ def products(request):
             products_list = products_list.filter(queries)
             total_products_list = products_list.count()
 
-    current_sorting = f'{sort}_{direction}'
+    paginator = Paginator(products_list, 8)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     context = {
         "products_list": products_list,
         "total_products_list": total_products_list,
-        'current_categories': categories,
-        'current_sorting': current_sorting
+        'page_obj': page_obj,
+        'paginator': paginator,
     }
 
     return render(request, 'products/products_all.html', context)
