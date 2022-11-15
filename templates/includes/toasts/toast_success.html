@@ -44,9 +44,12 @@
                             Spend <strong>${{ free_delivery_delta }}</strong> more to get free next day delivery!
                         </p>
                     {% endif %}
-                    <a href="{% url 'checkout' %}" class="btn btn-dark btn-block rounded-0">
-                        <span class="text-uppercase">Go To Secure Checkout</span>
-                    </a>
+                    <hr class="mt-1 mb-3">
+                    <div class="container text-center">
+                        <a href="{% url 'checkout' %}" class="btn btn-dark bg-gradient rounded">
+                            <span class="text-uppercase">Go To Secure Checkout</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         {% endif %}

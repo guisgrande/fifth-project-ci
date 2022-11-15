@@ -178,6 +178,10 @@
 
 @media screen and (max-width: 500px) {
 
+.message-container {
+    width: 300px;
+}
+
 /* Querie for footer elements */
 
 #social-container {
