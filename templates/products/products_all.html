@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load product_tag %}
 
 {% block content %}
 
@@ -31,7 +32,7 @@
 <hr>
 <div class="container-fluid">
     <div class="row">
-        {% for product in products_list %}
+        {% for product in page_obj %}
             <div class="col-sm-6 col-md-4 col-lg-3 p-0">
                 <div class="card m-3 shadow-sm">
                     <div class="card-body m-1 p-1">
@@ -103,6 +104,26 @@
     </div>
     <div class="row">        
     </div>
+</div>
+
+<div class="container text-center p-3 fw-bold">
+    {% if page_obj.has_previous %}
+    <a href="?{% param_replace page=1 %}">First</a>
+        {% if page_obj.previous_page_number != 1 %}
+        <a class="p-1 border border-primary rounded shadow-sm" href="?{% param_replace page=page_obj.previous_page_number %}"><i class="bi bi-chevron-double-left"></i></a>
+        {% endif %}
+    {% endif %}
+
+    Page {{ page_obj.number }} of {{ paginator.num_pages }}
+
+    {% if page_obj.has_next %}
+        {% if page_obj.next_page_number != paginator.num_pages %}
+        <a class="p-1 border border-primary rounded shadow-sm" href="?{% param_replace page=page_obj.next_page_number %}"><i class="bi bi-chevron-double-right"></i></a>
+        {% endif %}
+    <a href="?{% param_replace page=paginator.num_pages %}">Last</a>
+    {% endif %}
+
+    <p class="pt-1 fw-light">Showing products {{ page_obj.start_index }}—{{ page_obj.end_index }}</p>
 </div>
 
 {% endblock content %}
