@@ -1,5 +1,7 @@
 # Street Craft - Store
 
+Street Craft is an online store selling skateboards and other products using graffiti street art as design. A B2C business with a vision to reach their target audience (people interested in skateboarding and street style) through the internet. With the mission to deliver quality products through a reliable, fast and intuitive online sales platform. 
+
 ## Contents
 
 ## UX/UI Design
