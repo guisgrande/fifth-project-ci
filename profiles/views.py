@@ -81,7 +81,7 @@ def orders_list(request):
     Function to display list of all orders for logged in user.
     """
     profile = get_object_or_404(UserProfile, user=request.user)
-    orders = profile.orders.all()
+    orders = profile.orders.all().order_by("-date")
     total_orders_list = orders.count()
 
     context = {
