@@ -4,8 +4,8 @@
 
 <header>
     <!-- Hero -->
-    <div class="container-fluid d-flex justify-content-center">
-        <div id="carouselHeroCaptions" class="carousel slide m-1 col-xl-9 shadow" data-bs-ride="false">
+    <div class="container-fluid d-flex justify-content-center p-0">
+        <div id="carouselHeroCaptions" class="carousel slide col-xl-9 shadow" data-bs-ride="false">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselHeroCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselHeroCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -13,24 +13,24 @@
             </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ MEDIA_URL }}hero-one.jpg" class="img-fluid hero-image rounded" alt="Man sitting with skateboard ">
+                <img src="{{ MEDIA_URL }}man-skateboard-wall-graffiti.jpg" class="img-fluid hero-image" alt="Man sitting with skateboard with graffiti art wall behind">
                 <div class="carousel-caption d-block">
                     <a href="{% url 'products' %}" class="mb-1 btn btn-sm btn-warning bg-gradient shadow-sm">SHOP</a>
                     <p class="hero-text bg-hero text-warning rounded shadow-sm">Explore our store.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{ MEDIA_URL }}hero-two.jpg" class="img-fluid hero-image rounded" alt="Man on a skateboard track jumping">
+                <img src="{{ MEDIA_URL }}man-jumping-with-skateboard.jpg" class="img-fluid hero-image" alt="Man on a skateboard track jumping, anothers skaters behind">
                 <div class="carousel-caption d-block">
                     <a href="{% url 'account_signup' %}" class="mb-1 btn btn-sm btn-warning bg-gradient shadow-sm">REGISTER</a>
                     <p class="hero-text bg-hero text-warning rounded shadow-sm">10% Discount for new accounts.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{ MEDIA_URL }}hero-three.jpg" class="img-fluid hero-image rounded" alt="Woman with skateboard on the side, looking away">
+                <img src="{{ MEDIA_URL }}woman-with-skateboard.jpg" class="img-fluid hero-image" alt="Woman with skateboard on the side in a street, looking away">
                 <div class="carousel-caption d-block">
                     <a href="{% url 'products' %}?category=SKT" class="mb-1 btn btn-sm btn-warning bg-gradient shadow-sm">SHOP</a>
-                    <p class="hero-text bg-hero text-warning rounded shadow-sm">Choose the best street art.</p>
+                    <p class="hero-text bg-hero text-warning rounded shadow-sm">Choose your favorite street art skateboard.</p>
                 </div>
             </div>
         </div>
@@ -48,8 +48,8 @@
 
 <!-- New Arivals -->
 <div class="p-2 container-fluid text-center bg-dark bg-gradient">
-    <h2 class="m-2 p-2 text-white">New Arrivals</h2>
-    <p class="m-2 p-2 text-white"><i class="bi bi-rocket-takeoff"></i> Find out what's new</p>
+    <h1 class="m-2 p-2 text-white"><i class="bi bi-rocket-takeoff"></i> New Arrivals</h1>
+    <h2 class="m-2 p-2 text-white">Find out what's new! <strong>Street art skateboards, Caps and Bags.</strong> </h2>
     <a href="{% url 'products' %}?offer=NEW" class="btn btn-outline-light bg-gradient m-3">SHOP</a>
     <div class="container-fluid">
         <div class="row">
@@ -130,8 +130,8 @@
 
 <!-- Special Offers -->
 <div class="p-2 container-fluid text-center bg-light bg-gradient">
-    <h2 class="m-2 p-2">Special Offers</h2>
-    <p class="m-2 p-2"><i class="bi bi-tags"></i> Take advantage of our special offers</p>
+    <h2 class="m-2 p-2"><i class="bi bi-tags"></i> Special Offers</h2>
+    <h2 class="m-2 p-2">Take advantage of our special sale! The <strong>perfect gift for a skateboarder.</strong></h2>
     <a href="{% url 'products' %}?offer=SALE" class="btn btn-outline-dark bg-gradient m-3">SHOP</a>
     <div class="container-fluid">
         <div class="row">
@@ -211,48 +211,50 @@
 </div>
 
 <!-- News Letter / Social -->
-<div class="p-2 container-fluid text-center bg-dark bg-gradient text-white row d-flex justify-content-around">
-    <div class="m-3 col-8 col-lg-5 border border-ligh rounded">
-        <h2 class="m-2 p-2"><i class="bi bi-envelope-check"></i> News Letter</h2>
-        <p class="fw-light">Subscribe your e-mail in our weekly News Letter and stay on top of the news and exclusive discounts.</p>
-        <div class="p-3">
-            <form method="POST" action="{% url 'news_letter_sub' %}">
-                {% csrf_token %}
-                <div class="form-floating mb-3 text-secondary">
-                    <input type="email" class="form-control" id="news_email" name="news_email" placeholder="Your best e-mail">
-                    <label for="news_email">Your best e-mail</label>
-                </div>
-                <div class="form-floating mb-3 text-secondary">
-                    <input type="text" class="form-control" id="news_name" name="news_name" placeholder="Your name">
-                    <label for="news_name">Your name</label>
-                </div>
-                <div class="container">
-                    <button type="submit" class="btn btn-primary bg-gradient">Subscribe</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="m-3 col-8 col-lg-5 border border-ligh rounded">
-        <h2 class="m-2 p-2"><i class="bi bi-people"></i> Social Medias</h2>
-        <p class="fw-light">Also follow us on social networks to compete for prizes, be connected with our projects and our team.</p>
-        <div class="d-flex flex-row justify-content-center pt-3">
-            <div class="m-3">
-                <a class="btn btn-sm btn-outline-primary" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Check our Facebook page 
-                (opens in a new tab)"><i class="bi bi-facebook"></i> Facebook</a>
-            </div>
-            <div class="m-3">
-                <a class="btn btn-sm btn-outline-primary" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Check our Instagram page 
-                (opens in a new tab)"><i class="bi bi-instagram"></i> Instagram</a>
+<div class="p-2 container-fluid text-center bg-dark bg-gradient text-white">
+    <div class="row d-flex justify-content-around m-0">
+        <div class="m-3 col-10 col-lg-5 border border-ligh rounded">
+            <h2 class="m-2 p-2"><i class="bi bi-envelope-check"></i> News Letter</h2>
+            <p>Subscribe your e-mail in our weekly News Letter and stay on top of the news and exclusive discounts. Get the <strong>newest street art and graffiti designs</strong>, and come out ahead when purchasing your skateboard.</p>
+            <div class="p-3">
+                <form method="POST" action="{% url 'news_letter_sub' %}">
+                    {% csrf_token %}
+                    <div class="form-floating mb-3 text-secondary">
+                        <input type="email" class="form-control" id="news_email" name="news_email" placeholder="Your best e-mail">
+                        <label for="news_email">Your best e-mail</label>
+                    </div>
+                    <div class="form-floating mb-3 text-secondary">
+                        <input type="text" class="form-control" id="news_name" name="news_name" placeholder="Your name">
+                        <label for="news_name">Your name</label>
+                    </div>
+                    <div class="container">
+                        <button type="submit" class="btn btn-primary bg-gradient">Subscribe</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="d-flex flex-row justify-content-center">
-            <div class="m-3">
-                <a class="btn btn-sm btn-outline-primary" href="https://tiktok.com" target="_blank" rel="noopener" aria-label="Check our TikTok page 
-                (opens in a new tab)"><i class="bi bi-tiktok"></i> Tiktok</a>
+        <div class="m-3 col-10 col-lg-5 border border-ligh rounded">
+            <h2 class="m-2 p-2"><i class="bi bi-people"></i> Social Medias</h2>
+            <p>Also follow us on social networks to compete for prizes, be connected with our projects and our team. Always up to date on <strong>skateboarding events</strong>, <strong>graffiti competitions</strong>, <strong>street community collaborations</strong> and more.</p>
+            <div class="d-flex flex-row justify-content-center pt-3">
+                <div class="m-3">
+                    <a class="btn btn-sm btn-outline-primary" href="https://www.facebook.com/profile.php?id=100087889754580" target="_blank" rel="noopener" aria-label="Check our Facebook page 
+                    (opens in a new tab)"><i class="bi bi-facebook"></i> Facebook</a>
+                </div>
+                <div class="m-3">
+                    <a class="btn btn-sm btn-outline-primary" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Check our Instagram page 
+                    (opens in a new tab)"><i class="bi bi-instagram"></i> Instagram</a>
+                </div>
             </div>
-            <div class="m-3">
-                <a class="btn btn-sm btn-outline-primary" href="https://youtube.com" target="_blank" rel="noopener" aria-label="Check our Youtube page 
-                (opens in a new tab)"><i class="bi bi-youtube"></i> Youtube</a>
+            <div class="d-flex flex-row justify-content-center">
+                <div class="m-3">
+                    <a class="btn btn-sm btn-outline-primary" href="https://tiktok.com" target="_blank" rel="noopener" aria-label="Check our TikTok page 
+                    (opens in a new tab)"><i class="bi bi-tiktok"></i> Tiktok</a>
+                </div>
+                <div class="m-3">
+                    <a class="btn btn-sm btn-outline-primary" href="https://youtube.com" target="_blank" rel="noopener" aria-label="Check our Youtube page 
+                    (opens in a new tab)"><i class="bi bi-youtube"></i> Youtube</a>
+                </div>
             </div>
         </div>
     </div>
@@ -260,8 +262,8 @@
 
 <!-- Last chance -->
 <div class="p-2 container-fluid text-center bg-light bg-gradient">
-    <h2 class="m-2 p-2">Last Chance</h2>
-    <p class="m-2 p-2"><i class="bi bi-clock"></i> Don't miss the opportunity, last chance before products are removed from stock</p>
+    <h2 class="m-2 p-2"><i class="bi bi-clock"></i> Last Chance</h2>
+    <h2 class="m-2 p-2"> Don't miss the opportunity! <strong>Street skateboards, Bags and Caps in sale.</strong> 45% OFF</h2>
     <a href="{% url 'products' %}?offer=LAST" class="btn btn-outline-dark bg-gradient m-3">SHOP</a>
     <div class="container-fluid">
         <div class="row">
@@ -344,7 +346,7 @@
 <!-- Sign up Welcome Coupon -->
 <div class="p-3 container-fluid text-center bg-dark bg-gradient text-white">
     <h2 class="m-2 p-2"><i class="bi bi-ticket-perforated"></i> Sign Up</h2>
-    <p class="m-2 p-2">Register in our store now and immediately receive a <strong>10% OFF</strong> coupon for your first purchase.</p>
+    <h3 class="m-2 p-2">Register in our store now and immediately receive a 10% OFF coupon for your first purchase. <br> <strong>Best price for street art design products.</strong></h3>
     <a class="btn btn-outline-light bg-gradient mb-3" href="{% url 'account_signup' %}">Sign Up</a>
 </div>
 {% endif %}
