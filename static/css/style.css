@@ -197,6 +197,10 @@ body {
     justify-content: center !important;
 }
 
+.social-link {
+    font-size: 17px;
+}
+
 /* Querie for index page */
 
 .hero-text {
