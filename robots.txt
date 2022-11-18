@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /shop/
+Disallow: /admin/
+Disallow: /profile/
+Sitemap: https://streetcraft.herokuapp.com/sitemap.xml

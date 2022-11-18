@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://streetcraft.herokuapp.com/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?category=SKT</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?category=CAP</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?category=BAG</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?offer=NEW</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?offer=SALE</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?offer=LAST</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/accounts/login/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/shop/bag/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/hiostreob-center-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/lower-map-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/gaimathult-district-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/waterside-grind-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/south-nooll-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/treft-hill-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/august-blvrd-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/figgonwean-street-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/little-shappos-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/anne-krown-district-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/clonver-road-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/upper-glinnilf-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=asc</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=desc</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=asc</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=desc</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/gollisolf-heights-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/green-valley-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/ropewalks-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?page=2</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?page=10</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?category=SKT&amp;page=2</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?category=SKT&amp;page=8</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/waterside-grind-cap/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/west-flemmup-cap/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/whirthoosk-garden-cap/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/brooklyn-cap/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/magnolia-cap/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/saint-paul-cap/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/inglewood-cap/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/upstreet-comunity-cap/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/waterside-grind-bag/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/west-flemmup-bag/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/whirthoosk-garden-bag/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/brooklyn-bag/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/magnolia-bag/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/saint-paul-bag/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/inglewood-bag/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/upstreet-comunity-bag/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/west-brisk-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/guphent-town-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/grand-canal-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?offer=NEW&amp;page=2</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/jafim-yard-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/upper-south-noahen-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?offer=SALE&amp;page=2</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/wrodlag-circle-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/whed-row-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?offer=LAST&amp;page=2</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/accounts/google/login/?process=login</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=asc&amp;page=2</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=asc&amp;page=10</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/domaceask-street-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/fommant-plaza-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/frodas-hills-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/magnolia-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=desc&amp;page=2</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=desc&amp;page=10</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/1st-station-wall-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/23-harbor-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/33-back-inner-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/78-upper-cross-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/battork-wood-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/bayside-closteg-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=asc&amp;page=2</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=asc&amp;page=10</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/yeshen-hill-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/whirthoosk-garden-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/whiggetwooc-vale-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/west-flemmup-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=desc&amp;page=2</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=desc&amp;page=10</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/jen-corner-skatebord/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/netherlands-av-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?page=1</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?page=3</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/saint-paul-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/inglewood-skatebard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/upstreet-comunity-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?page=9</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?category=SKT&amp;page=1</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?category=SKT&amp;page=3</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?category=SKT&amp;page=7</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/lid-square-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?offer=NEW&amp;page=1</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/poamic-boulevard-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/swel-valley-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/lower-teroan-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/upper-north-peallob-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?offer=SALE&amp;page=1</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/glorupt-place-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/flehitgap-hills-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/slonag-road-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/long-avenue-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?offer=LAST&amp;page=1</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=asc&amp;page=1</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=asc&amp;page=3</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=asc&amp;page=9</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/lower-east-wac-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/brooklyn-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=desc&amp;page=1</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=desc&amp;page=3</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=desc&amp;page=9</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=asc&amp;page=1</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=asc&amp;page=3</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=asc&amp;page=9</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/viggelbect-point-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=desc&amp;page=1</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=desc&amp;page=3</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=desc&amp;page=9</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/upper-kussec-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/spreewosp-street-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?page=4</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/upper-east-half-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?page=8</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?category=SKT&amp;page=4</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?category=SKT&amp;page=6</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/leanneerelt-market-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/rodetnuft-place-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/little-trorob-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=asc&amp;page=4</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=asc&amp;page=8</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=desc&amp;page=4</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=desc&amp;page=8</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=asc&amp;page=4</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=asc&amp;page=8</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=desc&amp;page=4</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=desc&amp;page=8</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?page=5</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?page=7</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?category=SKT&amp;page=5</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=asc&amp;page=5</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=asc&amp;page=7</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=desc&amp;page=5</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=desc&amp;page=7</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/details/killark-cross-skateboard/</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=asc&amp;page=5</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=asc&amp;page=7</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=desc&amp;page=5</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=desc&amp;page=7</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?page=6</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=asc&amp;page=6</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=price&amp;direction=desc&amp;page=6</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=asc&amp;page=6</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://streetcraft.herokuapp.com/all-products/?sort=name&amp;direction=desc&amp;page=6</loc>
+  <lastmod>2022-11-18T15:13:36+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+
+
+</urlset>
