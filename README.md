@@ -34,14 +34,38 @@ The idea for marketing and promotion would be the presence in social networks ta
 - As an user, I want to easily proceed to the checkout when I finalize my choice, so I can complete the purchase without complications.
 - As an user, I want to see that my order has been successfully completed, so I can be sure that the payment proceeded correctly.
 - As an user, I want to register or connect with the company, so I can be informed with the news and promotions.
-
 - As a site owner, I want to easily add, edit or remove products, so I can provide new products or correct some information.
 - As a site owner, I want to send a communication to the subscribers of the site, so I can send promotions and communications.
 - As a site owner, I I want to update stock and order status, so I can keep accurate information.
 
 ### Scope
 
+For the scope of this project the following key points were determined.
+- Create a webpage application using the Django framework.
+- Create a checkout using Stripe as payment method tool.
+- Use bootstrap to make the site responsive, and custom CSS and Java Script to complement.
+- The website should be functional and intuitive, easy to navigate and proceed to checkout.
+- Allow the user to create an account to keep the information saved.
+- Allow users to manipulate their delivery details informations.
+- Allow the user to add and manipulate the products in the bag before checkout.
+- Allow the site owner add, update or remove produtos direct from the website.
+- Allow the site owner to update stock and order status direct from the website.
+
 ### Structure
+
+The page structure for Street Craft Store was determined as follows:
+- Home, profile, products (filter pages for: Categories / Offers), shopbag, checkout (checkout page / checkout success), management (Product Manag. / Stock Manag. / Order Status Manag. / New Letter Manag.).
+
+For __users not logged in__, will be displayed:
+- Home, products (filter pages for: Categories / Offers), sign in, sign up, shopbag, checkout (checkout page / checkout success).
+
+For __users logged in__, will be displayed:
+- Home, products, My account (My profile / Logout), shopbag, checkout (checkout page / checkout success).
+- My profile will contain My orders, Change password, Coupon info, Delete profile and Update delivery information.
+
+For __superuser (site owner) logged in__, will be displayed:
+- Home, products (filter pages for: Categories / Offers), management (Product Manag. / Stock Manag. / Order Status Manag. / New Letter Manag.), My account (My profile / Logout), shopbag, checkout (checkout page / checkout success).
+- My profile will be the same as users.
 
 ### Skeleton
 
