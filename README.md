@@ -26,6 +26,30 @@ The idea for marketing and promotion would be the presence in social networks ta
 
 #### Agile
 
+For the development of this project, the Agile methodology was applied. As a support tool, I used the GitHub projects.
+
+- To visualize the project access this link > [Agile Street Craft](https://github.com/users/guisgrande/projects/2)
+
+As you can see, we used a simple Kanban board with the fields (To do, Doing, Done). To do the next ones that will be executed, Doing the ones that are currently being developed and Done the ones that were finished.
+
+The final structure after the elaboration was 6 different epics and a total of 32 User Stories distributed among them. In the following image, I detail the EPICs and their respective US.
+
+<details>
+    <summary>Agile Structure</summary>
+    <div align="center">
+      IMAGE HERE
+    </div>
+</details> 
+
+To run agile most efficiently, the following Sprints were determined as per the following image. The User Stories __#18 Filter products__  was not implemented in the project at this moment, being on stand by for future updates.
+
+<details>
+    <summary>Agile Sprints</summary>
+    <div align="center">
+      IMAGE HERE
+    </div>
+</details>
+
 #### User stories
 
 - As an user, I want to know what kind of products I will find in the store, so I can decide if it is the product of my interest.
@@ -71,7 +95,40 @@ For __superuser (site owner) logged in__, will be displayed:
 
 #### Wireframes
 
+The wireframe was created using the Figma tool. During the elaboration of the wireframes, I added what the front end should look like. At the end of the development some changes were made.
+
+- To visualize full desktop wireframe project > [Figma - Street Craft Desktop](https://www.figma.com/file/cNH4NoT9CU6UJT8fp4qUqO/PP5?node-id=4%3A187&t=37SdRfbrboNm8mZH-0)
+
+<details>
+    <summary>Wireframes - Desktop</summary>
+    <div align="center">
+      IMAGES HERE
+    </div>
+</details>
+
+- To visualize full mobile wireframe project > [Figma - Street Craft Mobile](https://www.figma.com/file/cNH4NoT9CU6UJT8fp4qUqO/PP5?node-id=0%3A1&t=37SdRfbrboNm8mZH-0)
+
+<details>
+    <summary>Wireframes - Mobile</summary>
+    <div align="center">
+      IMAGES HERE
+    </div>
+</details>
+
 #### Database diagram
+
+The database for Street Craft was designed to determine all the models present in the project and their relationships.
+
+Regarding the purchase and checkout process, the user may or may not be logged in. It is possible to finish the purchase without an account. The selected products are added to the shopbag and when accessing the checkout, the information is automatically transferred.
+
+Regarding the coupon only logged in users have access to it.
+
+<details>
+    <summary>Diagram</summary>
+    <div align="center">
+      IMAGE HERE
+    </div>
+</details>
 
 ### Surface
 
