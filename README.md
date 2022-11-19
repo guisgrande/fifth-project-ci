@@ -134,9 +134,32 @@ Regarding the coupon only logged in users have access to it.
 
 #### Colour scheme
 
+For the Street Craft project I used predominantly standard Bootstrap colors.
+
+The custom colors I determined to use were as follows. These are applied to the navigation bar and footer. 
+
+For the texts, the colors white or black were applied according to the background color to have the proper contrast.
+
+<details>
+    <summary>Colour scheme</summary>
+    <div align="center">
+        IMAGE HERE
+    </div>
+</details>
+
 #### Typography
 
+The site's font was chosen from google fonts. I chose the Syne Mono (REgular 400) font. It was used throughout the entire site, including titles and body.
+
 #### Imagery
+
+To increase the visual response of the e-commerce I selected some images related to the products/theme of the project. The images for the website were acquired from Unsplash and the ones used for the products were from Canva.
+
+On the home page I used three cartoon images as the hero section.
+
+Another image was used as background for the accounts pages/templates.
+
+Bootstrap icons were used to give more emphasis to the titles.
 
 ## Features
 
