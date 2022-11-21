@@ -54,7 +54,7 @@
     <div class="container-fluid">
         <div class="row">
             {% for product in news_list %}
-                <div class="col-sm-6 col-md-4 col-lg-3 p-0">
+                <div class="col-sm-6 col-lg-3 p-0">
                     <div class="card m-3 shadow-sm">
                         <div class="card-body m-1 p-1">
                             <a href="{% url 'product_details' product.slug %}">
@@ -136,7 +136,7 @@
     <div class="container-fluid">
         <div class="row">
             {% for product in special_list %}
-                <div class="col-sm-6 col-md-4 col-lg-3 p-0">
+                <div class="col-sm-6 col-lg-3 p-0">
                     <div class="card m-3 shadow-sm">
                         <div class="card-body m-1 p-1">
                             <a href="{% url 'product_details' product.slug %}">
@@ -238,21 +238,21 @@
             <p>Also follow us on social networks to compete for prizes, be connected with our projects and our team. Always up to date on <strong>skateboarding events</strong>, <strong>graffiti competitions</strong>, <strong>street community collaborations</strong> and more.</p>
             <div class="d-flex flex-row justify-content-center pt-3">
                 <div class="m-3">
-                    <a class="btn btn-sm btn-outline-primary" href="https://www.facebook.com/profile.php?id=100087889754580" target="_blank" rel="noopener" aria-label="Check our Facebook page 
+                    <a class="p-2 btn btn-lg btn-outline-primary" href="https://www.facebook.com/profile.php?id=100087889754580" target="_blank" rel="noopener" aria-label="Check our Facebook page 
                     (opens in a new tab)"><i class="bi bi-facebook"></i> Facebook</a>
                 </div>
                 <div class="m-3">
-                    <a class="btn btn-sm btn-outline-primary" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Check our Instagram page 
+                    <a class="p-2 btn btn-lg btn-outline-primary" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Check our Instagram page 
                     (opens in a new tab)"><i class="bi bi-instagram"></i> Instagram</a>
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-center">
                 <div class="m-3">
-                    <a class="btn btn-sm btn-outline-primary" href="https://tiktok.com" target="_blank" rel="noopener" aria-label="Check our TikTok page 
+                    <a class="p-2 btn btn-lg btn-outline-primary" href="https://tiktok.com" target="_blank" rel="noopener" aria-label="Check our TikTok page 
                     (opens in a new tab)"><i class="bi bi-tiktok"></i> Tiktok</a>
                 </div>
                 <div class="m-3">
-                    <a class="btn btn-sm btn-outline-primary" href="https://youtube.com" target="_blank" rel="noopener" aria-label="Check our Youtube page 
+                    <a class="p-2 btn btn-lg btn-outline-primary" href="https://youtube.com" target="_blank" rel="noopener" aria-label="Check our Youtube page 
                     (opens in a new tab)"><i class="bi bi-youtube"></i> Youtube</a>
                 </div>
             </div>
@@ -268,7 +268,7 @@
     <div class="container-fluid">
         <div class="row">
             {% for product in last_list %}
-                <div class="col-sm-6 col-md-4 col-lg-3 p-0">
+                <div class="col-sm-6 col-lg-3 p-0">
                     <div class="card m-3 shadow-sm">
                         <div class="card-body m-1 p-1">
                             <a href="{% url 'product_details' product.slug %}">
@@ -346,7 +346,7 @@
 <!-- Sign up Welcome Coupon -->
 <div class="p-3 container-fluid text-center bg-dark bg-gradient text-white">
     <h2 class="m-2 p-2"><i class="bi bi-ticket-perforated"></i> Sign Up</h2>
-    <h3 class="m-2 p-2">Register in our store now and immediately receive a 10% OFF coupon for your first purchase. <br> <strong>Best price for street art design products.</strong></h3>
+    <h3 class="m-2 p-2">Register in our store now and immediately receive a 10% OFF coupon for your first purchase. Login to use your coupon. <br> <strong>Best price for street art design products.</strong></h3>
     <a class="btn btn-outline-light bg-gradient mb-3" href="{% url 'account_signup' %}">Sign Up</a>
 </div>
 {% endif %}
