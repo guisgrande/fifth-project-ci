@@ -76,11 +76,11 @@
                                 <form method="POST" action="{% url 'news_letter_sub' %}">
                                     {% csrf_token %}
                                     <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Your best e-mail:</label>
+                                        <label for="news_email" class="col-form-label">Your best e-mail:</label>
                                         <input type="email" class="form-control" name="news_email" id="news_email" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Your name:</label>
+                                        <label for="news_name" class="col-form-label">Your name:</label>
                                         <input type="text" class="form-control" name="news_name" id="news_name" required>
                                     </div>
                                     <div class="modal-footer">
@@ -168,7 +168,7 @@
         {% endif %}
 
         {% block postloadjs %}
-        <script type="text/javascript">
+        <script>
             $('.toast').toast('show');
         </script>
         {% endblock %}

@@ -15,7 +15,7 @@
                 <div class="input-group-append">
                     <button class="btn btn-dark bg-gradient rounded" type="submit">
                         <span>
-                            <i class="bi bi-search" alt="Search"></i>
+                            <i class="bi bi-search"></i>
                         </span>
                     </button>
                 </div>
@@ -37,7 +37,7 @@
                         <p class="my-0">Shop <span><i class="bi bi-arrow-down-square-fill"></i></span></p>
                     </div>
                 </a>
-                <div class="dropdown-menu border-0 shadow-sm bg-light bg-gradient" aria-labelledby="shop-options">
+                <div class="dropdown-menu border-0 shadow-sm bg-light bg-gradient">
                     <a class="nav-link hover-link fw-bold" href="{% url 'products' %}">All Products</a>
                     <span class="p-1 fst-italic fw-light">Select Category</span>
                     <a href="{% url 'products' %}?category=SKT" class="dropdown-item">Skateboards</a>
@@ -94,18 +94,16 @@
 <!-- Shopping bag -->
 <a class="ms-auto text-decoration-none shadow bg-dark bg-gradient text-white rounded p-1" href="{% url 'bag' %}">
     <div class="text-center">
-        <small>
-            <div>
-                <i class="bi bi-bag"></i>
-                <span> ({{ product_count }})</span>
-            </div>
-            <p class="my-0">
-                {% if grand_total %}
-                    ${{ total|floatformat:2 }}
-                {% else %}
-                    $00.00
-                {% endif %}
-            </p>
-        </small>
+        <div>
+            <small><i class="bi bi-bag"></i></small>
+            <span><small> ({{ product_count }})</small></span>
+        </div>
+        <p class="my-0"><small>
+            {% if grand_total %}
+                ${{ total|floatformat:2 }}
+            {% else %}
+                $00.00
+            {% endif %}</small>
+        </p>
     </div>
 </a>
