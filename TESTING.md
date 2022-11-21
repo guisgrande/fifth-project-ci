@@ -412,7 +412,29 @@ No errors identified for this script. Two wargings: __'template literal syntax' 
 
 - __Python__
 
-List of pages validated by the tool [PEP8](http://pep8online.com/)
+List of pages validated by the tool [PEP8CI - By Code Institute](https://pep8ci.herokuapp.com/)
+
+- Checkout app
+
+|   File    |   Result |
+|    ---    |    ---   |
+|    `checkout/admin.py`    |   No errors   |
+|    `checkout/apps.py`    |   No errors   |
+|    `checkout/forms.py`    |   No errors   |
+|    `checkout/models.py`    |   No errors   |
+|    `checkout/signals.py `    |   No errors   |
+|    `checkout/tests.py`    |   No errors   |
+|    `checkout/urls.py`    |   No errors   |
+|    `checkout/views.py`    |   No errors   |
+|    `checkout/webhook_handler.py`    |   No errors   |
+|    `checkout/webhooks.py`    |   No errors   |
+
+<details>
+    <summary>PEP8CI Print result</summary>
+    <div align="center">
+         PRINT HERE
+    </div>
+</details> 
 
 ## Responsiveness and Browser Compability Testing
 
