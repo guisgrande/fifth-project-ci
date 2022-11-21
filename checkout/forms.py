@@ -35,5 +35,6 @@ class OrderForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input rounded mb-2'
+            self.fields[field].widget.attrs['class'] = '''stripe-style-input
+                                                    rounded mb-2'''
             self.fields[field].label = False
