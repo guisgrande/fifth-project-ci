@@ -109,7 +109,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-SITE_ID = 2
+SITE_ID = 1
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
@@ -127,9 +127,14 @@ SOCIALACCOUNT_PROVIDERS = {
             'profile',
             'email',
         ],
+        "APP": {
+        "client_id": os.environ["GOOGLE_OAUTH_CLIENT_ID"],
+        "secret": os.environ["GOOGLE_OAUTH_SECRET"],
+        },
         'AUTH_PARAMS': {
             'access_type': 'online',
         }
+        
     }
 }
 
