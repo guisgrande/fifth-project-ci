@@ -11,7 +11,7 @@ from .models import Product, Category, Offer, ReviewProduct
 def products(request):
     """
     A view to return the All products page,
-    Search and sort products funcionality, 
+    Search and sort products funcionality,
     Category return from nav links.
     """
     products_list = Product.objects.all().order_by("-release_date")
@@ -22,7 +22,9 @@ def products(request):
             sortkey = request.GET['sort']
             if sortkey == 'name':
                 sortkey = 'lower_name'
-                products_list = products_list.annotate(lower_name=Lower('name'))
+                products_list = products_list.annotate(
+                                                       lower_name=Lower('name')
+                                                       )
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -32,7 +34,8 @@ def products(request):
     if request.GET:
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            products_list = products_list.filter(category__system_name__in=categories)
+            products_list = products_list.filter(
+                category__system_name__in=categories)
             categories = Category.objects.filter(system_name__in=categories)
             total_products_list = products_list.count()
 
@@ -47,10 +50,12 @@ def products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request, "You didn't enter any search criteria")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                                                   description__icontains=query
+                                                   )
             products_list = products_list.filter(queries)
             total_products_list = products_list.count()
 
@@ -74,9 +79,11 @@ def product_details(request, slug):
     """
 
     product = get_object_or_404(Product, slug=slug)
-    product_review = product.product_review.filter(reviewed=True).order_by("-created_on")
+    product_review = product.product_review.filter(
+        reviewed=True).order_by("-created_on")
     total_review = product_review.count()
-    avg_review = product.product_review.aggregate(review=Avg('review'))['review']
+    avg_review = product.product_review.aggregate(
+        review=Avg('review'))['review']
 
     context = {
         'product': product,
@@ -95,9 +102,12 @@ def review_product(request, slug):
     """
     # Get product and reviews data
     product = get_object_or_404(Product, slug=slug)
-    product_review = product.product_review.filter(reviewed=True).order_by("-created_on")
+    product_review = product.product_review.filter(
+        reviewed=True).order_by("-created_on")
     total_review = product_review.count()
-    avg_review = product.product_review.aggregate(review=Avg('review'))['review']
+    avg_review = product.product_review.aggregate(
+                                                  review=Avg('review')
+                                                  )['review']
     # Get current user email and id
     current_user_email = request.user.email
     current_user_id = request.user.id
@@ -119,7 +129,8 @@ def review_product(request, slug):
             break
         else:
             order = order_list[0]
-            get_user_items = OrderLineItem.objects.filter(order=order).values('product_id')
+            get_user_items = OrderLineItem.objects.filter(
+                order=order).values('product_id')
             filter_items = list(get_user_items)
             items_list.append(filter_items)
             order_list.pop(0)
@@ -163,7 +174,8 @@ def add_review(request, slug):
         product = get_object_or_404(Product, slug=slug)
 
         if not review:
-            messages.error(request, "You must select a rate score to review the product")
+            messages.error(request,
+                           "You must select a rate score to review a product")
             return redirect("/")
 
         review_product_instance = ReviewProduct()

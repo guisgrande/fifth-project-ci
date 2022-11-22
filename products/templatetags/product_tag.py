@@ -7,8 +7,8 @@ register = template.Library()
 @register.simple_tag(takes_context=True)
 def param_replace(context, **kwargs):
     """
-    Return encoded URL parameters that are the same as the current
-    request's parameters, only with the specified GET parameters added or changed.
+    Return encoded URL parameters that are the same as the current request's
+    parameters, only with the specified GET parameters added or changed.
 
     It also removes any empty parameters to keep things neat,
     so you can remove a parm by setting it to ``""``.

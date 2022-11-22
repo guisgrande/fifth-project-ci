@@ -40,7 +40,8 @@ class Coupon(models.Model):
     Class for Coupon database model
     Unique coupon for single use
     """
-    coupon = models.CharField(max_length=36, unique=True, null=False, editable=False)
+    coupon = models.CharField(max_length=36, unique=True,
+                              null=False, editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date_start = models.DateTimeField(auto_now_add=True, editable=False)
     date_end = models.DateTimeField(null=True, blank=True)
@@ -59,7 +60,7 @@ class Coupon(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override the original save method 
+        Override the original save method
         To set the coupon number, and dates.
         """
         if not self.coupon:

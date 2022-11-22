@@ -8,7 +8,8 @@ def index(request):
     """
 
     # List for Special Sale (Offer SKU 2)
-    special_list = Product.objects.filter(offer=2).order_by("-release_date")[0:4]
+    special_list = Product.objects.filter(offer=2).order_by(
+        "-release_date")[0:4]
     # List for New Arrivals (Offer SKU 1)
     news_list = Product.objects.filter(offer=1).order_by("-release_date")[0:4]
     # List for Last Oportinity (Offer SKU 2)

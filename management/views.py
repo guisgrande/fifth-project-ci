@@ -30,7 +30,7 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_details', args=[product.slug]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product. Review form.')
     else:
         form = ProductForm()
 
@@ -60,7 +60,7 @@ def edit_product(request, slug):
             messages.success(request, f'Successfully updated {product.name}!')
             return redirect(reverse('product_details', args=[product.slug]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product. Review form.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -107,7 +107,8 @@ def news_letter_sub(request):
         email = request.POST.get('news_email', None)
 
         if not name or not email:
-            messages.error(request, "You must type legit name and email to subscribe to a Newsletter")
+            messages.error(request,
+                           "You must use legit name and email to subscribe")
             return redirect("/")
 
         if get_user_model().objects.filter(email=email).first():
@@ -115,13 +116,16 @@ def news_letter_sub(request):
                 if email == request.user.email:
                     pass
             else:
-                messages.error(request, f"Found registered user with associated {email} email. Login first.")
+                messages.error(request, f'''Found registered user with associated
+                               {email} email. Login first''')
                 return redirect(request.META.get("HTTP_REFERER", "/"))
 
-        subscribe_user = NewsLetterList.objects.filter(news_email=email).first()
+        subscribe_user = NewsLetterList.objects.filter(
+                                                news_email=email).first()
 
         if subscribe_user:
-            messages.error(request, f"{email} email address is already subscribed.")
+            messages.error(request,
+                           f"{email} email address is already subscribed.")
             return redirect(request.META.get("HTTP_REFERER", "/"))
 
         try:
@@ -147,7 +151,8 @@ def news_letter_sub(request):
             [email]
         )
 
-        messages.success(request, f'{email} was successfully subscribed to our News Letter!')
+        messages.success(request,
+                         f'{email} was successfully subscribed to News Letter')
         return redirect(request.META.get("HTTP_REFERER", "/"))
 
 
@@ -197,7 +202,8 @@ def news_letter_send(request):
         news_letter_mails.status = 1
         news_letter_mails.save()
 
-        messages.success(request, 'News Letter successfully sent to mailing list!')
+        messages.success(request,
+                         'News Letter successfully sent to mailing list!')
         return redirect(request.META.get("HTTP_REFERER", "/"))
 
 
@@ -237,7 +243,8 @@ def update_stock(request, slug):
         form = StockForm(request.POST, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Successfully updated {product.name} quantity')
+            messages.success(request,
+                             f'Successfully updated {product.name} quantity')
             return redirect(reverse('stock_control'))
         else:
             messages.error(request, 'Failed to update stock.')
@@ -287,7 +294,8 @@ def update_status(request, pk):
         form = OrderStatusForm(request.POST, instance=order)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Successfully updated {order.order_number} status')
+            messages.success(request,
+                             f'Success. {order.order_number} status updated')
             return redirect(reverse('orders_status'))
         else:
             messages.error(request, 'Failed to update order.')

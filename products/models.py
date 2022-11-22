@@ -27,10 +27,9 @@ class Offer(models.Model):
     offer_name = models.CharField(max_length=50,)
     offer_display = models.CharField(max_length=254, null=True, blank=True)
     offer_discount = models.IntegerField(default=0,
-        validators=[
-            MaxValueValidator(80),
-            MinValueValidator(0)
-        ])
+                                         validators=[MaxValueValidator(80),
+                                                     MinValueValidator(0)]
+                                         )
 
     def __str__(self):
         return str(self.offer_display)
@@ -52,14 +51,15 @@ class Product(models.Model):
     sku = models.SmallAutoField(primary_key=True)
     name = models.CharField(max_length=150, unique=True)
     release_date = models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey('Category', null=True, blank=True,
+                                 on_delete=models.SET_NULL)
     quantity_available = models.IntegerField(default=100,
-            validators=[
-            MinValueValidator(0)
-        ])
+                                             validators=[MinValueValidator(0)]
+                                             )
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    offer = models.ForeignKey(Offer, null=True, blank=True, on_delete=models.SET_NULL)
+    offer = models.ForeignKey(Offer, null=True, blank=True,
+                              on_delete=models.SET_NULL)
     product_image = models.ImageField(null=True, blank=True)
     product_image_url = models.URLField(max_length=1024, null=True, blank=True)
     slug = models.SlugField(max_length=254, null=True, blank=True, unique=True)

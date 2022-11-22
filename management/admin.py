@@ -16,5 +16,6 @@ class NewsLetterMailAdmin(admin.ModelAdmin):
 
 @admin.register(Coupon)
 class CouponAdmin(admin.ModelAdmin):
-    list_display = ('coupon', 'user', 'date_start', 'date_end', 'discount', 'used', 'expired')
+    list_display = ('coupon', 'user', 'date_start', 'date_end',
+                    'discount', 'used', 'expired')
     search_fields = ('coupon', 'user')

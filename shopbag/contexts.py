@@ -16,11 +16,14 @@ def bag_contents(request):
     for slug, quantity in bag.items():
         product = get_object_or_404(Product, slug=slug)
         if product.offer:
-            total += quantity * (product.price - ((product.price * product.offer.offer_discount) / 100))
+            total += quantity * (
+                product.price - (
+                    (product.price * product.offer.offer_discount) / 100)
+                    )
         else:
             total += quantity * product.price
         product_count += quantity
-        bag_items.append ({
+        bag_items.append({
             'slug': slug,
             'quantity': quantity,
             'product': product,

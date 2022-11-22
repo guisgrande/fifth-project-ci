@@ -30,7 +30,8 @@ def profile(request):
             coupon.expired = True
             coupon.save()
     # Filter Coupon model again including expired
-    coupons = Coupon.objects.filter(user=request.user).filter(expired=False).filter(used=False)
+    coupons = Coupon.objects.filter(
+        user=request.user).filter(expired=False).filter(used=False)
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -97,7 +98,7 @@ class OrderDetails(LoginRequiredMixin, View):
     Class to display order details.
     Condition to verify if logged in user is the owner of the order.
     """
-    
+
     def get(self, request, order_number, *args, **kwargs):
         queryset = Order.objects.all()
         order = get_object_or_404(queryset, order_number=order_number)

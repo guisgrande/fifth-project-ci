@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (render, redirect, reverse,
+                              HttpResponse, get_object_or_404)
 from products.models import Product
 from management.models import Coupon
 from django.contrib import messages
@@ -16,7 +17,8 @@ def view_bag(request):
 
     if request.method == 'POST':
         if request.user.is_authenticated:
-            coupons = Coupon.objects.filter(user=request.user).filter(used=False)
+            coupons = Coupon.objects.filter(
+                user=request.user).filter(used=False)
             present = timezone.now()
             # Check if coupon is expired
             for coupon in coupons:
@@ -24,16 +26,18 @@ def view_bag(request):
                     coupon.expired = True
                     coupon.save()
             # Filter Coupon model again including expired
-            coupons = Coupon.objects.filter(user=request.user).filter(expired=False).filter(used=False)
+            coupons = Coupon.objects.filter(user=request.user).filter(
+                expired=False).filter(used=False)
             coupon = request.POST.get('coupon', None)
 
-            if len(coupons) > 0:           
+            if len(coupons) > 0:
                 if str(coupon) == str(coupons[0]):
                     messages.success(request, 'Coupon applied successfully')
                     valid_coupon = True
                     code = coupon
             else:
-                messages.error(request, 'Something is wrong. This coupon is not valid')
+                messages.error(request,
+                               'Something is wrong. This coupon is not valid')
 
     if code:
         valid_coupon = True
@@ -68,34 +72,45 @@ def add_to_bag(request, slug):
         current_quantity = bag[product.slug]
     else:
         current_quantity = 0
-    
+
     # Conditions to verify quantity in bag vs available stock
     if current_quantity < product.quantity_available:
         if quantity >= product.quantity_available:
             all_stock = product.quantity_available
             if slug in list(bag.keys()):
                 bag[slug] = all_stock
-                messages.success(request, f'Updated to {all_stock} (Maximum available stock) for {product.name} quantity to {bag[slug]}')
+                messages.success(request, f'''Updated to {all_stock}
+                                 (Maximum available stock) for {product.name}
+                                  quantity to {bag[slug]}'''
+                                 )
             else:
                 bag[slug] = all_stock
-                messages.success(request, f'Added {all_stock} (Maximum available stock) for {product.name} to your bag')
+                messages.success(request, f'''Added {all_stock}
+                                 (Maximum available stock) for {product.name}
+                                 to your bag'''
+                                 )
         else:
             if slug in list(bag.keys()):
                 sum = current_quantity + quantity
                 if sum < product.quantity_available:
                     bag[slug] += quantity
-                    messages.success(request, f'Updated {product.name} quantity to {bag[slug]}')
+                    messages.success(request, f'''Updated {product.name}
+                                     quantity to {bag[slug]}''')
                 else:
                     all_stock = product.quantity_available
                     bag[slug] = all_stock
-                    messages.success(request, f'Updated to {all_stock} (Maximum available stock) for {product.name}')
+                    messages.success(request, f'''Updated to {all_stock}
+                                     (Maximum available stock) for
+                                     {product.name}'''
+                                     )
             else:
                 bag[slug] = quantity
                 messages.success(request, f'Added {product.name} to your bag')
-    else: 
+    else:
         all_stock = product.quantity_available
         bag[slug] = all_stock
-        messages.success(request, f'{all_stock} (Maximum available stock) for {product.name} at your bag')
+        messages.success(request, f'''{all_stock} (Maximum available stock)
+                         for {product.name} at your bag''')
 
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -109,18 +124,21 @@ def update_bag(request, slug):
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
-    if quantity == 0: 
+    if quantity == 0:
         bag.pop(slug)
         messages.success(request, f'Removed {product.name} from your bag')
-    
+
     if quantity <= product.quantity_available:
         bag[slug] = quantity
-        messages.success(request, f'Updated {product.name} quantity to {bag[slug]}')
+        messages.success(request,
+                         f'Updated {product.name} quantity to {bag[slug]}')
 
     elif quantity > product.quantity_available:
         all_stock = product.quantity_available
         bag[slug] = all_stock
-        messages.success(request, f'Updated {product.name} quantity to {bag[slug]} (Maximum available stock)')
+        messages.success(request, f'''Updated {product.name} quantity
+                         to {bag[slug]} (Maximum available stock)'''
+                         )
 
     else:
         messages.info(request, 'No changes applied')
