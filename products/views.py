@@ -25,11 +25,29 @@ def products(request):
                 products_list = products_list.annotate(
                                                        lower_name=Lower('name')
                                                        )
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
-            products_list = products_list.order_by(sortkey)
+                if 'direction' in request.GET:
+                    direction = request.GET['direction']
+                    if direction == 'desc':
+                        sortkey = f'-{sortkey}'
+                    products_list = products_list.order_by(sortkey)
+
+            if sortkey == 'price':
+                sortkey = 'discount'
+                for product in products_list:
+                    if product.offer:
+                        instance = product.cal_discount_price()
+                        setattr(product, 'discount', instance)
+                        product.save()
+                    else:
+                        instance = product.price
+                        setattr(product, 'discount', instance)
+                        product.save()
+
+                if 'direction' in request.GET:
+                    direction = request.GET['direction']
+                    if direction == 'desc':
+                        sortkey = f'-{sortkey}'
+                    products_list = products_list.order_by(sortkey)
 
     if request.GET:
         if 'category' in request.GET:

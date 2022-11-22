@@ -60,6 +60,8 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     offer = models.ForeignKey(Offer, null=True, blank=True,
                               on_delete=models.SET_NULL)
+    discount = models.DecimalField(max_digits=6, decimal_places=2,
+                                   null=True, blank=True)
     product_image = models.ImageField(null=True, blank=True)
     product_image_url = models.URLField(max_length=1024, null=True, blank=True)
     slug = models.SlugField(max_length=254, null=True, blank=True, unique=True)
