@@ -568,6 +568,28 @@ The four too long line errors found on settings were related to links from `AUTH
 
 ## Responsiveness and Browser Compability Testing
 
+I ran tests using DevTools to verify that the website was responsive on multiple screen sizes. On all these devices listed below the website responded properly.
+
+   - Mobile: Iphone XR, Iphone SE, Nexus 4, Nexus 5, Moto G4, LG Optimus L70, Galaxy S8. Pixel 2, Pixel 5.
+
+   - Tablet: Ipad Air, Ipad Mini, Galaxy Tab S4.
+
+   - Desktop and Laptops: 13', 15', 21' and 23'.
+
+<details>
+    <summary>Screenshots from DevTolls (Chrome) - Iphone XR</summary>
+</details> 
+
+<details>
+    <summary>Screenshots from DevTolls (Chrome) - Ipad Air</summary>
+</details>
+
+The website worked correctly in Chrome, Firefox, Edge browsers in the desktop tests. It also worked correctly in tests using Safari on the iPhone.
+
+<details>
+    <summary>Screenshots from Firefox and Edge browsers</summary>
+</details>
+
 ## Performance Testing
 
 ## Acessibility Testing
