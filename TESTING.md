@@ -430,11 +430,141 @@ List of pages validated by the tool [PEP8CI - By Code Institute](https://pep8ci.
 |    `checkout/webhooks.py`    |   No errors   |
 
 <details>
-    <summary>PEP8CI Print result</summary>
+    <summary>Checkout PEP8CI Print results</summary>
+    <div align="center">
+         PRINT HERE
+    </div>
+</details>
+
+- Home app
+
+|   File    |   Result |
+|    ---    |    ---   |
+|    `home/admin.py`    |   No errors   |
+|    `home/apps.py`    |   No errors   |
+|    `home/models.py`    |   No errors   |
+|    `home/tests.py`    |   No errors   |
+|    `home/urls.py`    |   No errors   |
+|    `home/views.py`    |   No errors   |
+
+<details>
+    <summary>Home PEP8CI Print results</summary>
     <div align="center">
          PRINT HERE
     </div>
 </details> 
+
+- Management app
+
+|   File    |   Result |
+|    ---    |    ---   |
+|    `management/admin.py`    |   No errors   |
+|    `management/apps.py`    |   No errors   |
+|    `management/forms.py`    |   No errors   |
+|    `management/models.py`    |   No errors   |
+|    `management/tests.py`    |   No errors   |
+|    `management/urls.py`    |   No errors   |
+|    `management/views.py`    |   No errors   |
+
+<details>
+    <summary>Management PEP8CI Print results</summary>
+    <div align="center">
+         PRINT HERE
+    </div>
+</details>
+
+- Products app
+
+|   File    |   Result |
+|    ---    |    ---   |
+|    `products/templatetags/product_tag.py`    |   No errors   |
+|    `products/admin.py`    |   No errors   |
+|    `products/apps.py`    |   No errors   |
+|    `products/forms.py`    |   No errors   |
+|    `products/models.py`    |   No errors   |
+|    `products/tests.py`    |   No errors   |
+|    `products/urls.py`    |   No errors   |
+|    `products/views.py`    |   No errors   |
+
+<details>
+    <summary>Products PEP8CI Print results</summary>
+    <div align="center">
+         PRINT HERE
+    </div>
+</details>
+
+- Profiles app
+
+|   File    |   Result |
+|    ---    |    ---   |
+|    `profiles/admin.py`    |   No errors   |
+|    `profiles/apps.py`    |   No errors   |
+|    `profiles/forms.py`    |   No errors   |
+|    `profiles/models.py`    |   No errors   |
+|    `profiles/tests.py`    |   No errors   |
+|    `profiles/urls.py`    |   No errors   |
+|    `profiles/views.py`    |   No errors   |
+
+<details>
+    <summary>Profiles PEP8CI Print results</summary>
+    <div align="center">
+         PRINT HERE
+    </div>
+</details>
+
+- Shopbag app
+
+|   File    |   Result |
+|    ---    |    ---   |
+|    `shopbag/templatetags/bag_tools.py`    |   No errors   |
+|    `shopbag/admin.py`    |   No errors   |
+|    `shopbag/apps.py`    |   No errors   |
+|    `shopbag/contexts.py `    |   No errors   |
+|    `shopbag/models.py`    |   No errors   |
+|    `shopbag/tests.py`    |   No errors   |
+|    `shopbag/urls.py`    |   No errors   |
+|    `shopbag/views.py`    |   No errors   |
+
+<details>
+    <summary>Shopbag PEP8CI Print results</summary>
+    <div align="center">
+         PRINT HERE
+    </div>
+</details>
+
+- Streetcraft project
+
+|   File    |   Result |
+|    ---    |    ---   |
+|    `streetcraft/asgi.py`    |   No errors   |
+|    `streetcraft/settings.py`    |   4 line too long (E501)   |
+|    `shopbag/contexts.py `    |   No errors   |
+|    `streetcraft/urls.py`    |   No errors   |
+|    `streetcraft/views.py`    |   No errors   |
+|    `streetcraft/wsgi.py`    |   No errors   |
+
+The four too long line errors found on settings were related to links from `AUTH_PASSWORD_VALIDATORS`. 
+
+<details>
+    <summary>Streetcraft PEP8CI Print results</summary>
+    <div align="center">
+         PRINT HERE
+    </div>
+</details>
+
+- Extra files
+
+|   File    |   Result |
+|    ---    |    ---   |
+|    `custom_storages.py`    |   No errors   |
+|    `manage.py`    |   No errors   |
+
+<details>
+    <summary>Extra files PEP8CI Print results</summary>
+    <div align="center">
+         PRINT HERE
+    </div>
+</details>
 
 ## Responsiveness and Browser Compability Testing
 
