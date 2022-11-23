@@ -592,9 +592,90 @@ The website worked correctly in Chrome, Firefox, Edge browsers in the desktop te
 
 ## Performance Testing
 
+Testing done using Lighthouse DevTools to check and test Performance, Accessibility, Best Practices and SEO.
+
+<details>
+    <summary>Screenshots from Lighthouse DevTools result pages</summary>
+    <div align="center">
+        Home page
+    </div>
+    <div align="center">
+        PRINT HERE
+    </div>
+    <div align="center">
+        Products page
+    </div>
+    <div align="center">
+        PRINT HERE
+    </div>
+    <div align="center">
+        Product Details page
+    </div>
+    <div align="center">
+        PRINT HERE
+    </div>
+    <div align="center">
+        Shopbag page
+    </div>
+    <div align="center">
+        PRINT HERE
+    </div>
+    <div align="center">
+        Checkout page
+    </div>
+    <div align="center">
+        PRINT HERE
+    </div>
+    <div align="center">
+        Chekout Success page
+    </div>
+    <div align="center">
+        PRINT HERE
+    </div>
+    <div align="center">
+        Sign in page
+    </div>
+    <div align="center">
+        PRINT HERE
+    </div>
+    <div align="center">
+        Sign up page
+    </div>
+    <div align="center">
+        PRINT HERE
+    </div>
+    <div align="center">
+        Sign out page
+    </div>
+    <div align="center">
+        PRINT HERE
+    </div>
+    <div align="center">
+        Profile page
+    </div>
+    <div align="center">
+        PRINT HERE
+    </div>
+    <div align="center">
+        Orders page
+    </div>
+    <div align="center">
+        PRINT HERE
+    </div>
+    <div align="center">
+        Order Details page
+    </div>
+    <div align="center">
+        PRINT HERE
+    </div>
+</details>
+
 ## Acessibility Testing
 
 Accessibility test carried out using the [Wave Tool](https://wave.webaim.org/)
+The tool showed that some elements were missing aria-label, the action was taken and corrected. When I checked the pages after the corrections, I did not identify any more significant errors.
+
+Only on the home page it still indicates lack of contrast in the hero carousel texts, however the visibility and readability are acceptable even on mobile.
 
 ## User Story Testing
 
