@@ -9,7 +9,7 @@
 </div>
 <div class="container text-center">
     <div>
-        <p class="fw-light">Send email to all subscribers</p>
+        <p class="fw-light">Send email to all subscribers (Total subs.: {{ news_letter_list }})</p>
     </div>
     <form method="POST" action="{% url 'news_letter_send' %}" id="newsform">
         {% csrf_token %}

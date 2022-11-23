@@ -164,8 +164,14 @@ def news_letter_view(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can view this page.')
         return redirect(reverse('home'))
+    
+    news_letter_list = NewsLetterList.objects.all().count()
 
-    return render(request, 'management/admin_news_letter.html')
+    context = {
+        'news_letter_list': news_letter_list,
+    } 
+
+    return render(request, 'management/admin_news_letter.html', context)
 
 
 @login_required
