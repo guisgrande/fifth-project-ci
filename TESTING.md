@@ -886,7 +886,7 @@ Checked each user story, with the intention of analyzing if it meets the require
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
 |    Product reviews    |   Superuser or User logged  |  Display  |   Show the product image, name, back to product button, reviews avarage and total reviews, list of all reviews   |   __`Pass`__   |
-|    Product reviews    |   Not logged  |  Display  |   Dont't load the page, redirect to home page and return a error message   |   __`Pass`__   |
+|    Product reviews    |   Not logged  |  Display  |   Dont't load the page, redirect to sign in page and return a error message   |   __`Pass`__   |
 |    Product reviews - form    |   Superuser or User logged  |  Display  |   If the user did not buy the product, do not show the form to review   |   __`Pass`__   |
 |    Product reviews - form    |   Superuser or User logged  |  Display  |   If the user bought the product and has already reviewed it, do not show the form. Show text informing that already reviewed.   |   __`Pass`__   |
 |    Product reviews - form    |   Superuser or User logged  |  Display  |   If the user bought the product and has not reviewed it yet, show the form.   |   __`Pass`__   |
@@ -898,21 +898,79 @@ Checked each user story, with the intention of analyzing if it meets the require
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Signin page    |   Superuser or User logged  |   Display  |   Don't load page, redirect to home page.   |   Pass   |
+|    Signin page    |   Not logged  |   Display  |   Display Login using your social account: `Google acount`   |   Pass   |
+|    Signin page    |   Not logged  |   Display  |   Display the following fields inside the form - `Username/E-mail, Password`   |   Pass   |
+|    Signin page    |   Not logged  |   Display  |   Display  `Signin` button   |   Pass   |
+|    Signin page    |   Not logged  |   Display  |   Display  `Forgot Password` button   |   Pass   |
+|    Signin page    |   Not logged  |   Display  |   Display  `Remember Me` check element   |   Pass   |
+|    Signin page    |   Not logged  |   Display  |   Show calling text for those who aren't registered and `Signup` button  |   Pass   |
+|    Signin form    |   Not logged  |   Field Username or e-mail: empty  |   Submitting: Form not submitted. Warning message  |   Pass   |
+|    Signin form    |   Not logged  |   Field Username or e-mail: wrong username or e-mail  |   Submitting: Form not submitted. Warning message  |   Pass   |
+|    Signin form    |   Not logged  |   Field Username or e-mail: correct username or e-mail  |   Submitting: Form submitted. Success message  |   Pass   |
+|    Signin form    |   Not logged  |   Field Password: empty  |   Submitting: Form not submitted. Warning message  |   Pass   |
+|    Signin form    |   Not logged  |   Field Password: wrong password  |   Submitting: Form not submitted. Warning message  |   Pass   |
+|    Signin form    |   Not logged  |   Field Password: correct password  |   Submitting: Form submitted. Success message  |   Pass   |
+|    Signin Goggle button    |   Not logged  |   Click  |   Load Google OAuth access page    |   Pass*   |
+|    Signin button    |   Not logged  |   Click  |   If form valid - User authenticated login, redirects to home page, shows success message    |   Pass   |
+|    Signup button    |   Not logged  |   Click  |   Redirect to the Signup page (Register)    |   Pass   |
+|    Forgot Password button    |   Not logged  |   Click  |   Redirect Forgot password page    |   Pass   |
+|    Remember me    |   Not logged  |   Check  |   If the user logs into an existing account and confirms the selection, it saves the password in the browser.    |   Pass   |
+
+Observation: Access using the Google account is not working 100% of the time. Sometimes it returns error 400: redirec_uri_mismatch
 
 ### Forgot password page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Password Reset page    |   All  |   Display  |   Display the following text `Forgotten your password? Enter your e-mail address below, and we'll send you an e-mail allowing you to reset it`   |   Pass   |
+|    Password Reset page    |   Superuser or User logged  |   Display  |   Display the following extra text `Note: you are already logged in as ...`   |   Pass   |
+|    Password Reset page    |   All  |   Display  |   Display  `Sign out` button   |   Pass   |
+|    `Reset My Password` button    |   All  |   Click  |   If the e-mail is not in correct format, don't proceed and inform that the format is wrong    |   Pass   |
+|    `Reset My Password` button    |   All  |   Click  |   If the e-mail is not registered, return message: `The e-mail address is not assigned to any user account`    |   Pass   |
+|    `Reset My Password` button    |   All  |   Click  |   If the e-mail is registered, proceed and send an e-mail with change password link   |   Pass   |
+|    Change password page    |   All  |   Display  |   Accessed by the e-mail link, it shows two fields for a new password and the `change password` button   |   Pass   |
+|    Change password page - button   |   All  |   Click  |   If the two password fields are not identical, it returns the message that it must be corrected   |   Pass   |
+|    Change password page - button   |   All  |   Click  |   If the two password fields are identical, change the password and show a message of success   |   Pass   |
 
 ### Sign up page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Signup page    |   Superuser or User logged  |   Display  |   Don't load page, redirect to home page.   |   Pass   |
+|    Signup page    |   Not logged  |   Display  |   Display the following fields inside the form - `E-mail, E-mail (again),Username, Password, Password (again)`   |   Pass   |
+|    Signup page    |   Not logged  |   Display  |   Display  `Signup` button   |   Pass   |
+|    Signup page    |   Not logged  |   Display  |   Show calling text for those who are already registered and `Signin` button  |   Pass   |
+|    Signup form    |   Not logged  |   Field Username: empty  |   Submitting: Form not submitted. Warning message  |   Pass   |
+|    Signup form    |   Not logged  |   Field Username: duplicated  |   Submitting: Form not submitted. Warning message  |   Pass   |
+|    Signup form    |   Not logged  |   Field Username: incorrect format  |   Submitting: Form not submitted. Warning message  |   Pass   |
+|    Signup form    |   Not logged  |   Field Username: correct format  |   Submitting: Form submitted. Success message  |   Pass   |
+|    Signup form    |   Not logged  |   Field E-mail: empty  |   Submitting: Form submitted. Success message |   Pass   |
+|    Signup form    |   Not logged  |   Field E-mail: duplicated  |   Submitting: Form not submitted. Warning message |   Pass   |
+|    Signup form    |   Not logged  |   Field E-mail: incorrect format  |   Submitting: Form not submitted. Warning message |   Pass   |
+|    Signup form    |   Not logged  |   Field E-mail (again): empty  |   Submitting: Form not submitted. Warning message |   Pass   |
+|    Signup form    |   Not logged  |   Field E-mail (again): incorrect format  |   Submitting: Form not submitted. Warning message |   Pass   |
+|    Signup form    |   Not logged  |   Field E-mail (again): correct format |   Submitting: Form submitted. Success message |   Pass   |
+|    Signup form    |   Not logged  |   Field E-mail: correct format match  |   Submitting: Form submitted. Success message |   Pass   |
+|    Signup form    |   Not logged  |   Field Password: empty  |   Submitting: Form not submitted. Warning message  |   Pass   |
+|    Signup form    |   Not logged  |   Field Password: incorrect format  |   Submitting: Form not submitted. Warning message  |   Pass   |
+|    Signup form    |   Not logged  |   Field Password: correct format  |   Submitting: Form submitted. Success message  |   Pass   |
+|    Signup form    |   Not logged  |   Field Password (again): empty  |   Submitting: Form not submitted. Warning message |   Pass   |
+|    Signup form    |   Not logged  |   Field Password (again): incorrect format  |   Submitting: Form not submitted. Warning message |   Pass   |
+|    Signup form    |   Not logged  |   Field Password (again): correct format match |   Submitting: Form submitted. Success message |   Pass   |
+|    Signup form    |   Not logged  |   Fields Password + Password (again): don't match |   Submitting: Form not submitted. Warning message |   Pass   |
+|    Signup form    |   Not logged  |   Fields Password + Password (again): match |   Submitting: Form submitted. Success message |   Pass   |
+|    Signup button    |   Not logged  |   Click  |   If form valid - Adds new user, redirects to home page, shows success message    |   Pass   |
+|    Signin button    |   Not logged  |   Click  |   Redirect to the Signin page (Login)    |   Pass   |
 
 ### Sign out page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Logout page    |   Not logged  |   Display  |   Dont't load the page, redirect to sign in page   |   Pass   |
+|    Logout page    |   Superuser or User logged  |   Display  |   Display the following text inside the form - `Are you sure you want to sign out?`   |   Pass   |
+|    Logout page    |   Superuser or User logged  |   Display  |   Display  `Sign out` button   |   Pass   |
+|    Signout button    |   Superuser or User logged  |   Click  |   Logout the user, redirects to home page, shows success message    |   Pass   |
 
 ### My Profile page
 
