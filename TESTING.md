@@ -1060,11 +1060,24 @@ Observation: Access using the Google account is not working 100% of the time. So
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Shopbag page   |   All  |  Display  |   If don't have product - Show: Your bag is empty and `KEEP SHOPPING` button   |   __`Pass`__   |
+|    Shopbag page   |   All  |  Display  |   If have product - Show bag total, delivery, grand total. `KEEP SHOPPING` and `SECURE CHECKOUT` buttons   |   __`Pass`__   |
+|    Shopbag page   |   All  |  Display  |   If have product - Show for each product: Product Info (Name, SKU, Unit price) / Quantity/Sub (Quantity field, Less and plus button, Update and Remove buttons)   |   __`Pass`__   |
+|    Shopbag page   |   Superuser or User logged  |  Display  |   Show Discount Coupon field and `Apply` buttons   |   __`Pass`__   |
+|    Shopbag - `Apply` button   |   Superuser or User logged  |  Click  |   If Coupon code is valid, submit and apply discont to order, return a success message.   |   __`Pass`__   |
+|    Shopbag - `Apply` button   |   Superuser or User logged  |  Click  |   If Coupon code is not valid, don't submit and return a message.   |   __`Pass`__   |
+|    Shopbag - `KEEP SHOPPING` button   |   All  |  Click  |   Redirect to the products page and show all products   |   __`Pass`__   |
+|    Shopbag - `SECURE CHECKOUT` button   |   All  |  Click  |   Redirects to checkout page   |   __`Pass`__   |
+|    Shopbag - `Update` button   |   All  |  Click  |   Updates corresponding product for the given quantity   |   __`Pass`__   |
+|    Product - Stock   |   All  |  Update bag  |   If more than available stock, update just maximum stock available    |   __`Pass`__   |
+|    Product - Stock   |   All  |  Update bag  |   If less or equal than available stock, update just selected quantity    |   __`Pass`__   |
+|    Shopbag - `Remove` button   |   All  |  Click  |   Removes corresponding product from the shopbag   |   __`Pass`__   |
 
 ### Checkout page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Checkout page   |   All  |  Display  |   If don't have product in bag - Redirect to products page and return a error message   |   __`Pass`__   |
 
 ### Checkout Success page
 
