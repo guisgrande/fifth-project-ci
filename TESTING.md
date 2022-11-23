@@ -1125,3 +1125,51 @@ Observation: Access using the Google account is not working 100% of the time. So
 |    Checkout Success page    |   All  |   Display  |   Show Order number, Order Details, Billing Info, Delivering To, Contact info.   |   __`Pass`__   |
 |    Checkout Success page    |   All |   Display  |   Show: `Check out the latest promotions` button   |   __`Pass`__   |
 |    Checkout Success - `Check out the latest promotions` button    |   All |   Click  |   Redirect to the products page and show all products   |   __`Pass`__   |
+
+### Management - Add Product page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Manag. Product page    |   Not logged  |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
+|    Manag. Product page    |   User logged |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
+|    Manag. Product page    |   Superuser logged |   Display  |   Load the page, show add product form (Name / Category / Offer / Description / Price / Image)   |   __`Pass`__   |
+|    Manag. Product page    |   Superuser logged |   Display  |   Load the page, show `Cancel` and `Add Product` buttons   |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Name: empty  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Name: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Name: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Category: not selected  |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Category: selected |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Offer: not selected  |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Offer: selected |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Description: empty  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Description: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Description: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Price: empty  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Price: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Price: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Offer: not uploaded  |   Submitting: Form submitted. Success message. Use a alternative image in place of an origial one |   __`Pass`__   |
+|    Manag. Product - Form    |   Superuser logged  |   Field Offer: uploaded |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Manag. Product - `Cancel` button    |   Superuser logged  |   Click |   Redirect to My Profile page |   __`Pass`__   |
+|    Manag. Product - `Add product` button    |   Superuser logged  |   Click |   If form correct, submit form and add product to database. Return success message and redirect to new product details page.  |   __`Pass`__   |
+
+### Management - Stock page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Manag. Stock page    |   Not logged  |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
+|    Manag. Stock page    |   User logged |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
+
+### Management - Order Status page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Manag. Order Status page    |   Not logged  |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
+|    Manag. Order Status page    |   User logged |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
+
+
+### Management - News Letter page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Manag. News Letter page    |   Not logged  |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
+|    Manag. News Letter page    |   User logged |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
