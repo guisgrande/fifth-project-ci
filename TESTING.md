@@ -679,4 +679,58 @@ Only on the home page it still indicates lack of contrast in the hero carousel t
 
 ## User Story Testing
 
+Checked each user story, with the intention of analyzing if it meets the requirement.
+
+   - `User Story 1`: As an user, I want to know what kind of products I will find in the store, so I can decide if it is the product of my interest.
+   - `Outcome`: When the user first visits the webpage store, it is possible see the products at the top of the home page, and it is also in the description of the e-commerce
+   - `Result`: __Passed__
+
+---
+
+   - `User Story 2`: As an user, I want to see which products are on sale, so I can add them to my bag if the price attracts me.
+   - `Outcome`: When the user first visits the webpage store, it is possible to see the prices of the products on offer and a tag showing the offer and discount (%) 
+   - `Result`: __Passed__
+
+---
+
+   - `User Story 3`: As an user, I want to easily add or remove products from my bag, so I can adapt my product selection according to my needs.
+   - `Outcome`: When the user access the webpage store, it is possible to add products by card container product (home page, products page) or product details and accessing the shopbag it's possible to change the quantity or remove  the product if needed.
+   - `Result`: __Passed__
+
+---
+
+   - `User Story 4`: As an user, I want to easily proceed to the checkout when I finalize my choice, so I can complete the purchase without complications.
+   - `Outcome`: When the user finishes choosing the products, it is possible to proceed to the checkout by clicking on the corresponding button (SECURE CHECKOUT) at the bottom of the shopbag page or through the messages (toasts) when modifying the bag.
+   - `Result`: __Passed__
+
+---
+
+   - `User Story 5`: As an user, I want to see that my order has been successfully completed, so I can be sure that the payment proceeded correctly.
+   - `Outcome`: When the user makes the payment and it is successfully processed, he is redirected to the order success page where he can see the order information and a confirmation order number. Also an order confirmation email is sent to the entered email address.
+   - `Result`: __Passed__
+
+---
+
+   - `User Story 6`: As an user, I want to register or connect with the company, so I can be informed with the news and promotions.
+   - `Outcome`: When the user visits the page, on the home page it is possible to see a call to the News Letter subscription and to the store's social networks links, which are also present in the footer.
+   - `Result`: __Passed__
+
+---
+
+   - `User Story 7`: As a site owner, I want to easily add, edit or remove products, so I can provide new products or correct some information.
+   - `Outcome`: When the site owner is logged in, the management options are visible where it is possible to add a new product through the form. And when entering each product an edit and delete button will be visible at the bottom of the page.
+   - `Result`: __Passed__
+
+---
+
+   - `User Story 8`: As a site owner, I want to send a communication to the subscribers of the site, so I can send promotions and communications.
+   - `Outcome`: When the owner of the site is logged in, the management options are visible where it is possible to access the News Letter page which shows a form with the subject and body for sending the e-mail to all subscribers. At the top you can see how many e-mails are subscribed.
+   - `Result`: __Passed__
+
+---
+
+   - `User Story 9`: As a site owner, I I want to update stock and order status, so I can keep accurate information.
+   - `Outcome`: When the site owner is logged in, the management options are visible where it is possible to access the Stock page and the Order Status page where it is possible to update the appropriate information for each (Quantity for each product and Status for each order).
+   - `Result`: __Passed__
+
 ## Manual Testing
