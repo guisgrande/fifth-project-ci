@@ -734,3 +734,63 @@ Checked each user story, with the intention of analyzing if it meets the require
    - `Result`: __Passed__
 
 ## Manual Testing
+
+### Navigation bar
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Navbar links    |   Not logged  |  Display  |   Show the following links - `Home / Shop(Drop* All Products - Categories - Offers) / Signin / Signup`   |   __`Pass`__   |
+|    Navbar links    |   User logged  |  Display  |   Show the following links - `Home / Shop(Drop* All Products - Categories - Offers) / My Account(Drop* My Profile - Logout)`   |   __`Pass`__   |
+|    Navbar links    |   Superuser logged  |  Display  |   Show the following links - `Home / Shop(Drop* All Products - Categories - Offers) / Management(Drop* Product - Stock - Order Status - News Letter) / My Account(Drop* My Profile - Logout)`   |   __`Pass`__   |
+|    Navbar links    |   All  |  Hover  |   Hover effect on links when mouseover or clicked (mobile)   |   __`Pass`__   |
+|    Navbar logo    |   All  |  Click  |   Redirect to the homepage   |   __`Pass`__   |
+|    Link - Home    |   All  |  Click  |   Redirect to the homepage   |   __`Pass`__   |
+|    Link - Shop    |   All  |  Click  |   Show dropdown menu list   |   __`Pass`__   |
+|    Link - (Shop) All products    |   All  |  Click  |   Redirect to the products page and show all products   |   __`Pass`__   |
+|    Link - (Shop) Category: Skateboard    |   All  |  Click  |   Redirect to the products page and show all skateboards   |   __`Pass`__   |
+|    Link - (Shop) Category: Caps & Hats    |   All  |  Click  |   Redirect to the products page and show all caps & hats   |   __`Pass`__   |
+|    Link - (Shop) Category: Backpacks & Bags    |   All  |  Click  |   Redirect to the products page and show all backpacks & bags   |   __`Pass`__   |
+|    Link - Sign in    |   Not logged  |  Click  |   Redirect to the login page   |   __`Pass`__   |
+|    Link - Sign up    |   Not logged  |  Click  |   Redirect to the register page   |   __`Pass`__   |
+|    Link - My account    |   Superuser or User logged  |  Click  |   Show dropdown menu list   |   __`Pass`__   |
+|    Link - (My account) My Profile    |   Superuser or User logged  |  Click  |   Redirect to the My Profile page   |   __`Pass`__   |
+|    Link - (My account) Logout   |   Superuser or User logged  |  Click  |   Redirect to the logout page   |   __`Pass`__   |
+|    Link - Management    |   Superuser logged  |  Click  |   Show dropdown menu list   |   __`Pass`__   |
+|    Link - (Management) Product Manag.   |   Superuser logged  |  Click  |   Redirect to the Add product page   |   __`Pass`__   |
+|    Link - (Management) Stock Manag.   |   Superuser logged  |  Click  |   Redirect to the Stock management page   |   __`Pass`__   |
+|    Link - (Management) Order Status Manag.   |   Superuser logged  |  Click  |   Redirect to the Order Status management page   |   __`Pass`__   |
+|    Link - (Management) News Letter Manag.   |   Superuser logged  |  Click  |   Redirect to the News Letter send e-mail page   |   __`Pass`__   |
+|    Shopbag    |   All  |  Display  |    Show in every page, display order total and total products quantity   |   __`Pass`__   |
+|    Shopbag    |   All  |  Click  |    Redirect to the shopbag page   |   __`Pass`__   |
+|    Search bar    |   All  |  Display  |    Show input field to insert search query   |   __`Pass`__   |
+|    Search bar    |   All  |  Click  |    Redirect to products page and display just show products that match the search   |   __`Pass`__   |
+
+### Footer
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Footer    |   All  |  Display  |   Show the footer links + News Letter button + Social links   |   __`Pass`__   |
+|    Footer links    |   All  |  Hover  |   Hover effect on links when mouseover or clicked (mobile)   |   __`Pass`__   |
+|    Social links    |   All  |  Hover  |   Hover effect on links when mouseover or clicked (mobile)   |   __`Pass`__   |
+|    Footer links    |   Not logged  |  Display  |   Show the following links - `Home / All Products / Signin / Signup`   |   __`Pass`__   |
+|    Footer links    |   Superuser or User logged  |  Display  |   Show the following links - `Home / All Products / My Profile / Logout`   |   __`Pass`__   |
+|    Link - Home    |   All  |  Click  |   Redirect to the homepage   |   __`Pass`__   |
+|    Link - All Products    |   All  |  Click  |   Redirect to the products page and show all products   |   __`Pass`__   |
+|    Link - Sign in    |   Not logged  |  Click  |   Redirect to the login page   |   __`Pass`__   |
+|    Link - Sign up    |   Not logged  |  Click  |   Redirect to the register page   |   __`Pass`__   |
+|    Link - My Profile    |   Superuser or User logged  |  Click  |   Redirect to the My Profile page   |   __`Pass`__   |
+|    Link - Logout   |   Superuser or User logged  |  Click  |   Redirect to the logout page   |   __`Pass`__   |
+|    News Letter - Subscribe    |   All  |  Display  |   Open a modal box with a form (E-mail and Name) to subscribe   |   __`Pass`__   |
+|    News Letter - Modal    |   All  |  Form - Click `X` |   Close the modal window    |   __`Pass`__   |
+|    News Letter - Modal    |   All  |  Form - Click `Close` |   Close the modal window    |   __`Pass`__   |
+|    News Letter - Modal    |   All  |  Form - Click `Subscribe` |   If input information is not correct - return a message to insert the correct information type    |   __`Pass`__   |
+|    News Letter - Modal    |   All  |  Form - Click `Subscribe` |   If input information is correct and not subscribed yet - adds the information to the list and returns a success message    |   __`Pass`__   |
+|    News Letter - Modal    |   All  |  Form - Click `Subscribe` |   If input information is correct and e-mail is subscribed - close modal and display message the e-mail is already subscribed    |   __`Pass`__   |
+|    Social links - Facebook    |   All  |  Click  |   Open in a new window the Facebook Street Craft page   |   __`Pass`__   |
+|    Social links - Instagram    |   All  |  Click  |   Open in a new window the Instagram page   |   __`Pass`__   |
+|    Social links - TikTok    |   All  |  Click  |   Open in a new window the TikTok page   |   __`Pass`__   |
+|    Social links - Youtube    |   All  |  Click  |   Open in a new window the Youtube page   |   __`Pass`__   |
+
+
+
+
