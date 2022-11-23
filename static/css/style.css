@@ -22,7 +22,7 @@ body {
 }
 
 .bg-hero {
-    background: radial-gradient(circle, rgba(64,65,73,0.9528186274509804) 40%, rgba(255,193,7,0.4) 90%);
+    background: radial-gradient(circle, rgba(2, 2, 2, 0.953) 70%, rgba(255,193,7,0.4) 95%);
 }
 
 /* !! Style for footer elements !! */
