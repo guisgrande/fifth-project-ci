@@ -750,6 +750,9 @@ Checked each user story, with the intention of analyzing if it meets the require
 |    Link - (Shop) Category: Skateboard    |   All  |  Click  |   Redirect to the products page and show all skateboards   |   __`Pass`__   |
 |    Link - (Shop) Category: Caps & Hats    |   All  |  Click  |   Redirect to the products page and show all caps & hats   |   __`Pass`__   |
 |    Link - (Shop) Category: Backpacks & Bags    |   All  |  Click  |   Redirect to the products page and show all backpacks & bags   |   __`Pass`__   |
+|    Link - (Shop) Offer: New Arrivals    |   All  |  Click  |   Redirect to the products page and show all new arrivals offer products   |   __`Pass`__   |
+|    Link - (Shop) Offer: Special Sale    |   All  |  Click  |   Redirect to the products page and show all special sale offer products   |   __`Pass`__   |
+|    Link - (Shop) Offer: Last Chance    |   All  |  Click  |   Redirect to the products page and show all last chance offer products   |   __`Pass`__   |
 |    Link - Sign in    |   Not logged  |  Click  |   Redirect to the login page   |   __`Pass`__   |
 |    Link - Sign up    |   Not logged  |  Click  |   Redirect to the register page   |   __`Pass`__   |
 |    Link - My account    |   Superuser or User logged  |  Click  |   Show dropdown menu list   |   __`Pass`__   |
@@ -791,6 +794,162 @@ Checked each user story, with the intention of analyzing if it meets the require
 |    Social links - TikTok    |   All  |  Click  |   Open in a new window the TikTok page   |   __`Pass`__   |
 |    Social links - Youtube    |   All  |  Click  |   Open in a new window the Youtube page   |   __`Pass`__   |
 
+### Home page
 
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Hero section    |   All  |  Display  |   Display image carousel cointainer (3 images), text and buttons   |   __`Pass`__   |
+|    New Arrivals section    |   All  |  Display  |   Display New Arrivals section with title, paragraph, shop button and 4 products cards (New Arrivals offer)  |   __`Pass`__   |
+|    Special Offers section    |   All  |  Display  |   Display Special Offers section with title, paragraph, shop button and 4 products cards (Special Offers)  |   __`Pass`__   |
+|    News Letter / Social section    |   All  |  Display  |   Display News Letter subscribe container form fields and subscribe button / Display social links container and a link for each social page.   |   __`Pass`__   |
+|    Last Chance section    |   All  |  Display  |   Display Last Chance section with title, paragraph, shop button and 4 products cards (Last opportunity Offers)  |   __`Pass`__   |
+|    Sign up section    |   Not logged  |  Display  |   Display call text for discount coupon and a button   |   __`Pass`__   |
+|    Hero section - Left arrow    |   All  |  Click  |   Back to previous slide   |   __`Pass`__   |
+|    Hero section - Right arrow    |   All  |  Click  |   Go to next slide   |   __`Pass`__   |
+|    Hero section - Firs slide button    |   All  |  Click  |   Redirect to the products page and show all products   |   __`Pass`__   |
+|    Hero section - Second slide button   |   All  |  Click  |   Redirect to the sign up page   |   __`Pass`__   |
+|    Hero section - Third slide button   |   All  |  Click  |   Redirect to the products page and show all skateboards   |   __`Pass`__   |
+|    New Arrivals - Shop button    |   All  |  Click  |  Redirect to the products page and show all new arrivals offer products   |   __`Pass`__   |
+|    New Arrivals - Product card    |   All  |  Display  |   Show the product image, name, price, stock, quantity, less and plus buttons and ADD button.   |   __`Pass`__   |
+|    New Arrivals - Product card quantity    |   All  |  Input  |  Number field accepts the value between 1 and 99 and only numbers   |   __`Pass`__   |
+|    New Arrivals - Product card less button    |   All  |  Click  |  Decreases the quantity of the product (input) to a limit of at least one unit   |   __`Pass`__   |
+|    New Arrivals - Product card plus button    |   All  |  Click  |  Increases the quantity of the product (input) to a maximum of 99 units   |   __`Pass`__   |
+|    New Arrivals - Product card ADD button    |   All  |  Click  |  Adds the selected product and quantity to the shopbag and returns a success message    |   __`Pass`__   |
+|    Special Offers - Shop button    |   All  |  Click  |  Redirect to the products page and show all special sale offer products   |   __`Pass`__   |
+|    Special Offers - Product card    |   All  |  Display  |   Show the product image, name, price, stock, quantity, less and plus buttons and ADD button.   |   __`Pass`__   |
+|    Special Offers - Product card quantity    |   All  |  Input  |  Number field accepts the value between 1 and 99 and only numbers   |   __`Pass`__   |
+|    Special Offers - Product card less button    |   All  |  Click  |  Decreases the quantity of the product (input) to a limit of at least one unit   |   __`Pass`__   |
+|    Special Offers - Product card plus button    |   All  |  Click  |  Increases the quantity of the product (input) to a maximum of 99 units   |   __`Pass`__   |
+|    Special Offers - Product card ADD button    |   All  |  Click  |  Adds the selected product and quantity to the shopbag and returns a success message    |   __`Pass`__   |
+|    Last Chance - Shop button    |   All  |  Click  |  Redirect to the products page and show all last opportunity offer products   |   __`Pass`__   |
+|    Last Chance - Product card    |   All  |  Display  |   Show the product image, name, price, stock, quantity, less and plus buttons and ADD button.   |   __`Pass`__   |
+|    Last Chance - Product card quantity    |   All  |  Input  |  Number field accepts the value between 1 and 99 and only numbers   |   __`Pass`__   |
+|    Last Chance - Product card less button    |   All  |  Click  |  Decreases the quantity of the product (input) to a limit of at least one unit   |   __`Pass`__   |
+|    Last Chance - Product card plus button    |   All  |  Click  |  Increases the quantity of the product (input) to a maximum of 99 units   |   __`Pass`__   |
+|    Last Chance - Product card ADD button    |   All  |  Click  |  Adds the selected product and quantity to the shopbag and returns a success message    |   __`Pass`__   |
+|    Any Product - Stock   |   All  |  Add to bag  |   If more than available stock, add just maximum stock available    |   __`Pass`__   |
+|    Any Product - Stock   |   All  |  Add to bag  |   If less or equal than available stock, add just selected quantity    |   __`Pass`__   |
+|    Any Product - Offer   |   All  |  Display  |   If the product is on offer, show the tag in the image and the old and new price (after discount).    |   __`Pass`__   |
+|    News Letter - Subscribe button   |   All  |  Form - Click  |   If input information is not correct - return a message to insert the correct information type    |   __`Pass`__   |
+|    News Letter - Subscribe button   |   All  |  Form - Click |   If input information is correct and not subscribed yet - adds the information to the list and returns a success message    |   __`Pass`__   |
+|    News Letter - Subscribe button   |   All  |  Form - Click |   If input information is correct and e-mail is subscribed - close modal and display message the e-mail is already subscribed    |   __`Pass`__   |
+|    Social - Facebook link button   |   All  |  Click  |   Open in a new window the Facebook Street Craft page   |   __`Pass`__   |
+|    Social - Instagram link button   |   All  |  Click  |   Open in a new window the Instagram page   |   __`Pass`__   |
+|    Social - TikTok link button   |   All  |  Click  |   Open in a new window the TikTok page   |   __`Pass`__   |
+|    Social - Youtube link button   |   All  |  Click  |   Open in a new window the Youtube page   |   __`Pass`__   |
+|    Sign up section - button    |   Not logged  |  Click  |   Redirect to the sign up page   |   __`Pass`__   |
 
+### Products page
 
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Total products    |   All  |  Display  |   Show text informing the total of products   |   __`Pass`__   |
+|    Sort all products by    |   All  |  Display  |   Show sort selection box field with four options: `By price: low to high` / `By price: high to low` / `By name: A to Z` / `By name: Z to A`  |   __`Pass`__   |
+|    Products    |   All  |  Display  |   Show the total of 8 products per page   |   __`Pass`__   |
+|    Pagination    |   All  |  Display  |   Show the number of pages, buttons to navigate between them ade the number of produts showing at current page   |   __`Pass`__   |
+|    Pagination - First button    |   All  |  Click  |   Load the first page of product results  |   __`Pass`__   |
+|    Pagination - Last button  |   All  |  Click  |   Load the last page available of product results  |   __`Pass`__   |
+|    Pagination - `<<` previous button   |   All  |  Click  |   Load the previous available page of product results |   __`Pass`__   |
+|    Pagination - `>>` next button   |   All  |  Click  |   Load the next available page of product results  |   __`Pass`__   |
+|    Product card    |   All  |  Display  |   Show the product image, name, price, stock, quantity, less and plus buttons and ADD button.   |   __`Pass`__   |
+|    Product card - Offer   |   All  |  Display  |   If the product is on offer, show the tag in the image and the old and new price (after discount).    |   __`Pass`__   |
+|    Product card quantity    |   All  |  Input  |  Number field accepts the value between 1 and 99 and only numbers   |   __`Pass`__   |
+|    Product card less button    |   All  |  Click  |  Decreases the quantity of the product (input) to a limit of at least one unit   |   __`Pass`__   |
+|    Product card plus button    |   All  |  Click  |  Increases the quantity of the product (input) to a maximum of 99 units   |   __`Pass`__   |
+|    Product card ADD button    |   All  |  Click  |  Adds the selected product and quantity to the shopbag and returns a success message    |   __`Pass`__   |
+|    Product - Stock   |   All  |  Add to bag  |   If more than available stock, add just maximum stock available    |   __`Pass`__   |
+|    Product - Stock   |   All  |  Add to bag  |   If less or equal than available stock, add just selected quantity    |   __`Pass`__   |
+|    Product card image    |   All  |  Click  |  Redirect to that product details page   |   __`Pass`__   |
+|    Sort all products - `By price: low to high`    |   All  |  Select - Click  |   Reload page and display all products ordered by price from cheapest to most expensive   |   __`Pass`__   |
+|    Sort all products - `By price: high to low`    |   All  |  Select - Click  |   Reload page and display all products ordered by price from the most expensive to the cheapest   |   __`Pass`__   |
+|    Sort all products - `By name: A to Z`    |   All  |  Select - Click  |   Reload page and display all products sorted in alphabetical order from A to Z    |   __`Pass`__   |
+|    Sort all products - `By name: Z to A`    |   All  |  Select - Click  |   Reload page and display all products sorted in alphabetical order from Z to A    |   __`Pass`__   |
+
+### Product details page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Product details    |   All  |  Display  |   Show the product image, reviews section, name, SKU, price, stock, quantity, less and plus buttons, Keep Shoping and Add to bag buttons, product description   |   __`Pass`__   |
+|    Product details - Offer   |   All  |  Display  |   If the product is on offer, show the tag in the image and the old and new price (after discount).    |   __`Pass`__   |
+|    Product details - Reviews avarage score    |   All  |  Display  |   Show the average score of all reviews   |   __`Pass`__   |
+|    Product details - `Reviews` button   |   Not logged  |  Display  |   Show the just span with total of reviews for the product   |   __`Pass`__   |
+|    Product details - `Reviews` button   |   Superuser or User logged  |  Display  |   Show a button with total of reviews for the product   |   __`Pass`__   |
+|    Product details - `Reviews` button   |   Superuser or User logged  |  Click  |   Redirect to review product page   |   __`Pass`__   |
+|    Product details - Stock   |   All  |  Display  |   Show the available quantity for the product    |   __`Pass`__   |
+|    Product details - Stock   |   All  |  Add to bag  |   If more than available stock, add just maximum stock available    |   __`Pass`__   |
+|    Product details - Stock   |   All  |  Add to bag  |   If less or equal than available stock, add just selected quantity    |   __`Pass`__   |
+|    Product details - `KEEP SHOPPING` button   |   All  |  Click  |   Redirect to review product page   |   __`Pass`__   |
+|    Product details - `ADD TO BAG` button   |   All  |  Click  |   Adds the selected product and quantity to the shopbag and returns a success message   |   __`Pass`__   |
+
+### Product reviews page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Product reviews    |   Superuser or User logged  |  Display  |   Show the product image, name, back to product button, reviews avarage and total reviews, list of all reviews   |   __`Pass`__   |
+|    Product reviews    |   Not logged  |  Display  |   Dont't load the page, redirect to home page and return a error message   |   __`Pass`__   |
+|    Product reviews - form    |   Superuser or User logged  |  Display  |   If the user did not buy the product, do not show the form to review   |   __`Pass`__   |
+|    Product reviews - form    |   Superuser or User logged  |  Display  |   If the user bought the product and has already reviewed it, do not show the form. Show text informing that already reviewed.   |   __`Pass`__   |
+|    Product reviews - form    |   Superuser or User logged  |  Display  |   If the user bought the product and has not reviewed it yet, show the form.   |   __`Pass`__   |
+|    Product reviews - form    |   Superuser or User logged  |  Select - Click  |   Highlight the user's selection among the available options to make clear which one will be assigned   |   __`Pass`__   |
+|    Product reviews - form `Review` button    |   Superuser or User logged  |  Click  |   Submits the user's vote and returns the message that the review was completed. Reloads the page and updates the new review.   |   __`Pass`__   |
+|    Product reviews - `Back to porduct` button    |   Superuser or User logged  |  Click  |   Redirect (return) to product details page   |   __`Pass`__   |
+
+### Sign in page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+
+### Forgot password page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+
+### Sign up page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+
+### Sign out page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+
+### My Profile page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+
+### My orders page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+
+### Order details page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+
+### Change password page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+
+### Delete profile page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+
+### Shopbag page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+
+### Checkout page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
+
+### Checkout Success page
+
+|   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
+|    ---    |   ---  |  ---  |   ---   |   ---   |
