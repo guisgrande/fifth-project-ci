@@ -1004,21 +1004,57 @@ Observation: Access using the Google account is not working 100% of the time. So
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
+|    My orders page    |   Not logged  |   Display  |   Dont't load the page, redirect to home page   |   __`Pass`__   |
+|    My orders page    |   Superuser or User logged  |   Display  |   If dont't have any order - `We have not identified any orders finalized with the user`   |   __`Pass`__   |
+|    My orders page    |   Superuser or User logged  |   Display  |   If dont't have any order - `Back to Shop` button   |   __`Pass`__   |
+|    My orders page    |   Superuser or User logged  |   Display  |   If have orders - `All orders registered as user ...` /  `Total orders: X` |   __`Pass`__   |
+|    My orders page    |   Superuser or User logged  |   Display  |   If have orders - Show a table list with all orders. Order Numb / Date / Items / Order Total |   __`Pass`__   |
+|    My orders page    |   Superuser or User logged  |   Display  |   `Back to My Profile` button |   __`Pass`__   |
+|    My orders - `Back to Shop` button   |   Superuser or User logged  |   Click  |   Redirect to the products page and show all products |   __`Pass`__   |
+|    My orders - `Back to My Profile` button   |   Superuser or User logged  |   Click  |   Redirect to My Profile page |   __`Pass`__   |
+|    My orders - Order Number Link   |   Superuser or User logged  |   Click  |   Redirect to that Order Details page |   __`Pass`__   |
 
 ### Order details page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Order Details page    |   Not logged  |   Display  |   Dont't load the page, redirect to home page and show message   |   __`Pass`__   |
+|    Order Details page    |   Superuser or User logged |   Display  |   If not owner of the order: Dont't load the page, redirect to home page and show message   |   __`Pass`__   |
+|    Order Details page    |   Superuser or User logged |   Display  |   If is the owner of the order: Load the page   |   __`Pass`__   |
+|    Order Details page    |   Superuser or User logged |   Display  |   If is the owner of the order: display Order number, Order Details, Billing Info, Delivering To, Contact info, Order Status.   |   __`Pass`__   |
+|    Order Details page    |   Superuser or User logged |   Display  |   If is the owner of the order: `My Profile` and `My Orders` buttons   |   __`Pass`__   |
+|    Order Details - Status    |   Superuser or User logged |   Display  |   Order Status returns progress bar according to the current status and shows the previous and next steps   |   __`Pass`__   |
+|    Order Details - `My Profile` button    |   Superuser or User logged |   Click  |   Redirect to My Profile page   |   __`Pass`__   |
+|    Order Details - `My Orders` button    |   Superuser or User logged |   Click  |   Redirect to My Orders page   |   __`Pass`__   |
 
 ### Change password page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Change password page    |   Not logged  |   Display  |   Don't load the page and return user to sign in page.   |   __`Pass`__   |
+|    Change password page    |   Superuser or User logged  |   Display  |   Three fields (Current Password / New Password / New Password again), `Change Password` and `Back to My Profile` buttons  |   __`Pass`__   |
+|    Change password - Form fields    |   Superuser or User logged  |   Field Current Password: incorrect  |  Submitting: Form not submitted. Warning message   |   __`Pass`__   |
+|    Change password - Form fields    |   Superuser or User logged  |   Field Current Password: correct  |  Submitting: Form submitted. Success message   |   __`Pass`__   |
+|    Change password - Form fields    |   Superuser or User logged  |   Field New Password / New Password (again): incorrect format / not match  |  Submitting: Form not submitted. Warning message   |   __`Pass`__   |
+|    Change password - Form fields    |   Superuser or User logged  |   Field New Password: correct format / match |  Submitting: Form submitted. Success message   |   __`Pass`__   |
+|    Change password - `Change Password` button   |   Superuser or User logged  |   Click  |   If the two password fields are not identical, it returns the message that it must be corrected   |   __`Pass`__   |
+|    Change password - `Change Password` button   |   Superuser or User logged  |   Click  |   If the two password fields are identical and current password it's right, change password and return a succes message   |   __`Pass`__   |
+|    Change password - `Back to My Profile` button   |   Superuser or User logged  |   Click  |   Redirect to My Profile page   |   __`Pass`__   |
 
 ### Delete profile page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Delete profile page    |   Not logged  |   Display  |   Don't load the page and return user to sign in page.   |   __`Pass`__   |
+|    Delete profile page    |   Superuser or User logged  |   Display  |   If have orders - Show: Attention you still have orders in our system and explanatory text   |   __`Pass`__   |
+|    Delete profile page    |   Superuser or User logged  |   Display  |   If have orders - Show: `My Orders` button   |   __`Pass`__   |
+|    Delete profile - `My Orders` button    |   Superuser or User logged  |   Display  |   Redirect to My Orders page   |   __`Pass`__   |
+|    Delete profile page    |   Superuser or User logged  |   Display  |   Show: Attention text box   |   __`Pass`__   |
+|    Delete profile page    |   Superuser or User logged  |   Display  |   Show: `Delete Account` and `Cancel` button   |   __`Pass`__   |
+|    Delete profile page    |   Superuser or User logged  |   Display  |   Show: `Back to Shop` button   |   __`Pass`__   |
+|    Delete profile - `Delete Account` button    |   Superuser or User logged  |   Click  |   Delete account, redirect to home page and display success message   |   __`Pass`__   |
+|    Delete profile - `Cancel` button    |   Superuser or User logged  |   Click  |   Redirect (back) to My Profile page   |   __`Pass`__   |
+|    Delete profile - `Back to Shop` button    |   Superuser or User logged  |   Click  |   Redirect to the products page and show all products   |   __`Pass`__   |
 
 ### Shopbag page
 
