@@ -923,59 +923,82 @@ Observation: Access using the Google account is not working 100% of the time. So
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
-|    Password Reset page    |   All  |   Display  |   Display the following text `Forgotten your password? Enter your e-mail address below, and we'll send you an e-mail allowing you to reset it`   |   Pass   |
-|    Password Reset page    |   Superuser or User logged  |   Display  |   Display the following extra text `Note: you are already logged in as ...`   |   Pass   |
-|    Password Reset page    |   All  |   Display  |   Display  `Sign out` button   |   Pass   |
-|    `Reset My Password` button    |   All  |   Click  |   If the e-mail is not in correct format, don't proceed and inform that the format is wrong    |   Pass   |
-|    `Reset My Password` button    |   All  |   Click  |   If the e-mail is not registered, return message: `The e-mail address is not assigned to any user account`    |   Pass   |
-|    `Reset My Password` button    |   All  |   Click  |   If the e-mail is registered, proceed and send an e-mail with change password link   |   Pass   |
-|    Change password page    |   All  |   Display  |   Accessed by the e-mail link, it shows two fields for a new password and the `change password` button   |   Pass   |
-|    Change password page - button   |   All  |   Click  |   If the two password fields are not identical, it returns the message that it must be corrected   |   Pass   |
-|    Change password page - button   |   All  |   Click  |   If the two password fields are identical, change the password and show a message of success   |   Pass   |
+|    Password Reset page    |   All  |   Display  |   Display the following text `Forgotten your password? Enter your e-mail address below, and we'll send you an e-mail allowing you to reset it`   |   __`Pass`__   |
+|    Password Reset page    |   Superuser or User logged  |   Display  |   Display the following extra text `Note: you are already logged in as ...`   |   __`Pass`__   |
+|    Password Reset page    |   All  |   Display  |   Display  `Sign out` button   |   __`Pass`__   |
+|    `Reset My Password` button    |   All  |   Click  |   If the e-mail is not in correct format, don't proceed and inform that the format is wrong    |   __`Pass`__   |
+|    `Reset My Password` button    |   All  |   Click  |   If the e-mail is not registered, return message: `The e-mail address is not assigned to any user account`    |   __`Pass`__   |
+|    `Reset My Password` button    |   All  |   Click  |   If the e-mail is registered, proceed and send an e-mail with change password link   |   __`Pass`__   |
+|    Change password page    |   All  |   Display  |   Accessed by the e-mail link, it shows two fields for a new password and the `change password` button   |   __`Pass`__   |
+|    Change password page - button   |   All  |   Click  |   If the two password fields are not identical, it returns the message that it must be corrected   |   __`Pass`__   |
+|    Change password page - button   |   All  |   Click  |   If the two password fields are identical, change the password and show a message of success   |   __`Pass`__   |
 
 ### Sign up page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
-|    Signup page    |   Superuser or User logged  |   Display  |   Don't load page, redirect to home page.   |   Pass   |
-|    Signup page    |   Not logged  |   Display  |   Display the following fields inside the form - `E-mail, E-mail (again),Username, Password, Password (again)`   |   Pass   |
-|    Signup page    |   Not logged  |   Display  |   Display  `Signup` button   |   Pass   |
-|    Signup page    |   Not logged  |   Display  |   Show calling text for those who are already registered and `Signin` button  |   Pass   |
-|    Signup form    |   Not logged  |   Field Username: empty  |   Submitting: Form not submitted. Warning message  |   Pass   |
-|    Signup form    |   Not logged  |   Field Username: duplicated  |   Submitting: Form not submitted. Warning message  |   Pass   |
-|    Signup form    |   Not logged  |   Field Username: incorrect format  |   Submitting: Form not submitted. Warning message  |   Pass   |
-|    Signup form    |   Not logged  |   Field Username: correct format  |   Submitting: Form submitted. Success message  |   Pass   |
-|    Signup form    |   Not logged  |   Field E-mail: empty  |   Submitting: Form submitted. Success message |   Pass   |
-|    Signup form    |   Not logged  |   Field E-mail: duplicated  |   Submitting: Form not submitted. Warning message |   Pass   |
-|    Signup form    |   Not logged  |   Field E-mail: incorrect format  |   Submitting: Form not submitted. Warning message |   Pass   |
-|    Signup form    |   Not logged  |   Field E-mail (again): empty  |   Submitting: Form not submitted. Warning message |   Pass   |
-|    Signup form    |   Not logged  |   Field E-mail (again): incorrect format  |   Submitting: Form not submitted. Warning message |   Pass   |
-|    Signup form    |   Not logged  |   Field E-mail (again): correct format |   Submitting: Form submitted. Success message |   Pass   |
-|    Signup form    |   Not logged  |   Field E-mail: correct format match  |   Submitting: Form submitted. Success message |   Pass   |
-|    Signup form    |   Not logged  |   Field Password: empty  |   Submitting: Form not submitted. Warning message  |   Pass   |
-|    Signup form    |   Not logged  |   Field Password: incorrect format  |   Submitting: Form not submitted. Warning message  |   Pass   |
-|    Signup form    |   Not logged  |   Field Password: correct format  |   Submitting: Form submitted. Success message  |   Pass   |
-|    Signup form    |   Not logged  |   Field Password (again): empty  |   Submitting: Form not submitted. Warning message |   Pass   |
-|    Signup form    |   Not logged  |   Field Password (again): incorrect format  |   Submitting: Form not submitted. Warning message |   Pass   |
-|    Signup form    |   Not logged  |   Field Password (again): correct format match |   Submitting: Form submitted. Success message |   Pass   |
-|    Signup form    |   Not logged  |   Fields Password + Password (again): don't match |   Submitting: Form not submitted. Warning message |   Pass   |
-|    Signup form    |   Not logged  |   Fields Password + Password (again): match |   Submitting: Form submitted. Success message |   Pass   |
-|    Signup button    |   Not logged  |   Click  |   If form valid - Adds new user, redirects to home page, shows success message    |   Pass   |
-|    Signin button    |   Not logged  |   Click  |   Redirect to the Signin page (Login)    |   Pass   |
+|    Signup page    |   Superuser or User logged  |   Display  |   Don't load page, redirect to home page.   |   __`Pass`__   |
+|    Signup page    |   Not logged  |   Display  |   Display the following fields inside the form - `E-mail, E-mail (again),Username, Password, Password (again)`   |   __`Pass`__   |
+|    Signup page    |   Not logged  |   Display  |   Display  `Signup` button   |   __`Pass`__   |
+|    Signup page    |   Not logged  |   Display  |   Show calling text for those who are already registered and `Signin` button  |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field Username: empty  |   Submitting: Form not submitted. Warning message  |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field Username: duplicated  |   Submitting: Form not submitted. Warning message  |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field Username: incorrect format  |   Submitting: Form not submitted. Warning message  |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field Username: correct format  |   Submitting: Form submitted. Success message  |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field E-mail: empty  |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field E-mail: duplicated  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field E-mail: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field E-mail (again): empty  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field E-mail (again): incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field E-mail (again): correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field E-mail: correct format match  |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field Password: empty  |   Submitting: Form not submitted. Warning message  |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field Password: incorrect format  |   Submitting: Form not submitted. Warning message  |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field Password: correct format  |   Submitting: Form submitted. Success message  |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field Password (again): empty  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field Password (again): incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Field Password (again): correct format match |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Fields Password + Password (again): don't match |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Signup form    |   Not logged  |   Fields Password + Password (again): match |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Signup button    |   Not logged  |   Click  |   If form valid - Adds new user, redirects to home page, shows success message    |   __`Pass`__   |
+|    Signin button    |   Not logged  |   Click  |   Redirect to the Signin page (Login)    |   __`Pass`__   |
 
 ### Sign out page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
-|    Logout page    |   Not logged  |   Display  |   Dont't load the page, redirect to sign in page   |   Pass   |
-|    Logout page    |   Superuser or User logged  |   Display  |   Display the following text inside the form - `Are you sure you want to sign out?`   |   Pass   |
-|    Logout page    |   Superuser or User logged  |   Display  |   Display  `Sign out` button   |   Pass   |
-|    Signout button    |   Superuser or User logged  |   Click  |   Logout the user, redirects to home page, shows success message    |   Pass   |
+|    Logout page    |   Not logged  |   Display  |   Dont't load the page, redirect to sign in page   |   __`Pass`__   |
+|    Logout page    |   Superuser or User logged  |   Display  |   Display the following text inside the form - `Are you sure you want to sign out?`   |   __`Pass`__   |
+|    Logout page    |   Superuser or User logged  |   Display  |   Display  `Sign out` button   |   __`Pass`__   |
+|    Signout button    |   Superuser or User logged  |   Click  |   Logout the user, redirects to home page, shows success message    |   __`Pass`__   |
 
 ### My Profile page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
+|    My Profile page    |   Not logged  |   Display  |   Dont't load the page, redirect to home page   |   __`Pass`__   |
+|    My Profile page    |   Superuser or User logged  |   Display  |   Show `You are logged in as ...`   |   __`Pass`__   |
+|    My Profile page    |   Superuser or User logged  |   Display  |   `My Orders` button   |   __`Pass`__   |
+|    My Profile page    |   Superuser or User logged  |   Display  |   Coupon section, and display it if any.  |   __`Pass`__   |
+|    My Profile page    |   Superuser or User logged  |   Display  |   Account settings: `Change Password` and `Delete Profile` buttons  |   __`Pass`__   |
+|    My Profile page    |   Superuser or User logged  |   Display  |   Default Profile Delivery Information form fields  |   __`Pass`__   |
+|    My Profile page    |   Superuser or User logged  |   Display  |   `Update Info.` button   |   __`Pass`__   |
+|    My Profile - Form    |   Superuser or User logged  |   Field Phone Number: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    My Profile - Form    |   Superuser or User logged  |   Field Phone Number: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    My Profile - Form    |   Superuser or User logged  |   Field Postal Code: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    My Profile - Form    |   Superuser or User logged  |   Field Postal Code: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    My Profile - Form    |   Superuser or User logged  |   Field Town or City: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    My Profile - Form    |   Superuser or User logged  |   Field Town or City: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    My Profile - Form    |   Superuser or User logged  |   Field Street Address 1: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    My Profile - Form    |   Superuser or User logged  |   Field Street Address 1: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    My Profile - Form    |   Superuser or User logged  |   Field Street Address 2: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    My Profile - Form    |   Superuser or User logged  |   Field Street Address 2: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    My Profile - Form    |   Superuser or User logged  |   Field County, State or Locality: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    My Profile - Form    |   Superuser or User logged  |   Field County, State or Locality: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    My Profile - `My Orders` button    |   Superuser or User logged  |   Click  |   Redirect to My Orders list page   |   __`Pass`__   |
+|    My Profile - `Change Password` button    |   Superuser or User logged  |   Click  |   Redirect to Change Password page   |   __`Pass`__   |
+|    My Profile - `Delete Profile` button    |   Superuser or User logged  |   Click  |   Redirect to Delete Profile page   |   __`Pass`__   |
+|    My Profile - `Update Info.` button    |   Superuser or User logged  |   Click  |   Update Profile Delivery Information, if form is valid. Return a success message   |   __`Pass`__   |
 
 ### My orders page
 
