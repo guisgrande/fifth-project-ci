@@ -1078,8 +1078,50 @@ Observation: Access using the Google account is not working 100% of the time. So
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
 |    Checkout page   |   All  |  Display  |   If don't have product in bag - Redirect to products page and return a error message   |   __`Pass`__   |
+|    Checkout page   |   All  |  Display  |   Show form for Details, Delivery and Payment   |   __`Pass`__   |
+|    Checkout page   |   All  |  Display  |   Show Order Summary if all products from bag, order total, delivery, discount, grand total   |   __`Pass`__   |
+|    Checkout page   |   All  |  Display  |   Show `Adjust bag` and `Complete Order` buttons    |   __`Pass`__   |
+|    Checkout - Form    |   Superuser or User logged  |   Auto fill fields  |   If the user has the information saved in the profile, it fills in automatically in the checkout form |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Full Name: empty  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Full Name: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Full Name: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field E-mail: empty  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field E-mail: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field E-mail: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Contry: not selected |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Contry: selected |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Phone Number: empty  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Phone Number: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Phone Number: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Postal Code: empty  |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Postal Code: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Postal Code: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Town or City: empty  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Town or City: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Town or City: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Street Address 1: empty  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Street Address 1: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Street Address 1: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Street Address 2: empty  |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Street Address 2: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Street Address 2: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field County, State or Locality: empty  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field County, State or Locality: incorrect format  |   Submitting: Form not submitted. Warning message |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field County, State or Locality: correct format |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Checkout - Form Check    |   Superuser or User logged  |   Check  |   If `Save this delivery information to my profile` selected, update ou save information in My Profile page  |   __`Pass`__   |
+|    Checkout - `Create an account` link   |   Not logged  |   Click  |   Redirect to the register page  |   __`Pass`__   |
+|    Checkout - `login` link   |   Not logged  |   Click  |   Redirect to the login page  |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Payment: invalid card information |   Display in real time the error, invalid card number, expired card, other. |   __`Pass`__   |
+|    Checkout - Form    |   All  |   Field Payment: valid card information |   Submitting: Form submitted. Success message |   __`Pass`__   |
+|    Checkout - `Adjust bag` button    |   All  |   Click |   Redirect (back) to shopbag and keep the current products |   __`Pass`__   |
+|    Checkout - `Complete Order` button    |   All  |   Click |   If any field are incorrect and/or card invalid, don't submit, display message error and stay in checkout page  |   __`Pass`__   |
+|    Checkout - `Complete Order` button    |   All  |   Click |   If all fields are correct and card valid, submit order for processing and redirect to checkout success  |   __`Pass`__   |
 
 ### Checkout Success page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
+|    Checkout Success page    |   All  |   Send E-mail  |   Send Order Success confirmation e-mail with essentail informations about order   |   __`Pass`__   |
+|    Checkout Success page    |   All  |   Display  |   Show Order number, Order Details, Billing Info, Delivering To, Contact info.   |   __`Pass`__   |
+|    Checkout Success page    |   All |   Display  |   Show: `Check out the latest promotions` button   |   __`Pass`__   |
+|    Checkout Success - `Check out the latest promotions` button    |   All |   Click  |   Redirect to the products page and show all products   |   __`Pass`__   |
