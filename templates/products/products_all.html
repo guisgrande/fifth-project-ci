@@ -73,17 +73,17 @@
                                                 <input class="form-control qty_input rounded shadow-sm" type="number"
                                                     name="quantity" value="1" min="1" max="99"
                                                     data-item_id="{{ product.slug }}"
-                                                    id="id_qty_{{ product.slug }}">
+                                                    id="id_qty_{{ product.slug }}" aria-label="Quantity">
                                                 <div class="d-flex flex-row border rounded shadow-sm">
                                                     <div class="input-group-prepend m-1">
                                                         <button type="button" class="decrement-qty btn btn-sm btn-dark rounded" 
-                                                            data-item_id="{{ product.slug }}" id="{{ product.slug }}-decrement-qty">
+                                                            data-item_id="{{ product.slug }}" id="{{ product.slug }}-decrement-qty" aria-label="Less">
                                                             <span><i class="bi bi-dash-lg"></i></span>
                                                         </button>
                                                     </div>
                                                     <div class="input-group-append m-1">
                                                         <button type="button" class="increment-qty btn btn-sm btn-dark rounded"
-                                                            data-item_id="{{ product.slug }}" id="{{ product.slug }}-increment-qty">
+                                                            data-item_id="{{ product.slug }}" id="{{ product.slug }}-increment-qty" aria-label="Plus">
                                                             <span><i class="bi bi-plus-lg"></i></span>
                                                         </button>
                                                     </div>
@@ -109,7 +109,7 @@
     {% if page_obj.has_previous %}
     <a href="?{% param_replace page=1 %}">First</a>
         {% if page_obj.previous_page_number != 1 %}
-        <a class="p-1 border border-primary rounded shadow-sm" href="?{% param_replace page=page_obj.previous_page_number %}"><i class="bi bi-chevron-double-left"></i></a>
+        <a class="p-1 border border-primary rounded shadow-sm" href="?{% param_replace page=page_obj.previous_page_number %}" aria-label="Previews"><i class="bi bi-chevron-double-left"></i></a>
         {% endif %}
     {% endif %}
 
@@ -117,7 +117,7 @@
 
     {% if page_obj.has_next %}
         {% if page_obj.next_page_number != paginator.num_pages %}
-        <a class="p-1 border border-primary rounded shadow-sm" href="?{% param_replace page=page_obj.next_page_number %}"><i class="bi bi-chevron-double-right"></i></a>
+        <a class="p-1 border border-primary rounded shadow-sm" href="?{% param_replace page=page_obj.next_page_number %}" aria-label="Next"><i class="bi bi-chevron-double-right"></i></a>
         {% endif %}
     <a href="?{% param_replace page=paginator.num_pages %}">Last</a>
     {% endif %}

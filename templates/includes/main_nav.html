@@ -11,9 +11,9 @@
     <div class="m-2 col-12 col-lg-4">
         <form method="GET" action="{% url 'products' %}">
             <div class="input-group w-100">
-                <input class="form-control border border-black rounded" type="text" name="q" placeholder="Search for a product">
+                <input class="form-control border border-black rounded" type="text" name="q" placeholder="Search for a product" aria-label="Search input bar">
                 <div class="input-group-append">
-                    <button class="btn btn-dark bg-gradient rounded" type="submit">
+                    <button class="btn btn-dark bg-gradient rounded" type="submit" aria-label="Search">
                         <span>
                             <i class="bi bi-search"></i>
                         </span>

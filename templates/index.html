@@ -95,17 +95,17 @@
                                                     <input class="form-control qty_input rounded shadow-sm" type="number"
                                                         name="quantity" value="1" min="1" max="99"
                                                         data-item_id="{{ product.slug }}"
-                                                        id="id_qty_{{ product.slug }}">
+                                                        id="id_qty_{{ product.slug }}" aria-label="Quantity">
                                                     <div class="d-flex flex-row border rounded shadow-sm">
                                                         <div class="input-group-prepend m-1">
                                                             <button type="button" class="decrement-qty btn btn-sm btn-dark rounded" 
-                                                                data-item_id="{{ product.slug }}" id="{{ product.slug }}-decrement-qty">
+                                                                data-item_id="{{ product.slug }}" id="{{ product.slug }}-decrement-qty" aria-label="Less">
                                                                 <span><i class="bi bi-dash-lg"></i></span>
                                                             </button>
                                                         </div>
                                                         <div class="input-group-append m-1">
                                                             <button type="button" class="increment-qty btn btn-sm btn-dark rounded"
-                                                                data-item_id="{{ product.slug }}" id="{{ product.slug }}-increment-qty">
+                                                                data-item_id="{{ product.slug }}" id="{{ product.slug }}-increment-qty" aria-label="Plus">
                                                                 <span><i class="bi bi-plus-lg"></i></span>
                                                             </button>
                                                         </div>
@@ -177,17 +177,17 @@
                                                     <input class="form-control qty_input rounded shadow-sm" type="number"
                                                         name="quantity" value="1" min="1" max="99"
                                                         data-item_id="{{ product.slug }}"
-                                                        id="id_qty_{{ product.slug }}">
+                                                        id="id_qty_{{ product.slug }}" aria-label="Quantity">
                                                     <div class="d-flex flex-row border rounded shadow-sm">
                                                         <div class="input-group-prepend m-1">
                                                             <button type="button" class="decrement-qty btn btn-sm btn-dark rounded" 
-                                                                data-item_id="{{ product.slug }}" id="{{ product.slug }}-decrement-qty">
+                                                                data-item_id="{{ product.slug }}" id="{{ product.slug }}-decrement-qty" aria-label="Less">
                                                                 <span><i class="bi bi-dash-lg"></i></span>
                                                             </button>
                                                         </div>
                                                         <div class="input-group-append m-1">
                                                             <button type="button" class="increment-qty btn btn-sm btn-dark rounded"
-                                                                data-item_id="{{ product.slug }}" id="{{ product.slug }}-increment-qty">
+                                                                data-item_id="{{ product.slug }}" id="{{ product.slug }}-increment-qty" aria-label="Plus">
                                                                 <span><i class="bi bi-plus-lg"></i></span>
                                                             </button>
                                                         </div>
@@ -220,11 +220,11 @@
                 <form method="POST" action="{% url 'news_letter_sub' %}">
                     {% csrf_token %}
                     <div class="form-floating mb-3 text-secondary">
-                        <input type="email" class="form-control" id="news_email_index" name="news_email" placeholder="Your best e-mail">
+                        <input type="email" class="form-control" id="news_email_index" name="news_email" placeholder="Your best e-mail" aria-label="E-mail">
                         <label for="news_email">Your best e-mail</label>
                     </div>
                     <div class="form-floating mb-3 text-secondary">
-                        <input type="text" class="form-control" id="news_name_index" name="news_name" placeholder="Your name">
+                        <input type="text" class="form-control" id="news_name_index" name="news_name" placeholder="Your name" aria-label="Name">
                         <label for="news_name">Your name</label>
                     </div>
                     <div class="container">
@@ -309,17 +309,17 @@
                                                     <input class="form-control qty_input rounded shadow-sm" type="number"
                                                         name="quantity" value="1" min="1" max="99"
                                                         data-item_id="{{ product.slug }}"
-                                                        id="id_qty_{{ product.slug }}">
+                                                        id="id_qty_{{ product.slug }}" aria-label="Quantity">
                                                     <div class="d-flex flex-row border rounded shadow-sm">
                                                         <div class="input-group-prepend m-1">
                                                             <button type="button" class="decrement-qty btn btn-sm btn-dark rounded" 
-                                                                data-item_id="{{ product.slug }}" id="{{ product.slug }}-decrement-qty">
+                                                                data-item_id="{{ product.slug }}" id="{{ product.slug }}-decrement-qty" aria-label="Less">
                                                                 <span><i class="bi bi-dash-lg"></i></span>
                                                             </button>
                                                         </div>
                                                         <div class="input-group-append m-1">
                                                             <button type="button" class="increment-qty btn btn-sm btn-dark rounded"
-                                                                data-item_id="{{ product.slug }}" id="{{ product.slug }}-increment-qty">
+                                                                data-item_id="{{ product.slug }}" id="{{ product.slug }}-increment-qty" aria-label="Plus">
                                                                 <span><i class="bi bi-plus-lg"></i></span>
                                                             </button>
                                                         </div>
