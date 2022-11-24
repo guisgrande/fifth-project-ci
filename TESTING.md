@@ -1158,6 +1158,10 @@ Observation: Access using the Google account is not working 100% of the time. So
 |    ---    |   ---  |  ---  |   ---   |   ---   |
 |    Manag. Stock page    |   Not logged  |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
 |    Manag. Stock page    |   User logged |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
+|    Manag. Stock page    |   Superuser logged |   Display  |   Show table list with all available products (SKU/Name - Current Stock - Update Stock)   |   __`Pass`__   |
+|    Manag. Stock page    |   Superuser logged |   Display  |   Show `✓` (Check) button, for each product line   |   __`Pass`__   |
+|    Manag. Stock - `✓` (Check) button    |   Superuser logged |   Click  |   Update the Current Stock of the corresponding product according to what you entered in the input field, return a success message.    |   __`Pass`__   |
+|    Manag. Stock - Stock    |   Superuser logged |   Update  |   The minimum accepted value is zero    |   __`Pass`__   |
 
 ### Management - Order Status page
 
@@ -1165,7 +1169,9 @@ Observation: Access using the Google account is not working 100% of the time. So
 |    ---    |   ---  |  ---  |   ---   |   ---   |
 |    Manag. Order Status page    |   Not logged  |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
 |    Manag. Order Status page    |   User logged |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
-
+|    Manag. Order Status page    |   Superuser logged |   Display  |   Show table list with all Orders (Order Numb - Date - Current Status - Update Status)   |   __`Pass`__   |
+|    Manag. Order Status page    |   Superuser logged |   Display  |   Show `✓` (Check) button, for each order line   |   __`Pass`__   |
+|    Manag. Order Status - `✓` (Check) button    |   Superuser logged |   Click  |   Update the Current Status of the corresponding order according to what was selected from choices list, return a success message.    |   __`Pass`__   |
 
 ### Management - News Letter page
 
@@ -1173,3 +1179,6 @@ Observation: Access using the Google account is not working 100% of the time. So
 |    ---    |   ---  |  ---  |   ---   |   ---   |
 |    Manag. News Letter page    |   Not logged  |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
 |    Manag. News Letter page    |   User logged |   Display  |   Dont't load the page, redirect to home page and show error message   |   __`Pass`__   |
+|    Manag. News Letter page    |   Superuser logged |   Display  |   Show total of subscribers, Subject and Body fields.    |   __`Pass`__   |
+|    Manag. News Letter page    |   Superuser logged |   Display  |   Show `Send e-mail` button    |   __`Pass`__   |
+|    Manag. News Letter page    |   Superuser logged |   Click  |   Send an email to everyone, if subject and body not empty. Return a succes message.     |   __`Pass`__   |
