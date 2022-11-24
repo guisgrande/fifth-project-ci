@@ -199,7 +199,7 @@ def news_letter_send(request):
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
-            [email_list]
+            email_list
         )
 
         news_letter_mails = NewsLetterMail()
