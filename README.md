@@ -165,7 +165,340 @@ Bootstrap icons were used to give more emphasis to the titles.
 
 ### Existing Features
 
+#### __Favicon__
+
+- Favicon is loaded on every page, the little logo is also present in the navbar.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Navbar__
+
+- Navbar that is present on all pages for user navigation through the online store. 
+- Is present for everyone the logo/banner that redirects to the home page, the search bar, a link to Home, a link to Shop(Dropdown) - All Products / Select Category(Skateboards / Caps & Hats / Backpacks & Bags) / Special Offers(New Arrivals / Special Sale / Las Chance), a shopbag where display Bag icon, total of products and value.
+
+- The other links are displayed depending on whether the user is logged off or not, and what type of account.
+
+- For not logged users, the links are displayed: : Sign in and Sign up.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+- For logged users, the links are displayed: : My Account(Dropdown) - My Profile / Logout
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+- For logged superusers, the links are displayed: : My Account(Dropdown) - My Profile / Logout and Management(Dropdown) - Product Manag. / Stock Manag. / Order Status Manag. / News Letter Manag.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+- Navbar is responsive, for mobiles it automatically groups to drowdown menu.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Footer__
+
+- The footer is shown only when reaching the end of the page, it counts with a few navegation links, News Letter - Subscribe button and Social links.
+
+- For not logged users, the links are displayed: : Home / All Products / Sign in / Sign up.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+- For logged users and superusers, the links are displayed: : Home / All Products / My Profile / Logout.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+- The News Letter - Subscribe button, open a modal form when clicked. Where the user can subscribe using e-mail and a name.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+- The Social links are four in total, they open a new page of the corresponding social network when clicked.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Home Page - Hero__
+
+At the beginning of the home page, the first section has a carousel of images, three in total. Each one counts with a call text and a button that redirects to a different page of the site.
+
+- First slide: The button redirects to the products page
+- Second slide: The button redirects to registration page
+- Third slide: The button redirects to skateboards page only.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Home Page - New Arrivals__
+
+- The New Arrivals section has custom text to call the user into action and the SHOP button when clicked redirects the user to a page with the products in that specific offer. On the initial page, only the last four products of this promotion are displayed, and it is possible for the user to add the product to the shopbag already from that moment on.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Home Page - Special Offers__
+
+- The Special Offers section has custom text to call the user into action and the SHOP button when clicked redirects the user to a page with the products in that specific offer. On the initial page, only the last four products of this promotion are displayed, and it is possible for the user to add the product to the shopbag already from that moment on.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Home Page - Last Chance__
+
+- The Last Chance section has custom text to call the user into action and the SHOP button when clicked redirects the user to a page with the products in that specific offer. On the initial page, only the last four products of this promotion are displayed, and it is possible for the user to add the product to the shopbag already from that moment on.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Home Page - News Letter__
+
+- This section has text to attract the user's attention to register to the News Letter, and has required fields for e-mail and name, and a subscribe button.
+- Upon registration the user receives an e-mail confirming registration and a message is also reflected on the website.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Home Page - Social__
+
+- This section also has a text to attract the user to follow Street Craft pages on social networks
+- The Social buttons are four in total, they open a new page of the corresponding social network when clicked
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Home Page - Sign up Coupon__
+
+- The last section of the home page is visible only to users logged in. It contains a text explaining and inviting the user to create an account for a 10% discount coupon.
+- The button redirects the user to the registration page.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Sign up__
+
+- Registration page, with a simple form with the field for username, e-mail twice and for password twice, a button to register. A short text that calls who already has a registration to the login page.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Sign in__
+
+- Access page, with two fields to be filled in (username/e-mail and password) or login using Google account. 
+- A button to log in and another to forgot password. A remember me check is also present.
+- A short text with a callout for those who don't have an account.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Sign out__
+
+- Page for logged in users who have selected the logout option, it asks if they really want to perform this action.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Forgot Password__
+
+- Page for the user to recover the password, there is a text with the necessary action, a field for the e-mail and a button to reset the password. 
+- By clicking the button an e-mail is sent with a new link to change the password.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __My Profile__
+
+- Returns the username from which account you are logged in.
+- It shows some account options like: a button for My Orders, a field to show active coupons, a button to change the password and another button to delete the profile.
+- The delivery data is available as a form that can be changed. By clicking the update info button the information entered into the fields is saved and a success message is displayed
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __My Orders__
+
+- Returns the total orders of the logged in user.
+- A list with the following information: Order Number / Date / Items / Order Total 
+- The Order Number ia a link to redirect to that order details page.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Order Details__
+
+- It shows the details of the order. It is possible to see the order number, date, products and quantity, billing info, delivering info, contact info and order status.
+- The Order Status returns what step the order is currently at, and the next and completed steps
+- It also has two buttons, one to go back to My Profile page and the other to My Orders.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Change Password__
+
+- Hhave three fields to fill in on the form. The first is the current password and the other two are for the new password. I only need the second to secure and confirm the new password. 
+- It also has two buttons, one Change Password and Back to My Profile.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Delete Profile__
+
+- Area for the user to confirm that he really wants to delete the account. Rephrase the question informing that all data will be deleted when confirming. 
+- If the user has any active orders in the system, a warning is loaded on the page so that he can write down the necessary information. And a button to redirect to My Orders.
+- A button to cancel (redirect to My Profiel) and a link back to shop.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __All Products__
+
+- The main page for displaying the store's products. 
+- At the top, it shows how many products there are for a given search / filter. A selection box is present to sort among all products, sorted by price or name.
+- It has 8 products per page.
+- The user can add the product to the shopbag via the product card container and select the quantity.
+- By clicking on the product image, the user is redirected to the product detail page.
+- By selecting the category or offer in the navigation bar the user will only see the products in that specific filter.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Product Details__
+
+- It shows a picture of the product and just below the average reviews. If the user is logged in, a button is displayed that redirects to the reviews page.
+- It is possible to see all information, name, SKU, offer if any, price (discounted price if any), description.
+- Quantity field (Less / More buttons).
+- Buttons for KEEP SHOPPING (back to products page) and ADD TO BAG.
+- If logged as superuser the buttons to edit and delete product are visible at the end.
+- Delete product button, redirect to a new page to confirm action.
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Shopbag__
+
+- If the shopbag is empty, only a text is displayed and the button to KEEP SHOPPING
+- It shows a list with the added products.
+- A product image with the name, sku and unit price.
+- A field to modify the quantity with the button to update. And the button to remove the product.
+- The order and delivery totals are displayed.
+- If the user is logged in, a field to add the discount coupon is displayed and the button to apply it. If it is valid the discount is applied and the discount field is displayed.
+- At the end are the buttons for KEEP SHOPPING (back to products page) and SECURE CHECKOUT (redirect to checkout page).
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Checkout__
+
+- It shows a Order Summary with a resume of the order.
+- A form with contact and delivery information to be filled in. If the user is logged in and has the information saved, these fields are automatically filled in.
+- If user not logged display option links to create an account ou to login. If user are logged in, display a check bos to auto save the form information to profile.
+- Field for credit card data, using the Stripe tool.
+- At the end are the buttons for Adjust Bag (back to shopbag page) and Complete Order (submit the form if valid, and redirect to success checkout page).
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Checkout Success__
+
+- As soon as the order is processed and payment has been confirmed successful, an e-mail is sent to the user with the order information and the order number.
+- It shows the details of the order. It is possible to see the order number, date, products and quantity, billing info, delivering info, contact info.
+- At the end have one button Check out the latest promotions (redirect to products page)
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Managemente - Add Product__
+
+- Accessible only to superuser. 
+- It has a form for the site owner to easily add new products to the store.
+- One button for cancel(redirect to My Prodile page) and one button for add product (If valid, submit form and add new product).
+- When added a success message appears
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Managemente - Stock__
+
+- Accessible only to superuser. 
+- Shows a list of all products on the site. A column with the information name/ku, current stock and update stock.
+- Each product has a line, where site owner can enter the quantity to be updated and confirm with the check `✓` button.
+- When updated a success message appears
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Managemente - Order Status__
+
+- Accessible only to superuser. 
+- Shows a list of all orders on the site. A column with the information order number, date, current status and update status.
+- Each order has a line, where site owner can select the status to be updated and confirm with the check `✓` button.
+- When updated a success message appears
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Managemente - News Letter__
+
+- Accessible only to superuser. 
+- Shows the total number of registered e-mails, a field to enter the subject and another to enter the message (body). 
+- The button to send the e-mail to everyone.
+- When sent a success message appears
+
+<div align="center">
+    IMAGE HERE
+</div>
+
+#### __Marketing - Custom Facebook Page__
+
+- A customized page for the store was created on Facebook. In order to increase the presence of the store on social networks. 
+
+<div align="center">
+    IMAGE HERE
+</div>
+
 ### Features Left to Implement
+
+- For the future implement the User Stories __#18 Filter products__ that has not been completed at this time. To allow users to better filter the results.
+- Create a section where the user can customize his skateboard.
+- Allow users to comment along with their reviews.
+- Add another model for coupons that can be used by anyone, to be used in a promotional campaign.
 
 ## Testing
 
