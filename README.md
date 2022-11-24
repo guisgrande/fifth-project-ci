@@ -502,9 +502,23 @@ At the beginning of the home page, the first section has a carousel of images, t
 
 ## Testing
 
+All the tests performed in the project are documented in the file TESTING.md > [Access here](TESTING.md)
+
 ### Fixed Bugs
 
+|   Bugs    | Solutions  |  Commits |
+|    ---    |     ---    |    ---   |
+|  TypeError, wrong variable name.  |   Edit variable name to the correct one.   |   [Commit](https://github.com/guisgrande/fifth-project-ci/commit/497226d2843bbf28a6396895fb1ff056a1d72460)   |
+|  Template not loading media  |   Insert `'django.template.context_processors.media'` to TEMPLATES 'context_processors'   |   [Commit](https://github.com/guisgrande/fifth-project-ci/commit/67e367958c6bbb09ca5512292110165bc17ab8d2)   |
+|  Allauth templates not loading custom style  |   Moved templates to correct folder  |   [Commit](https://github.com/guisgrande/fifth-project-ci/commit/54b7095c99d5daa00847a760a7b51334981cfb3a)   |
+|  Error when send sending confirmation e-mail  |   Moved templates to correct folder  |   [Commit](https://github.com/guisgrande/fifth-project-ci/commit/a892602390a1b42bc8910ca881c082c64cf86c9b)   |
+|  Not showing when coupon was used  |   Edit if condition to correct verify if have any coupon applied   |   [Commit](https://github.com/guisgrande/fifth-project-ci/commit/316c1c74973b7ec4a4bf550c0cd2e9aef5ee5a46)   |
+|  Checkout error when user not logged  |   Add if condition to verify if user is authenticated and set to None if not.   |   [Commit](https://github.com/guisgrande/fifth-project-ci/commit/63c1acf6e8cdc3da21331d4e9958bd734e523ccc)   |
+|  Error sending News Letter mails  |   Remove extra brackets from email_list inside send_mail method   |   [Commit](https://github.com/guisgrande/fifth-project-ci/commit/93199db53f493d2c54a75ffc5113f75f32671654)   |
+
 ### Unfixed Bugs 
+
+- So far all bugs found have been fixed. After the tests, The only point to be reviewed is the connection with the Google account that sometimes it returns error 400: redirec_uri_mismatch.
 
 ## Deployment
 
