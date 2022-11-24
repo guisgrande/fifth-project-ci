@@ -508,11 +508,198 @@ At the beginning of the home page, the first section has a carousel of images, t
 
 ## Deployment
 
+- To create this project I used GitHub and GitPod.
+- I used the [Code Institute Gitpod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template), clicking on the "Use this template" button. From there I created the repository on Github with my username.
+- These commands were used for version control during project:
+    * git status - to check the status of the files to be commited.
+    * git add filename - to add files before committing.
+    * git commit -m "message" - to commit changes to the local repository.
+    * git push - to push all committed changes to the GitHub repository.
+
 ### Deployment
+
+1. Create Django project and app
+
+    - I installed django using the command `pip3 install Django==3.2`;
+    - I installed supporting libraries / models to this project presents in requirements.txt file:
+    ```
+    asgiref==3.5.2
+    boto3==1.26.11
+    botocore==1.29.11
+    dj-database-url==0.5.0
+    Django==3.2
+    django-allauth==0.41.0
+    django-countries==7.2.1
+    django-crispy-forms==1.14.0
+    django-storages==1.13.1
+    gunicorn==20.1.0
+    jmespath==1.0.1
+    oauthlib==3.2.1
+    Pillow==9.2.0
+    psycopg2==2.9.5
+    python3-openid==3.2.0
+    pytz==2022.2.1
+    requests-oauthlib==1.3.1
+    s3transfer==0.6.0
+    sqlparse==0.4.2
+    stripe==4.2.0
+    ```
+    - I created the requirements.txt file using the command `pip3 freeze --local > requirements.txt`;
+    - I created my Django project with the command `django-admin startproject project_name .`;
+    - I created my Django app with the command `python3 manage.py startapp app_name`;
+    - I used the comands `python3 manage.py makemigrations` and `python3 manage.py migrate`;
+    - To test and run the project I used `python3 manage.py runserver`.
+
+2. Create Heroku app
+
+    - I opened the heroku website and logged into my account
+    - I created a new app with the project name, chose the region Europe
+    - I opened the Settings section and then Config VARS, after I initially added the keys needed to start development `SECRET_KEY`/`STRIPE_PUBLIC_KEY`/`STRIPE_SECRET_KEY`/`STRIPE_WH_SECRET`/`EMAIL_HOST_USER`/`EMAIL_HOST_PASS`/`AWS_SECRET_ACCESS_KEY`/`AWS_ACCESS_KEY_ID`/`USE_AWS`/`DATABASE_URL`;
+    - Still in Config VARS I added the following keys: `PORT` with a value of `8000` and `DISABLE_COLLECTSTATIC` with a value of `1`;
+
+3. Set up Django settings.py and necessary folders/files
+
+    - Set up to connect the environment variables
+    ```
+    from pathlib import Path
+    import os
+    import dj_database_url
+    if os.path.isfile('env.py'):
+        import env
+    ```
+    
+    - Inside `INSTALLED_APPS` I added the necessary apps
+    
+    - For the database I replaced it with the following code
+    ```
+    if 'DATABASE_URL' in os.environ:
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+    else:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            }
+        }
+    ```
+    
+    - For the static files and media I replaced it with the following code to conect to Amazon (AWS)
+    ```
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+    if 'USE_AWS' in os.environ:
+        # Cache Control
+        AWS_S3_OBJECT_PARAMETERS = {
+            'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+            'CacheControl': 'max-age=94608000',
+        }
+        # Bucket Config
+        AWS_STORAGE_BUCKET_NAME = 'streetcraft'
+        AWS_S3_REGION_NAME = 'eu-west-1'
+        AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+        AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+        # Static and media files
+        STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+        STATICFILES_LOCATION = 'static'
+        DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+        MEDIAFILES_LOCATION = 'media'
+
+        # Override static and media URLs in production
+        STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+        MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+    ```
+    
+    - Set Google social account provider config.
+    ```
+    SOCIALACCOUNT_PROVIDERS = {
+        'google': {
+            'SCOPE': [
+                'profile',
+                'email',
+            ],
+            'AUTH_PARAMS': {
+                'access_type': 'online',
+            }
+
+        }
+    }
+    ```
+    
+    - Set up Stripe config.
+    ```
+    # Stripe setup
+    STRIPE_CURRENCY = 'usd'
+    STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+    STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+    STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+    ```
+    
+    - Set up e-mail config.
+    ```
+    # E-mail setup
+    if 'DEVELOPMENT' in os.environ:
+        EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+        DEFAULT_FROM_EMAIL = 'streetcraft@example.com'
+    else:
+        EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+        EMAIL_USE_TLS = True
+        EMAIL_PORT = 587
+        EMAIL_HOST = 'smtp.gmail.com'
+        EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+        EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+        DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+    ```
+    
+    - Create a Procfile and add the following text
+    ```
+    web: gunicorn streetcraft.wsgi:application
+    ```
+    
+4. Final deployment.
+
+    - In `settings.py` inside the Django project I changed DEBUG to:
+    ```
+    if 'USE_AWS' in os.environ:
+      DEBUG = False
+    else:
+      DEBUG = True
+    ```
+    - I migrate database to ElephantSQL instance using DATABASE_URL settings, coping and pasting the URL without commit. Changing the DATABASES to:
+    ```
+     DATABASES = {
+     'default': dj_database_url.parse('elephantsql-database-url-here')
+    }
+    ```
+    - In Heroku I went back to Settings > Config VARS and removed the `DISABLE_COLLECTSTATIC` var;
+    - In Heroku I navigated to the Deploy section;
+    - I clicked to connect to GitHub and searched for my repository for this project;
+    - I clicked on manual deploy to build the App;
+    - When finished, I clicked the View button, which redirected me to the live site.
 
 ### Fork
 
+- Forks let you make changes to a project without affecting the original repository. Follow this steps:
+1. Go to the repository page, can be accessed [here](https://github.com/guisgrande/fifth-project-ci).
+2. On top right, you select the Fork option and proceed.
+3. A duplicate will be created inside your repository.
+
 ### Clone
+
+- Clone let you create an identical repository to the original. Follow this steps:
+1. Go to the repository page, can be accessed [here](https://github.com/guisgrande/fifth-project-ci).
+2. Click on code drop down menu.
+3. Choose if you want to clone using HTTPS, SSH or GitHub CLI. Then select de copy button.
+4. Open your Git Bash in your IDE.
+5. Type git clone and then paste the URL you copied before.
+6. Press Enter to create your clone.
 
 ## Technologies and tools
 
