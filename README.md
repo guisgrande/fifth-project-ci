@@ -522,13 +522,90 @@ At the beginning of the home page, the first section has a carousel of images, t
 - [Github](https://github.com/) - Used to create repository, for version control and Agile project.
 - [Heroku](https://heroku.com/) -  Used to deploy the project.
 
+- Programming languages used: Python 3.8, Java Script, HTML5 and CSS3.
+
+- [Gitpod](https://www.gitpod.io/) - Used to create/edit the code of the project.
+- [Github](https://github.com/) - Used to create repository, for version control and Agile project.
+- [Heroku](https://heroku.com/) -  Used to deploy the project.
+
+- [Django](https://www.djangoproject.com/) -  Used in the development of this project. Main python Framework.
+    - The following python modules were used on this project:
+    ```
+    asgiref==3.5.2
+    boto3==1.26.11
+    botocore==1.29.11
+    dj-database-url==0.5.0
+    Django==3.2
+    django-allauth==0.41.0
+    django-countries==7.2.1
+    django-crispy-forms==1.14.0
+    django-storages==1.13.1
+    gunicorn==20.1.0
+    jmespath==1.0.1
+    oauthlib==3.2.1
+    Pillow==9.2.0
+    psycopg2==2.9.5
+    python3-openid==3.2.0
+    pytz==2022.2.1
+    requests-oauthlib==1.3.1
+    s3transfer==0.6.0
+    sqlparse==0.4.2
+    stripe==4.2.0
+    ```
+
+- [Bootstrap](https://getbootstrap.com/) - Used to . CSS/JS Framework for developing responsiveness and styling.
+- [ElephantSQL](https://www.elephantsql.com/) - Used as database for this project.
+- [Amazon AWS](https://aws.amazon.com/) - Used to upload images and cloud hosting service.
+- [Jquery Ajax](https://api.jquery.com/jquery.ajax/) - Used to load more content at garage and events pages.
+
+- [Ludichart](https://www.lucidchart.com/) - Used to create the database diagram and agile images.
+- [Figma](https://figma.com/) - Used to creat the wireframes.
+- [Google Fonts](https://fonts.google.com/) - Used for font selection.
+- [Font Awesome](https://fontawesome.com/) - Used for the spin icon, load payment.
+- [Bootstrap Icons](https://icons.getbootstrap.com/) - Used for all others icons.
+- [Favicon.io](https://favicon.io/) - Used to implement the favicon on the website.
+- [TinyPNG](https://tinypng.com/) - Used for reduce images size.
+- [XML-sitemaps](https://www.xml-sitemaps.com/) - Used to genarate sitemap.xml file.
+
+- [DevTools - Chrome](https://developer.chrome.com/docs/devtools/) - to assist in the development of the project.
+- Lighthouse (Chrome Devtools) - Used to performance test.
+- [WAVE](https://wave.webaim.org/) - Used to acecessibility test.
+
+- [PEP8CI](https://pep8ci.herokuapp.com/) - Used to test/validate Python code.
+- [JShint](https://jshint.com/) - Used to test Java Script code.
+- [Jigsaw](https://jigsaw.w3.org/css-validator/) - Used to test CSS code.
+- [Validator](https://validator.w3.org/) - Used to test HTML code.
+
 ## Credits
+
+Here are the information sources I used to finish the project and develop the necessary applications for it to work well.
+- [Code Institute](https://codeinstitute.net/ie/).
+    - First of all thank you for the instructions provided in the Code Institue course and classes, which were essential from start to finish.
+- [Django Documentation](https://docs.djangoproject.com/en/4.1/).
+    - That helped me to solve doubts about Django and the framework's features.
+- [Bootstrap Documentation](https://getbootstrap.com/docs/5.2/getting-started/introduction/).
+    - Served as a guide to better apply the functionalities of this great framework.
+
+Some tutorials and codes I used in my project.
+- [Caktusgroup - Filtering and pagination django](https://www.caktusgroup.com/blog/2018/10/18/filtering-and-pagination-django/).
+    - Used some code into `products/templatetags/product_tag.py` for pagination work when using any filter.
+
+- [PyLessons - Subscribe to Newsletter in Django](https://pylessons.com/django-subscribe).
+- [Dev.to - How to build a Email Newsletter Subscriber in Django](https://dev.to/shubhamkshatriya25/how-to-build-a-email-newsletter-subscriber-in-django-j2p).
+    - Used some code and instucton to build my News Letter model.
 
 ### Code
 
 ### Content
 
+- [Canva](https://canva.com/).
+    - All images used to create the demo content/products for the site were all selected from the Canva site. The images used in the skateboard, bags and caps mockups.
+
 ### Media
+
+- The three photos used for Hero (Home page) and for accounts background was taken from [Unsplash](https://unsplash.com/).
+- The image used for README.md responsive mockup was taken from [Techsini](https://techsini.com/multi-mockup/index.php).
+- The Street Craft logo and favicon, all products mockups (Skaboard custom made by me), image used at erro pages and custom product image placeholder were taken/made from [Canva](https://www.canva.com/)
 
 ## Acknowledgements
 
