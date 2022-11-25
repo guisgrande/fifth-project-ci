@@ -14,6 +14,28 @@
 - [User Story Testing](#user-story-testing).
 
 - [Manual Testing](#manual-testing).
+    * [Navigation bar](#navigation-bar).
+    * [Footer](#footer).
+    * [Home page](#home-page).
+    * [Products page](#products-page).
+    * [Product details page](#product-details-page).
+    * [Product reviews page](#product-reviews-page).
+    * [Sign In page](#sign-in-page).
+    * [Forgot password page](#forgot-password-page).
+    * [Sign Up page](#sign-up-page).
+    * [Sign Out page](#sign-out-page).
+    * [My Profile page](#my-profile-page).
+    * [My Orders page](#my-orders-page).
+    * [Order details page](#order-details-page).
+    * [Change password page](#change-password-page).
+    * [Delete profile page](#delete-profile-page).
+    * [Shopbag page](#shopbag-page).
+    * [Checkout page](#checkout-page).
+    * [Checkout Success page](#checkout-success-page).
+    * [Management Add Product page](#management-add-product-page).
+    * [Management Stock page](#management-stock-page).
+    * [Management Order Status page](#management-order-status-page).
+    * [Management News Letter page](#management-news-letter-page).
  
 </details> 
 
@@ -111,7 +133,7 @@ No errors identified for this script.
 <details>
     <summary>JSHint Print result</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/javascript-001.PNG">
     </div>
 </details>
 
@@ -145,7 +167,7 @@ No errors identified for this script.
 <details>
     <summary>JSHint Print result</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/javascript-002.PNG">
     </div>
 </details> 
 
@@ -169,7 +191,7 @@ No errors identified for this script.
 <details>
     <summary>JSHint Print result</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/javascript-003.PNG">
     </div>
 </details> 
 
@@ -208,7 +230,7 @@ No errors identified for this script. One warging: __'template literal syntax' i
 <details>
     <summary>JSHint Print result</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/javascript-004.PNG">
     </div>
 </details> 
 
@@ -272,7 +294,7 @@ No errors identified for this script. Three wargings: __'template literal syntax
 <details>
     <summary>JSHint Print result</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/javascript-005.PNG">
     </div>
 </details> 
 
@@ -406,7 +428,7 @@ No errors identified for this script. Two wargings: __'template literal syntax' 
 <details>
     <summary>JSHint Print result</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/javascript-006.PNG">
     </div>
 </details> 
 
@@ -432,7 +454,15 @@ List of pages validated by the tool [PEP8CI - By Code Institute](https://pep8ci.
 <details>
     <summary>Checkout PEP8CI Print results</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/checkout-admin.PNG">
+        <img src="documentation/checkout-apps.PNG">
+        <img src="documentation/checkout-forms.PNG">
+        <img src="documentation/checkout-models.PNG">
+        <img src="documentation/checkout-signals.PNG">
+        <img src="documentation/checkout-urls.PNG">
+        <img src="documentation/checkout-views.PNG">
+        <img src="documentation/checkout-webhook-handler.PNG">
+        <img src="documentation/checkout-webhooks.PNG">
     </div>
 </details>
 
@@ -450,7 +480,7 @@ List of pages validated by the tool [PEP8CI - By Code Institute](https://pep8ci.
 <details>
     <summary>Home PEP8CI Print results</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/home-views.PNG">
     </div>
 </details> 
 
@@ -469,7 +499,12 @@ List of pages validated by the tool [PEP8CI - By Code Institute](https://pep8ci.
 <details>
     <summary>Management PEP8CI Print results</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/management-admin.PNG">
+        <img src="documentation/management-apps.PNG">
+        <img src="documentation/management-forms.PNG">
+        <img src="documentation/management-models.PNG">
+        <img src="documentation/management-urls.PNG">
+        <img src="documentation/management-views.PNG">
     </div>
 </details>
 
@@ -489,7 +524,12 @@ List of pages validated by the tool [PEP8CI - By Code Institute](https://pep8ci.
 <details>
     <summary>Products PEP8CI Print results</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/products-admin.PNG">
+        <img src="documentation/products-apps.PNG">
+        <img src="documentation/products-forms.PNG">
+        <img src="documentation/products-models.PNG">
+        <img src="documentation/products-urls.PNG">
+        <img src="documentation/products-views.PNG">
     </div>
 </details>
 
@@ -508,7 +548,11 @@ List of pages validated by the tool [PEP8CI - By Code Institute](https://pep8ci.
 <details>
     <summary>Profiles PEP8CI Print results</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/profiles-apps.PNG">
+        <img src="documentation/profiles-forms.PNG">
+        <img src="documentation/profiles-models.PNG">
+        <img src="documentation/profiles-urls.PNG">
+        <img src="documentation/profiles-views.PNG">
     </div>
 </details>
 
@@ -528,7 +572,11 @@ List of pages validated by the tool [PEP8CI - By Code Institute](https://pep8ci.
 <details>
     <summary>Shopbag PEP8CI Print results</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/shopbag-apps.PNG">
+        <img src="documentation/shopbag-bagtools.PNG">
+        <img src="documentation/shopbag-contexts.PNG">
+        <img src="documentation/shopbag-urls.PNG">
+        <img src="documentation/shopbag-views.PNG">
     </div>
 </details>
 
@@ -548,7 +596,11 @@ The four too long line errors found on settings were related to links from `AUTH
 <details>
     <summary>Streetcraft PEP8CI Print results</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/streetcraft-asgi.PNG">
+        <img src="documentation/streetcraft-settings.PNG">
+        <img src="documentation/streetcraft-urls.PNG">
+        <img src="documentation/streetcraft-views.PNG">
+        <img src="documentation/streetcraft-wsgi.PNG">
     </div>
 </details>
 
@@ -562,7 +614,8 @@ The four too long line errors found on settings were related to links from `AUTH
 <details>
     <summary>Extra files PEP8CI Print results</summary>
     <div align="center">
-         PRINT HERE
+        <img src="documentation/customstorages-py.PNG">
+        <img src="documentation/manage-py.PNG">
     </div>
 </details>
 
@@ -578,16 +631,56 @@ I ran tests using DevTools to verify that the website was responsive on multiple
 
 <details>
     <summary>Screenshots from DevTolls (Chrome) - Iphone XR</summary>
+    <div align="center">
+        <img src="documentation/iphone-home.PNG">
+        <img src="documentation/iphone-products.PNG">
+        <img src="documentation/iphone-prod-details.PNG">
+        <img src="documentation/iphone-profile.PNG">
+        <img src="documentation/iphone-orders.PNG">
+        <img src="documentation/iphone-order-details.PNG">
+        <img src="documentation/iphone-shopbag.PNG">
+        <img src="documentation/iphone-checkout.PNG">
+        <img src="documentation/iphone-manag-add-product.PNG">
+        <img src="documentation/iphone-manag-stock.PNG">
+        <img src="documentation/iphone-manag-status.PNG">
+        <img src="documentation/iphone-manag-news-letter.PNG">
+    </div>
 </details> 
 
 <details>
     <summary>Screenshots from DevTolls (Chrome) - Ipad Air</summary>
+    <div align="center">
+        <img src="documentation/ipad-home.PNG">
+        <img src="documentation/ipad-products.PNG">
+        <img src="documentation/ipad-prod-details.PNG">
+        <img src="documentation/ipad-profile.PNG">
+        <img src="documentation/ipad-orders.PNG">
+        <img src="documentation/ipad-order-details.PNG">
+        <img src="documentation/ipad-shopbag.PNG">
+        <img src="documentation/ipad-checkout.PNG">
+        <img src="documentation/ipad-manag-add-product.PNG">
+        <img src="documentation/ipad-manag-stock.PNG">
+        <img src="documentation/ipad-manag-status.PNG">
+        <img src="documentation/ipad-manag-news-letter.PNG">
+    </div>
 </details>
 
 The website worked correctly in Chrome, Firefox, Edge browsers in the desktop tests. It also worked correctly in tests using Safari on the iPhone.
 
 <details>
     <summary>Screenshots from Firefox and Edge browsers</summary>
+    <div align="center">
+        <img src="documentation/browsers-home.PNG">
+        <img src="documentation/browsers-products.PNG">
+        <img src="documentation/browsers-product-details.PNG">
+        <img src="documentation/browsers-signup.PNG">
+        <img src="documentation/browsers-signin.PNG">
+        <img src="documentation/browsers-profile.PNG">
+        <img src="documentation/browsers-orders.PNG">
+        <img src="documentation/browsers-order-details.PNG">
+        <img src="documentation/browsers-shopbag.PNG">
+        <img src="documentation/browsers-checkout.PNG">
+    </div>
 </details>
 
 ## Performance Testing
@@ -600,73 +693,91 @@ Testing done using Lighthouse DevTools to check and test Performance, Accessibil
         Home page
     </div>
     <div align="center">
-        PRINT HERE
+        <img src="documentation/lighthouse-home.png">
     </div>
     <div align="center">
         Products page
     </div>
     <div align="center">
-        PRINT HERE
+        <img src="documentation/lighthouse-products.png">
     </div>
     <div align="center">
         Product Details page
     </div>
     <div align="center">
-        PRINT HERE
+        <img src="documentation/lighthouse-prod-details.png">
     </div>
     <div align="center">
         Shopbag page
     </div>
     <div align="center">
-        PRINT HERE
+        <img src="documentation/lighthouse-shopbag.png">
     </div>
     <div align="center">
         Checkout page
     </div>
     <div align="center">
-        PRINT HERE
-    </div>
-    <div align="center">
-        Chekout Success page
-    </div>
-    <div align="center">
-        PRINT HERE
+        <img src="documentation/lighthouse-checkout.png">
     </div>
     <div align="center">
         Sign in page
     </div>
     <div align="center">
-        PRINT HERE
+        <img src="documentation/lighthouse-signin.png">
     </div>
     <div align="center">
         Sign up page
     </div>
     <div align="center">
-        PRINT HERE
+        <img src="documentation/lighthouse-signup.png">
     </div>
     <div align="center">
         Sign out page
     </div>
     <div align="center">
-        PRINT HERE
+        <img src="documentation/lighthouse-signout.png">
     </div>
     <div align="center">
         Profile page
     </div>
     <div align="center">
-        PRINT HERE
+        <img src="documentation/lighthouse-profile.png">
     </div>
     <div align="center">
         Orders page
     </div>
     <div align="center">
-        PRINT HERE
+        <img src="documentation/lighthouse-orders.png">
     </div>
     <div align="center">
         Order Details page
     </div>
     <div align="center">
-        PRINT HERE
+        <img src="documentation/lighthouse-order-details.png">
+    </div>
+    <div align="center">
+        Manag. - Add product
+    </div>
+    <div align="center">
+        <img src="documentation/lighthouse-manag-add.png">
+    </div>
+    <div align="center">
+        Manag. - Stock
+    </div>
+    <div align="center">
+        <img src="documentation/lighthouse-manag-stock.png">
+    </div>
+    <div align="center">
+        Manag. - Order Status
+    </div>
+    <div align="center">
+        <img src="documentation/lighthouse-manag-status.png">
+    </div>
+    <div align="center">
+        Manag. - News Letter
+    </div>
+    <div align="center">
+        <img src="documentation/lighthouse-manag-newsletter.png">
     </div>
 </details>
 
@@ -1126,7 +1237,7 @@ Observation: Access using the Google account is not working 100% of the time. So
 |    Checkout Success page    |   All |   Display  |   Show: `Check out the latest promotions` button   |   __`Pass`__   |
 |    Checkout Success - `Check out the latest promotions` button    |   All |   Click  |   Redirect to the products page and show all products   |   __`Pass`__   |
 
-### Management - Add Product page
+### Management Add Product page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
@@ -1152,7 +1263,7 @@ Observation: Access using the Google account is not working 100% of the time. So
 |    Manag. Product - `Cancel` button    |   Superuser logged  |   Click |   Redirect to My Profile page |   __`Pass`__   |
 |    Manag. Product - `Add product` button    |   Superuser logged  |   Click |   If form correct, submit form and add product to database. Return success message and redirect to new product details page.  |   __`Pass`__   |
 
-### Management - Stock page
+### Management Stock page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
@@ -1163,7 +1274,7 @@ Observation: Access using the Google account is not working 100% of the time. So
 |    Manag. Stock - `✓` (Check) button    |   Superuser logged |   Click  |   Update the Current Stock of the corresponding product according to what you entered in the input field, return a success message.    |   __`Pass`__   |
 |    Manag. Stock - Stock    |   Superuser logged |   Update  |   The minimum accepted value is zero    |   __`Pass`__   |
 
-### Management - Order Status page
+### Management Order Status page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
@@ -1173,7 +1284,7 @@ Observation: Access using the Google account is not working 100% of the time. So
 |    Manag. Order Status page    |   Superuser logged |   Display  |   Show `✓` (Check) button, for each order line   |   __`Pass`__   |
 |    Manag. Order Status - `✓` (Check) button    |   Superuser logged |   Click  |   Update the Current Status of the corresponding order according to what was selected from choices list, return a success message.    |   __`Pass`__   |
 
-### Management - News Letter page
+### Management News Letter page
 
 |   Element    | Authentication Status |   Action  |  Expected Result |   Outcome   |
 |    ---    |   ---  |  ---  |   ---   |   ---   |
