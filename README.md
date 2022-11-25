@@ -2,6 +2,12 @@
 
 Street Craft is an online store selling skateboards and other products using graffiti street art as design. A B2C business with a vision to reach their target audience (people interested in skateboarding and street style) through the internet. With the mission to deliver quality products through a reliable, fast and intuitive online sales platform. 
 
+- Here is the link to the final project > [Street Craft - Store](https://streetcraft.herokuapp.com/)
+
+<div align="center">
+    <img src="documentation/responsive-screens.PNG">
+</div>
+
 ## Contents
 
 ## UX/UI Design
@@ -37,7 +43,7 @@ The final structure after the elaboration was 6 different epics and a total of 3
 <details>
     <summary>Agile Structure</summary>
     <div align="center">
-      IMAGE HERE
+        <img src="documentation/pp5-epics-us.png">
     </div>
 </details> 
 
@@ -46,7 +52,7 @@ To run agile most efficiently, the following Sprints were determined as per the 
 <details>
     <summary>Agile Sprints</summary>
     <div align="center">
-      IMAGE HERE
+        <img src="documentation/pp5-sprints.png">
     </div>
 </details>
 
@@ -126,7 +132,7 @@ Regarding the coupon only logged in users have access to it.
 <details>
     <summary>Diagram</summary>
     <div align="center">
-      IMAGE HERE
+        <img src="documentation/database-diagram.png">
     </div>
 </details>
 
@@ -170,7 +176,7 @@ Bootstrap icons were used to give more emphasis to the titles.
 - Favicon is loaded on every page, the little logo is also present in the navbar.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/favicon.PNG">
 </div>
 
 #### __Navbar__
@@ -183,53 +189,69 @@ Bootstrap icons were used to give more emphasis to the titles.
 - For not logged users, the links are displayed: : Sign in and Sign up.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/navbar-not-logged.PNG">
+  <img src="documentation/navbar-dropdown-shop.PNG">
+</div>
+<div align="center">
+  <img src="documentation/navbar-shopbag.PNG">
 </div>
 
 - For logged users, the links are displayed: : My Account(Dropdown) - My Profile / Logout
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/navbar-user-logged.PNG">
+  <img src="documentation/navbar-dropdown-myaccount.PNG">
 </div>
 
 - For logged superusers, the links are displayed: : My Account(Dropdown) - My Profile / Logout and Management(Dropdown) - Product Manag. / Stock Manag. / Order Status Manag. / News Letter Manag.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/navbar-superuser-logged.PNG">
+  <img src="documentation/navbar-dropdown-manag.PNG">
 </div>
 
 - Navbar is responsive, for mobiles it automatically groups to drowdown menu.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/navbar-mobile.PNG">
+</div>
+<div align="center">
+  <img src="documentation/navbar-mobile-extended.PNG">
 </div>
 
 #### __Footer__
 
 - The footer is shown only when reaching the end of the page, it counts with a few navegation links, News Letter - Subscribe button and Social links.
 
+<div align="center">
+  <img src="documentation/footer.PNG">
+</div>
+
 - For not logged users, the links are displayed: : Home / All Products / Sign in / Sign up.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/footer-links-not-logged.PNG">
 </div>
 
 - For logged users and superusers, the links are displayed: : Home / All Products / My Profile / Logout.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/footer-links-logged.PNG">
 </div>
 
 - The News Letter - Subscribe button, open a modal form when clicked. Where the user can subscribe using e-mail and a name.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/footer-newsletter.PNG">
+</div>
+<div align="center">
+  <img src="documentation/modal-newsletter.PNG">
 </div>
 
 - The Social links are four in total, they open a new page of the corresponding social network when clicked.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/footer-social.PNG">
 </div>
 
 #### __Home Page - Hero__
@@ -241,7 +263,9 @@ At the beginning of the home page, the first section has a carousel of images, t
 - Third slide: The button redirects to skateboards page only.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/hero-one.PNG">
+  <img src="documentation/hero-two.PNG">
+  <img src="documentation/hero-three.PNG">
 </div>
 
 #### __Home Page - New Arrivals__
@@ -249,7 +273,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - The New Arrivals section has custom text to call the user into action and the SHOP button when clicked redirects the user to a page with the products in that specific offer. On the initial page, only the last four products of this promotion are displayed, and it is possible for the user to add the product to the shopbag already from that moment on.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/home-new-arrivals.PNG">
 </div>
 
 #### __Home Page - Special Offers__
@@ -257,7 +281,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - The Special Offers section has custom text to call the user into action and the SHOP button when clicked redirects the user to a page with the products in that specific offer. On the initial page, only the last four products of this promotion are displayed, and it is possible for the user to add the product to the shopbag already from that moment on.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/home-special-offers.PNG">
 </div>
 
 #### __Home Page - Last Chance__
@@ -265,7 +289,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - The Last Chance section has custom text to call the user into action and the SHOP button when clicked redirects the user to a page with the products in that specific offer. On the initial page, only the last four products of this promotion are displayed, and it is possible for the user to add the product to the shopbag already from that moment on.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/home-last-chance.PNG">
 </div>
 
 #### __Home Page - News Letter__
@@ -274,7 +298,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - Upon registration the user receives an e-mail confirming registration and a message is also reflected on the website.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/home-news-letter.PNG">
 </div>
 
 #### __Home Page - Social__
@@ -283,7 +307,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - The Social buttons are four in total, they open a new page of the corresponding social network when clicked
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/home-social.PNG">
 </div>
 
 #### __Home Page - Sign up Coupon__
@@ -292,7 +316,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - The button redirects the user to the registration page.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/home-signup-coupon.PNG">
 </div>
 
 #### __Sign up__
@@ -300,7 +324,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - Registration page, with a simple form with the field for username, e-mail twice and for password twice, a button to register. A short text that calls who already has a registration to the login page.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/signup.PNG">
 </div>
 
 #### __Sign in__
@@ -310,7 +334,8 @@ At the beginning of the home page, the first section has a carousel of images, t
 - A short text with a callout for those who don't have an account.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/signin.PNG">
+  <img src="documentation/message-loggedin.PNG">
 </div>
 
 #### __Sign out__
@@ -318,7 +343,8 @@ At the beginning of the home page, the first section has a carousel of images, t
 - Page for logged in users who have selected the logout option, it asks if they really want to perform this action.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/signout.PNG">
+  <img src="documentation/message-loggedout.PNG">
 </div>
 
 #### __Forgot Password__
@@ -327,7 +353,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - By clicking the button an e-mail is sent with a new link to change the password.
 
 <div align="center">
-    IMAGE HERE
+IMAGE HERE
 </div>
 
 #### __My Profile__
@@ -337,7 +363,8 @@ At the beginning of the home page, the first section has a carousel of images, t
 - The delivery data is available as a form that can be changed. By clicking the update info button the information entered into the fields is saved and a success message is displayed
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/myprofile.PNG">
+  <img src="documentation/myprofile-coupon.PNG">
 </div>
 
 #### __My Orders__
@@ -347,7 +374,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - The Order Number ia a link to redirect to that order details page.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/myorders.PNG">
 </div>
 
 #### __Order Details__
@@ -357,7 +384,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - It also has two buttons, one to go back to My Profile page and the other to My Orders.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/order-details.PNG">
 </div>
 
 #### __Change Password__
@@ -366,7 +393,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - It also has two buttons, one Change Password and Back to My Profile.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/change-password.PNG">
 </div>
 
 #### __Delete Profile__
@@ -376,7 +403,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - A button to cancel (redirect to My Profiel) and a link back to shop.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/delete-profile.PNG">
 </div>
 
 #### __All Products__
@@ -389,7 +416,11 @@ At the beginning of the home page, the first section has a carousel of images, t
 - By selecting the category or offer in the navigation bar the user will only see the products in that specific filter.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/all-products.PNG">
+  <img src="documentation/all-products-2.PNG">
+  <img src="documentation/products-caps.PNG">
+  <img src="documentation/products-special-sale.PNG">
+  <img src="documentation/sort-products.PNG">
 </div>
 
 #### __Product Details__
@@ -402,7 +433,8 @@ At the beginning of the home page, the first section has a carousel of images, t
 - Delete product button, redirect to a new page to confirm action.
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/product-details.PNG">
+  <img src="documentation/product-details-superuser.PNG">
 </div>
 
 #### __Shopbag__
@@ -416,7 +448,9 @@ At the beginning of the home page, the first section has a carousel of images, t
 - At the end are the buttons for KEEP SHOPPING (back to products page) and SECURE CHECKOUT (redirect to checkout page).
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/shopbag-empty.PNG">
+  <img src="documentation/shopbag-products.PNG">
+  <img src="documentation/message-bag-add.PNG">
 </div>
 
 #### __Checkout__
@@ -428,7 +462,9 @@ At the beginning of the home page, the first section has a carousel of images, t
 - At the end are the buttons for Adjust Bag (back to shopbag page) and Complete Order (submit the form if valid, and redirect to success checkout page).
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/checkout-summary.PNG">
+  <img src="documentation/checkout-form.PNG">
+  <img src="documentation/checkout-payment.PNG">
 </div>
 
 #### __Checkout Success__
@@ -438,7 +474,10 @@ At the beginning of the home page, the first section has a carousel of images, t
 - At the end have one button Check out the latest promotions (redirect to products page)
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/checkout-success.PNG">
+</div>
+<div align="center">
+  <img src="documentation/message-order.PNG">
 </div>
 
 #### __Managemente - Add Product__
@@ -449,7 +488,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - When added a success message appears
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/manag-add-product.PNG">
 </div>
 
 #### __Managemente - Stock__
@@ -460,7 +499,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - When updated a success message appears
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/manag-stock.PNG">
 </div>
 
 #### __Managemente - Order Status__
@@ -471,7 +510,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - When updated a success message appears
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/manag-status.PNG">
 </div>
 
 #### __Managemente - News Letter__
@@ -482,7 +521,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - When sent a success message appears
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/manag-news.PNG">
 </div>
 
 #### __Marketing - Custom Facebook Page__
@@ -490,7 +529,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - A customized page for the store was created on Facebook. In order to increase the presence of the store on social networks. 
 
 <div align="center">
-    IMAGE HERE
+  <img src="documentation/facebook-page.png">
 </div>
 
 ### Features Left to Implement
