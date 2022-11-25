@@ -10,6 +10,78 @@ Street Craft is an online store selling skateboards and other products using gra
 
 ## Contents
 
+<details>
+    <summary>Summary</summary>
+
+- [UX/UI Design](#uxui-design).
+     * [Strategy](#strategy).
+       * [Site owner goals](#site-owner-goals).
+       * [Agile](#agile).
+       * [User stories](#user-stories).
+     * [Scope](#scope).
+     * [Structure](#structure).
+     * [Skeleton](#skeleton).
+       * [Wireframes](#wireframes).
+       * [Database diagram](#database-diagram).
+     * [Surface](#surface).
+       * [Colour scheme](#colour-scheme).
+       * [Typography](#typography).
+       * [Imagery](#imagery).
+
+- [Features](#features).
+   * [Existing Features](#existing-features).
+     	* [Favicon](#favicon).
+     	* [Navbar](#navbar).
+     	* [Footer](#footer).
+        * [Home Page - Hero](#home-page---hero).
+        * [Home Page - New Arrivals](#home-page---new-arrivals).
+        * [Home Page - Special Offers](#home-page---special-offers).
+        * [Home Page - Last Chance](#home-page---last-chance).
+        * [Home Page - News Letter](#home-page---news-letter).
+        * [Home Page - Social](#home-page---social).
+        * [Home Page - Sign up Coupon](#home-page---sign-up-coupon).
+        * [Sign up](#sign-up).
+        * [Sign in](#sign-in).
+        * [Sign out](#sign-out).
+        * [Forgot Password](#forgot-password).
+        * [My Profile](#my-profile).
+        * [My Orders](#my-orders).
+        * [Order Details](#order-details).
+        * [Change Password](#change-password).
+        * [Delete Profile](#delete-profile).
+        * [All Products](#all-products).
+        * [Product Details](#product-details).
+        * [Shopbag](#shopbag).
+        * [Checkout](#checkout).
+        * [Checkout Success](#checkout-success).
+        * [Management - Add Product](#management---add-product).
+        * [Management - Stock](#management---stock).
+        * [Management - Order Status](#management---order-status).
+        * [Management - News Letter](#management---news-letter).
+        * [Marketing - Custom Facebook Page](#marketing---custom-facebook-page).
+   
+   * [Features Left to Implement](#features-left-to-implement).
+ 
+- [Testing](#testing).
+   * [Fixed Bugs](#fixed-bugs).
+   * [Unfixed Bugs](#unfixed-bugs).
+ 
+- [Deployment](#deployment).
+   * [Deployment](#deployment).
+   * [Fork](#fork).
+   * [Clone](#clone).
+  
+- [Technologies and tools](#technologies-and-tools).
+
+- [Credits](#credits). 
+   * [Code](#code).
+   * [Content](#content).
+   * [Media](#media).
+ 
+- [Acknowledgements](#acknowledgements).
+ 
+</details> 
+
 ## UX/UI Design
 
 During the elaboration of the project, the aspects for the final result to respect a good UX (User experience) and UI (User interface) behavior were taken into consideration, thus delivering a quality project where the user can follow the steps of a purchase without difficulties or complications.
@@ -108,7 +180,17 @@ The wireframe was created using the Figma tool. During the elaboration of the wi
 <details>
     <summary>Wireframes - Desktop</summary>
     <div align="center">
-      IMAGES HERE
+        <img src="documentation/wireframe-desktop-home.PNG">
+        <img src="documentation/wireframe-desktop-order-details.PNG">
+        <img src="documentation/wireframe-desktop-product-details.PNG">
+        <img src="documentation/wireframe-desktop-products.PNG">
+        <img src="documentation/wireframe-desktop-profile.PNG">
+        <img src="documentation/wireframe-desktop-shopbag.PNG">
+        <img src="documentation/wireframe-desktop-signin.PNG">
+        <img src="documentation/wireframe-desktop-signout.PNG">
+        <img src="documentation/wireframe-desktop-signup.PNG">
+        <img src="documentation/wireframe-desktop-checkout.PNG">
+        <img src="documentation/wireframe-desktop-checkout-success.PNG">
     </div>
 </details>
 
@@ -117,7 +199,10 @@ The wireframe was created using the Figma tool. During the elaboration of the wi
 <details>
     <summary>Wireframes - Mobile</summary>
     <div align="center">
-      IMAGES HERE
+        <img src="documentation/wireframe-mobile-01.PNG">
+        <img src="documentation/wireframe-mobile-02.PNG">
+        <img src="documentation/wireframe-mobile-03.PNG">
+        <img src="documentation/wireframe-mobile-04.PNG">
     </div>
 </details>
 
@@ -142,16 +227,19 @@ Regarding the coupon only logged in users have access to it.
 
 For the Street Craft project I used predominantly standard Bootstrap colors.
 
-The custom colors I determined to use were as follows. These are applied to the navigation bar and footer. 
+The custom colors were applied to the navigation bar and footer, using gradient effect.
+
+```
+.bg-cst-blue-top {
+    background: linear-gradient(0deg, rgba(195,235,255,1) 10%, rgba(141,194,218,1) 45%);
+}
+
+.bg-cst-blue-bottom {
+    background: linear-gradient(180deg, rgba(195,235,255,1) 10%, rgba(141,194,218,1) 45%);
+}
+```
 
 For the texts, the colors white or black were applied according to the background color to have the proper contrast.
-
-<details>
-    <summary>Colour scheme</summary>
-    <div align="center">
-        IMAGE HERE
-    </div>
-</details>
 
 #### Typography
 
@@ -353,7 +441,7 @@ At the beginning of the home page, the first section has a carousel of images, t
 - By clicking the button an e-mail is sent with a new link to change the password.
 
 <div align="center">
-IMAGE HERE
+    <img src="documentation/forgot-password.PNG">
 </div>
 
 #### __My Profile__
@@ -452,6 +540,9 @@ IMAGE HERE
   <img src="documentation/shopbag-products.PNG">
   <img src="documentation/message-bag-add.PNG">
 </div>
+<div align="center">
+  <img src="documentation/shopbag-coupon.PNG">
+</div>
 
 #### __Checkout__
 
@@ -480,7 +571,7 @@ IMAGE HERE
   <img src="documentation/message-order.PNG">
 </div>
 
-#### __Managemente - Add Product__
+#### __Management - Add Product__
 
 - Accessible only to superuser. 
 - It has a form for the site owner to easily add new products to the store.
@@ -491,7 +582,7 @@ IMAGE HERE
   <img src="documentation/manag-add-product.PNG">
 </div>
 
-#### __Managemente - Stock__
+#### __Management - Stock__
 
 - Accessible only to superuser. 
 - Shows a list of all products on the site. A column with the information name/ku, current stock and update stock.
@@ -502,7 +593,7 @@ IMAGE HERE
   <img src="documentation/manag-stock.PNG">
 </div>
 
-#### __Managemente - Order Status__
+#### __Management - Order Status__
 
 - Accessible only to superuser. 
 - Shows a list of all orders on the site. A column with the information order number, date, current status and update status.
@@ -513,7 +604,7 @@ IMAGE HERE
   <img src="documentation/manag-status.PNG">
 </div>
 
-#### __Managemente - News Letter__
+#### __Management - News Letter__
 
 - Accessible only to superuser. 
 - Shows the total number of registered e-mails, a field to enter the subject and another to enter the message (body). 
